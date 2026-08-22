@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 32" role="img" aria-labelledby="title">
+  <title>Top Seed TS mark</title>
+  <rect width="36" height="32" fill="#0d2338"/>
+  <rect x="1" y="1" width="34" height="30" fill="none" stroke="#e64a2e" stroke-width="2"/>
+  <text x="5" y="22.5" fill="#fffdf7" font-family="Baskerville, Georgia, serif" font-size="17" font-weight="700" letter-spacing="-1">TS</text>
+</svg>
