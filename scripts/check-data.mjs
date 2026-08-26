@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { AS_OF, COMPANIES, COMPANY_BY_ID, COHORT_METADATA, FALLBACK_ONLY_LOGO_HOSTS, STAGE_ORDER } from "../data.js";
+import { AS_OF, COMPANIES, COMPANY_BY_ID, COHORT_METADATA, ENRICHED_SEED_IDS, FALLBACK_ONLY_LOGO_HOSTS, STAGE_ORDER } from "../data.js";
 import { eventAgeDays, logo, rankedCompanies } from "../shared.js";
 
 const errors = [];
@@ -103,7 +103,9 @@ for (const company of COMPANIES) {
   if (company.editorialRank !== raw.proposedRank) add(`editorialRank/proposedRank mismatch: ${company.id}`);
   if (company.cohortCutoff !== expectedCutoff || metadata?.cutoffDate !== expectedCutoff) add(`company cutoff mismatch: ${company.id}`);
   if (!company.name || !company.summary || !company.category || !company.productForm || !company.region || !company.hq) add(`missing canonical profile field: ${company.id}`);
-  if (company.audience !== "Not publicly observed" || company.profile?.whoItServes !== "Not publicly observed") add(`audience was inferred: ${company.id}`);
+  if (ENRICHED_SEED_IDS.has(company.id)) {
+    if (isSentinel(company.audience) || isSentinel(company.profile?.whoItServes)) add(`enriched audience missing: ${company.id}`);
+  } else if (company.audience !== "Not publicly observed" || company.profile?.whoItServes !== "Not publicly observed") add(`audience was inferred: ${company.id}`);
   if (!validUrl(company.website?.href) || !company.domain) add(`invalid website/domain: ${company.id}`);
   if (company.logo?.fallbackOnly === true) {
     if (!FALLBACK_ONLY_LOGO_HOSTS.has(company.domain) || company.logo.url !== null || company.logo.source !== null) add(`fallback-only logo contract mismatch: ${company.id}`);
@@ -167,7 +169,8 @@ for (const company of COMPANIES) {
   for (const source of [...(raw.sources || [])]) {
     if (!validUrl(source?.url)) add(`invalid raw source URL: ${company.id}`);
   }
-  if (company.research?.lastChecked !== expectedCutoff || company.companyDetails?.asOf !== expectedCutoff || company.companyDetails?.research?.business?.facts?.length !== 1) add(`snapshot/detail mapping mismatch: ${company.id}`);
+  const expectedBusinessFacts = ENRICHED_SEED_IDS.has(company.id) ? 3 : 1;
+  if (company.research?.lastChecked !== expectedCutoff || company.companyDetails?.asOf !== expectedCutoff || company.companyDetails?.research?.business?.facts?.length !== expectedBusinessFacts) add(`snapshot/detail mapping mismatch: ${company.id}`);
   if (!validUrl(sourceHref(company.research?.stageBasis))) add(`missing stage provenance: ${company.id}`);
   if (!validUrl(sourceHref(company.companyDetails?.links?.website))) add(`missing company website link: ${company.id}`);
   if (company.companyDetails?.research?.capital?.facts?.length !== 1) add(`funding lens missing one fact: ${company.id}`);
