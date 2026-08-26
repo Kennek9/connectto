@@ -1,0 +1,32 @@
+{
+  "version": "1.1.0",
+  "scannedAt": "2026-08-26",
+  "project": "Top Seed",
+  "framework": "vanilla HTML/CSS/JavaScript",
+  "entry": "index.html",
+  "routes": ["ranking", "signals", "search", "company", "methodology", "evidence-policy", "corrections", "about"],
+  "pageModules": ["pages/ranking.js", "pages/company-signals-search.js", "pages/trust.js"],
+  "fontStackBefore": {
+    "display": "Baskerville / Iowan Old Style / Georgia",
+    "body": "Georgia / Times New Roman",
+    "ui": "Arial Narrow / Helvetica Neue / Arial",
+    "mono": "SFMono-Regular / Menlo / Monaco / Consolas",
+    "remoteFonts": false
+  },
+  "paletteBefore": "Legacy hex Field Ledger tokens in styles.css; replaced by custom light-research OKLCH tokens.css.",
+  "motionBefore": "CSS-only transitions and animations; no framer-motion, GSAP, Motion, Lenis, Lottie, or animation dependency detected.",
+  "spacingBefore": "Existing 4px custom-property scale (--s1 through --s16).",
+  "dataBoundary": "Existing data, route, DOM, and user-facing copy are preserved.",
+  "hallmark": {
+    "genre": "editorial",
+    "theme": "custom light research",
+    "macrostructure": "Index-First with Workbench company variation",
+    "navigation": "N6 newspaper masthead syntax on existing header",
+    "footer": "Ft4 dense typographic colophon, light surface",
+    "enrichment": "none",
+    "motion": "local h1 signature, press/row feedback, drawer/details continuity",
+    "reducedMotion": "opacity-only, <=150ms"
+  },
+  "ownedFiles": ["DESIGN.md", "styles.css", "tokens.css", ".hallmark/preflight.json", ".hallmark/log.json"],
+  "unownedWorkspaceChanges": [".agents/", "skills-lock.json"]
+}
