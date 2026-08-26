@@ -193,8 +193,10 @@ for (const host of FALLBACK_ONLY_LOGO_HOSTS) {
   const matches = COMPANIES.filter((company) => company.domain === host);
   if (matches.length !== 1 || matches[0].logo?.fallbackOnly !== true || matches[0].logo.url !== null || matches[0].logo.source !== null) add(`audited fallback-only logo missing null contract: ${host}`);
 }
-const faviconCompany = COMPANIES.find((company) => company.logo?.fallbackOnly !== true && company.logo?.url);
-if (!faviconCompany || !logo(faviconCompany).includes("<img")) add("non-audited logo hosts must retain favicon image markup");
+for (const company of COMPANIES.filter((item) => item.logo?.fallbackOnly !== true && item.logo?.url)) {
+  const mark = logo(company);
+  if (mark.includes("<img") || !mark.includes("company-mark-fallback")) add(`company mark must use the local fallback without an image request: ${company.id}`);
+}
 
 const totalSignals = Object.values(signalCounts).reduce((sum, value) => sum + value, 0);
 console.log(`Data audit: ${expectedStages.map((stageId) => `${stageCounts[stageId]} ${stageById.get(stageId)?.label}`).join(" + ")} = ${COMPANIES.length} selected; ${totalSignals} non-funding Signals.`);

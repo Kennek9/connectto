@@ -1,0 +1,48 @@
+{
+  "project": "Top Seed",
+  "date": "2026-08-26",
+  "threshold": 92,
+  "score": 94,
+  "status": "approved",
+  "rubric": {
+    "visualSystem": { "score": 24, "max": 25 },
+    "typographyAndLayout": { "score": 19, "max": 20 },
+    "interactionAndMotion": { "score": 14, "max": 15 },
+    "responsiveAndAccessibility": { "score": 14, "max": 15 },
+    "performance": { "score": 9, "max": 10 },
+    "contentAndDataIntegrity": { "score": 9, "max": 10 },
+    "wholeSiteQa": { "score": 5, "max": 5 }
+  },
+  "execution": {
+    "agent": "luna_max_redesign",
+    "role": "Luna Max redesign executor",
+    "ownedFiles": ["DESIGN.md", "styles.css", "tokens.css", ".hallmark/preflight.json", ".hallmark/log.json"],
+    "verification": ["npm test", "npm run build", "git diff --check", "runtime copy and data files unchanged"]
+  },
+  "acceptance": {
+    "reviewer": "Codex root with independent visual gate",
+    "decision": "approve",
+    "criticalBlockers": 0,
+    "evidence": {
+      "routeScreenshots": "8 routes at 390px and 1440px",
+      "companyPages": "200 company pages at 390px and 1440px; 400 checks",
+      "reflow": "8 routes at a 720 CSS px viewport, equivalent to 1440px at 200% zoom",
+      "abnormalStates": 3,
+      "motion": "rest, mid-transition, and settled frames",
+      "consoleErrors": 0,
+      "mojibake": 0,
+      "brokenImages": 0,
+      "horizontalOverflow": 0
+    }
+  },
+  "performanceComparison": {
+    "baselineCommit": "4db67bad027f367996cd38c2bd1c6beaa1557ba3",
+    "iterations": 12,
+    "baselineMedianDomContentLoadedMs": 45.2,
+    "currentMedianDomContentLoadedMs": 41.0,
+    "baselineMedianCanonicalDataStartMs": 17.7,
+    "currentMedianCanonicalDataStartMs": 4.7,
+    "requestCount": 13
+  },
+  "contentBoundary": "No Top Seed page, route, copy, or data module was modified."
+}
