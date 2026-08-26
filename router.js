@@ -47,7 +47,7 @@ export function render(options = {}) {
   app.innerHTML = `${renderHeader()}${pageForView()}${renderFooter()}${renderEvidenceDrawer(state.drawer)}${renderRankAuditDrawer(state.drawer)}${renderLogoInspector()}`;
   document.body.classList.toggle("has-overlay", Boolean(state.drawer || state.logoInspector));
   document.title = pageTitle();
-  if (options.restoreFocusId) requestAnimationFrame(() => document.getElementById(options.restoreFocusId)?.focus());
+  if (options.restoreFocusId) requestAnimationFrame(() => document.getElementById(options.restoreFocusId)?.focus({ preventScroll: true }));
   if (state.lens && state.view === "company") requestAnimationFrame(() => {
     const tabs = document.querySelector(".workspace-tabs");
     const active = document.querySelector(".workspace-tab.is-active");

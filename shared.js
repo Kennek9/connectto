@@ -88,12 +88,7 @@ export function logoMark() {
 }
 
 export function logo(company, size = "") {
-  if (company.logo?.fallbackOnly === true) {
-    return `<span class="company-mark ${size}" aria-hidden="true"><span class="company-mark-fallback">${escapeHtml(initials(company.name))}</span></span>`;
-  }
-  const favicon = company.logo?.url || `https://${company.domain}/favicon.ico`;
-  const vector = /\.svg(?:[?#]|$)/i.test(favicon);
-  return `<span class="company-mark ${size} ${vector ? "is-vector" : ""}" aria-hidden="true"><img src="${escapeHtml(favicon)}" alt="" loading="eager" onload="const mark=this.closest('.company-mark'); const nw=this.naturalWidth; const nh=this.naturalHeight; mark.dataset.logoNatural=nw+'x'+nh; if((mark.classList.contains('hero-mark')||mark.classList.contains('inspector-mark'))&&!mark.classList.contains('is-vector')&&nw<96)mark.classList.add('is-low-res'); const maxW=mark.clientWidth; const maxH=mark.clientHeight; if(nw&&nh&&maxW&&maxH){const scale=Math.min(1,maxW/nw,maxH/nh); this.style.width=(nw*scale)+'px'; this.style.height=(nh*scale)+'px';}" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="company-mark-fallback" hidden>${escapeHtml(initials(company.name))}</span></span>`;
+  return `<span class="company-mark ${size}" aria-hidden="true"><span class="company-mark-fallback">${escapeHtml(initials(company.name))}</span></span>`;
 }
 
 export function signalPictogram(type) {
