@@ -132,7 +132,7 @@ function companyWhySelected(company) {
 function companyEvidenceGaps(company) {
   const details = company?.companyDetails || {};
   const profile = companyProfile(company);
-  const raw = company?.evidenceGaps ?? company?.gaps ?? details.evidenceGaps ?? profile.evidenceGaps;
+  const raw = details.evidenceGaps ?? profile.evidenceGaps ?? company?.evidenceGaps ?? company?.gaps;
   if (Array.isArray(raw)) return raw.filter(Boolean).join(" ");
   if (raw && !/^not publicly observed$/i.test(String(raw))) return String(raw);
   return "Not publicly observed in this snapshot. Missing evidence is not negative evidence.";
@@ -155,7 +155,7 @@ function businessFact(company) {
 
 function companyLensFacts(company, lensId) {
   const research = companyResearch(company);
-  if (lensId === "business") return [businessFact(company)];
+  if (lensId === "business") return research.business?.facts?.length ? research.business.facts : [businessFact(company)];
   if (lensId === "capital") return research.capital?.facts || [];
   if (lensId === "traction") return research.traction?.facts || [];
   if (lensId === "technology") return research.technology?.facts || [];
@@ -223,6 +223,8 @@ function renderCompanyProfile(company) {
     ["Founders / key team", profileValue(company, "founders", "keyTeam") || companyResearch(company).team?.facts?.[0]?.title],
     ["Business model", profileValue(company, "businessModel")],
     ["Developer surface", profileValue(company, "developerLinks")],
+    ["Competitive context", profileValue(company, "competitiveContext")],
+    ["What to watch", profileValue(company, "watchNext")],
   ];
   const links = Object.entries(company?.companyDetails?.links || {}).filter(([, item]) => item).map(([label, item]) => sourceLink(item, label === "website" ? "Official website" : label));
   return `<section class="company-section company-profile-block fact-list profile-facts" aria-labelledby="company-profile-title"><div class="section-heading"><div><span class="section-kicker">Company profile</span><h2 id="company-profile-title">Start with the public record.</h2></div><p>Facts, product context, and missing fields stay separate from the editorial rank.</p></div><dl>${values.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${detailValue(value)}</dd></div>`).join("")}</dl><div class="profile-sources"><span class="section-kicker">Profile sources</span>${links.length ? links.join("") : `<span class="not-observed">Not publicly observed</span>`}</div></section>`;

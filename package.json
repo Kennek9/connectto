@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "test": "node --check app.js && node --check router.js && node --check state.js && node --check shared.js && node --check shell.js && node --check pages/ranking.js && node --check pages/company-signals-search.js && node --check pages/trust.js && node --check data.js && node --check canonical-data.js && node scripts/check-cover-layout.mjs && node scripts/check-app-structure.mjs",
+    "test": "node --check app.js && node --check router.js && node --check state.js && node --check shared.js && node --check shell.js && node --check pages/ranking.js && node --check pages/company-signals-search.js && node --check pages/trust.js && node --check data.js && node --check canonical-data.js && node scripts/check-cover-layout.mjs && node scripts/check-app-structure.mjs && node scripts/check-seed-top20-depth.mjs",
     "check-data": "node scripts/check-data.mjs"
   }
 }

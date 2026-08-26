@@ -1,7 +1,8 @@
 import { AS_OF as CANONICAL_AS_OF, CANONICAL_COMPANIES, COHORT_METADATA } from "./canonical-data.js";
+import { ENRICHED_SEED_IDS, SEED_TOP20_RESEARCH } from "./seed-top20-research.js";
 
 export const AS_OF = CANONICAL_AS_OF;
-export { COHORT_METADATA };
+export { COHORT_METADATA, ENRICHED_SEED_IDS };
 
 const cohortById = new Map(COHORT_METADATA.map((cohort) => [cohort.id, cohort]));
 
@@ -375,8 +376,51 @@ function adaptCompany(entry) {
   };
 }
 
+function enrichCompany(company) {
+  const enrichment = SEED_TOP20_RESEARCH[company.id];
+  if (!enrichment) return company;
+
+  const businessFacts = clone(enrichment.businessFacts || []);
+  const tractionFacts = clone(enrichment.tractionFacts || []);
+  const technologyFacts = clone(enrichment.technologyFacts || []);
+  const websiteUrl = enrichment.website || company.website.href;
+  const domain = websiteHost(websiteUrl);
+  const websiteSource = sourceFrom({ url: websiteUrl, type: "Official company website", relationship: "Company current profile", evidenceState: "Direct" }, { asOf: company.cohortCutoff });
+  const addedSources = [...businessFacts, ...tractionFacts, ...technologyFacts].map((item) => item.source);
+  const existingSources = company.id === "lightium"
+    ? company.profile.sources.filter((item) => !["lightium.co", "lightium.com"].includes(websiteHost(item.href || item.url)))
+    : company.profile.sources;
+  const profileSources = [...new Map([...existingSources, websiteSource, ...addedSources].map((item) => [item.href || item.url, item])).values()];
+  const logoUrl = enrichment.website ? `${websiteUrl}favicon.ico` : company.logo.url;
+  const logoSource = enrichment.website ? sourceFrom({ url: logoUrl, type: "Official website favicon", relationship: "Company website brand asset", evidenceState: "Direct" }, { asOf: company.cohortCutoff }) : company.logo.source;
+
+  return {
+    ...company,
+    domain,
+    website: { label: domain, href: websiteUrl },
+    logo: { url: logoUrl, fallbackOnly: false, source: logoSource },
+    audience: enrichment.profile.whoItServes,
+    products: clone(enrichment.profile.products),
+    research: { ...company.research, logoSource: websiteSource },
+    profile: { ...company.profile, ...clone(enrichment.profile), sources: profileSources },
+    companyDetails: {
+      ...company.companyDetails,
+      evidenceGaps: enrichment.evidenceGaps,
+      customerUsage: tractionFacts[0]?.detail || company.companyDetails.customerUsage,
+      developer: enrichment.profile.developerLinks,
+      links: { ...company.companyDetails.links, website: websiteSource },
+      research: {
+        ...company.companyDetails.research,
+        business: { ...company.companyDetails.research.business, facts: [...company.companyDetails.research.business.facts, ...businessFacts] },
+        traction: { ...company.companyDetails.research.traction, facts: [...company.companyDetails.research.traction.facts, ...tractionFacts] },
+        technology: { ...company.companyDetails.research.technology, facts: [...company.companyDetails.research.technology.facts, ...technologyFacts] },
+      },
+    },
+  };
+}
+
 const stageIndex = new Map(STAGE_ORDER.map((stage, index) => [stage.id, index]));
-export const COMPANIES = CANONICAL_COMPANIES.map(adaptCompany).sort((a, b) => stageIndex.get(a.stageId) - stageIndex.get(b.stageId) || a.editorialRank - b.editorialRank);
+export const COMPANIES = CANONICAL_COMPANIES.map(adaptCompany).map(enrichCompany).sort((a, b) => stageIndex.get(a.stageId) - stageIndex.get(b.stageId) || a.editorialRank - b.editorialRank);
 export const COMPANY_BY_ID = Object.fromEntries(COMPANIES.map((item) => [item.id, item]));
 
 export function disclosedMillions(value) {
