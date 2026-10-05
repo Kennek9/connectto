@@ -1,0 +1,23 @@
+[
+  {
+    "date": "2026-10-05",
+    "scope": "app",
+    "macrostructure": "Ecosystem Index",
+    "variation": "Company reading column with facts rail",
+    "theme": "Editorial Journal",
+    "theme_axes": "light / Newsreader roman serif / burgundy red",
+    "enrichment": "none",
+    "brief": "User-selected editorial redesign with concise copy, sourced company profiles and readable evidence."
+  },
+  {
+    "date": "2026-08-26",
+    "scope": "app",
+    "macrostructure": "Index-First",
+    "variation": "Workbench company surface",
+    "theme": "custom",
+    "theme_axes": "light / roman-serif / chromatic-green ~150\u00b0",
+    "vibe": "light research, precise, generous, green-lime",
+    "enrichment": "none",
+    "brief": "Top Seed whole-site redesign with a shared light editorial research system across Ranking, Signals, Search, Company, and trust pages."
+  }
+]

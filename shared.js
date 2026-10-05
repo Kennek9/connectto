@@ -1,4 +1,5 @@
-import { AS_OF, COMPANIES, COMPANY_BY_ID, SIGNALS, STAGE_ORDER } from "./data.js";
+import { safeSourceUrl, sourceAccess } from "./evidence.js";
+import { AS_OF, REFRESH_DATE, COMPANIES, COMPANY_BY_ID, SIGNALS, STAGE_ORDER } from "./data.js";
 
 const BLOCKED_SIGNAL_PATHS = new Set(["/", "/blog", "/news", "/research", "/releases", "/docs", "/changelog"]);
 
@@ -16,10 +17,12 @@ export function companyRecordState(company) {
   const lifecycle = normalizedState(company?.recordStatus || company?.lifecycle || company?.state || company?.status);
   if (company?.archived === true || lifecycle === "archived") return "archived";
   if (company?.stageConflict === true || normalizedState(company?.stageStatus) === "conflict" || lifecycle === "stage-conflict") return "stage-conflict";
+  if (["stage-changed", "under-review"].includes(company?.recordStatus)) return company.recordStatus;
   return "";
 }
 
 export function sourceRecordState(source) {
+  if (sourceAccess(source?.href || source?.url)?.result === "not-found") return "source-unavailable";
   const availability = normalizedState(source?.availability || source?.sourceState || source?.status || source?.state);
   if (source?.available === false || source?.unavailable === true || ["unavailable", "source-unavailable", "failed", "source-failed", "dead"].includes(availability)) return "source-unavailable";
   return "";
@@ -41,7 +44,7 @@ export function eventAgeDays(eventItem) {
   const date = String(eventItem?.date || "");
   const parseValue = /^\d{4}-\d{2}$/.test(date) ? `${date}-01` : /^\d{4}-\d{2}-\d{2}$/.test(date) ? date : "";
   if (!parseValue) return null;
-  return Math.max(0, (Date.parse(`${AS_OF}T00:00:00Z`) - Date.parse(`${parseValue}T00:00:00Z`)) / 86400000);
+  return Math.max(0, (Date.parse(`${REFRESH_DATE}T00:00:00Z`) - Date.parse(`${parseValue}T00:00:00Z`)) / 86400000);
 }
 
 export function stageCompanies(stageId = "seed") {
@@ -55,7 +58,7 @@ export function rankedCompanies(stageId = "seed") {
 export const allCompaniesForStage = rankedCompanies;
 
 export function rankFor(company) {
-  return Number.isInteger(company?.editorialRank) ? company.editorialRank : null;
+  return !companyRecordState(company) && Number.isInteger(company?.editorialRank) ? company.editorialRank : null;
 }
 
 export function latestSignal(company) {
@@ -88,12 +91,7 @@ export function logoMark() {
 }
 
 export function logo(company, size = "") {
-  if (company.logo?.fallbackOnly === true) {
-    return `<span class="company-mark ${size}" aria-hidden="true"><span class="company-mark-fallback">${escapeHtml(initials(company.name))}</span></span>`;
-  }
-  const favicon = company.logo?.url || `https://${company.domain}/favicon.ico`;
-  const vector = /\.svg(?:[?#]|$)/i.test(favicon);
-  return `<span class="company-mark ${size} ${vector ? "is-vector" : ""}" aria-hidden="true"><img src="${escapeHtml(favicon)}" alt="" loading="eager" onload="const mark=this.closest('.company-mark'); const nw=this.naturalWidth; const nh=this.naturalHeight; mark.dataset.logoNatural=nw+'x'+nh; if((mark.classList.contains('hero-mark')||mark.classList.contains('inspector-mark'))&&!mark.classList.contains('is-vector')&&nw<96)mark.classList.add('is-low-res'); const maxW=mark.clientWidth; const maxH=mark.clientHeight; if(nw&&nh&&maxW&&maxH){const scale=Math.min(1,maxW/nw,maxH/nh); this.style.width=(nw*scale)+'px'; this.style.height=(nh*scale)+'px';}" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="company-mark-fallback" hidden>${escapeHtml(initials(company.name))}</span></span>`;
+  return `<span class="company-mark ${size}" aria-hidden="true"><span class="company-mark-fallback">${escapeHtml(initials(company.name))}</span></span>`;
 }
 
 export function signalPictogram(type) {
@@ -113,9 +111,9 @@ export function signalLabel(type, includeIcon = true) {
 }
 
 export function sourceLink(item, label = "Open source") {
-  if (sourceRecordState(item)) return `<a class="source-link source-link--missing" href="?view=corrections">Source unavailable · suggest a correction ${arrowIcon()}</a>`;
-  if (!item?.href) return `<span class="source-link source-link--missing">Source not publicly observed</span>`;
+  if (sourceRecordState(item)) return `<a class="source-link source-link--missing" href="?view=corrections">Source unavailable ${arrowIcon()}</a>`;
+  if (!safeSourceUrl(item?.href)) return `<span class="source-link source-link--missing">Source not publicly observed</span>`;
   return `<a class="source-link" href="${escapeHtml(item.href)}" target="_blank" rel="noreferrer">${escapeHtml(label)} ${arrowIcon()}</a>`;
 }
 
-export { AS_OF, COMPANIES, COMPANY_BY_ID, SIGNALS, STAGE_ORDER };
+export { AS_OF, REFRESH_DATE, COMPANIES, COMPANY_BY_ID, SIGNALS, STAGE_ORDER };
