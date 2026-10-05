@@ -1,11 +1,24 @@
 {
   "version": "1.1.0",
-  "scannedAt": "2026-08-26",
+  "scannedAt": "2026-10-05",
   "project": "Top Seed",
   "framework": "vanilla HTML/CSS/JavaScript",
   "entry": "index.html",
-  "routes": ["ranking", "signals", "search", "company", "methodology", "evidence-policy", "corrections", "about"],
-  "pageModules": ["pages/ranking.js", "pages/company-signals-search.js", "pages/trust.js"],
+  "routes": [
+    "ranking",
+    "signals",
+    "search",
+    "company",
+    "methodology",
+    "evidence-policy",
+    "corrections",
+    "about"
+  ],
+  "pageModules": [
+    "pages/ranking.js",
+    "pages/company-signals-search.js",
+    "pages/trust.js"
+  ],
   "fontStackBefore": {
     "display": "Baskerville / Iowan Old Style / Georgia",
     "body": "Georgia / Times New Roman",
@@ -16,17 +29,28 @@
   "paletteBefore": "Legacy hex Field Ledger tokens in styles.css; replaced by custom light-research OKLCH tokens.css.",
   "motionBefore": "CSS-only transitions and animations; no framer-motion, GSAP, Motion, Lenis, Lottie, or animation dependency detected.",
   "spacingBefore": "Existing 4px custom-property scale (--s1 through --s16).",
-  "dataBoundary": "Existing data, route, DOM, and user-facing copy are preserved.",
+  "dataBoundary": "200 sourced profiles, historical ranking preserved, current evidence updated separately.",
   "hallmark": {
     "genre": "editorial",
-    "theme": "custom light research",
-    "macrostructure": "Index-First with Workbench company variation",
-    "navigation": "N6 newspaper masthead syntax on existing header",
-    "footer": "Ft4 dense typographic colophon, light surface",
+    "theme": "Editorial Journal",
+    "macrostructure": "Ecosystem Index / reading column with facts rail",
+    "navigation": "N9 restrained wordmark with three destinations",
+    "footer": "Ft2 inline",
     "enrichment": "none",
-    "motion": "local h1 signature, press/row feedback, drawer/details continuity",
-    "reducedMotion": "opacity-only, <=150ms"
+    "motion": "none"
   },
-  "ownedFiles": ["DESIGN.md", "styles.css", "tokens.css", ".hallmark/preflight.json", ".hallmark/log.json"],
-  "unownedWorkspaceChanges": [".agents/", "skills-lock.json"]
+  "ownedFiles": [
+    "DESIGN.md",
+    "tokens.css",
+    "editorial.css",
+    "shell.js",
+    "pages/ranking.js",
+    "pages/company-signals-search.js",
+    "pages/evidence.js",
+    "pages/trust.js"
+  ],
+  "unownedWorkspaceChanges": [
+    ".agents/",
+    "skills-lock.json"
+  ]
 }
