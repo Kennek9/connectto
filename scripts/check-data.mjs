@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { AS_OF, SNAPSHOT_COMPANIES as COMPANIES, COHORT_METADATA, ENRICHED_SEED_IDS, FALLBACK_ONLY_LOGO_HOSTS, STAGE_ORDER } from "../data.js";
+import { HISTORICAL_AS_OF as AS_OF, SNAPSHOT_COMPANIES as COMPANIES, COHORT_METADATA, ENRICHED_SEED_IDS, FALLBACK_ONLY_LOGO_HOSTS, HISTORICAL_STAGE_ORDER as STAGE_ORDER } from "../data.js";
 import { eventAgeDays, logo } from "../shared.js";
 
 // The original edition remains immutable; current facts are checked in check-refresh.mjs.

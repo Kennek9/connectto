@@ -2,6 +2,7 @@ import { COMPANIES, COMPANY_BY_ID, STAGE_ORDER } from "./data.js";
 
 export const PUBLIC_VIEW_IDS = [
   "ranking",
+  "archive",
   "company",
   "signals",
   "search",
@@ -68,13 +69,17 @@ export function signalUrl(company, eventItem) {
 export function parseUrl() {
   const url = new URL(window.location.href);
   const pathCompany = url.pathname.match(/\/companies\/([^/]+)\/(?:index\.html)?$/)?.[1];
-  const requestedView = url.searchParams.get("view") || (pathCompany ? "company" : null);
+  const requestedView = url.searchParams.get("view") || (pathCompany ? "company" : url.pathname.includes("/editions/2026-08-22/") ? "archive" : null);
   const requestedStage = url.searchParams.get("stage");
   state.view = PUBLIC_VIEW_IDS.includes(requestedView) ? requestedView : "ranking";
   state.stage = isPublicStage(requestedStage) ? requestedStage : "seed";
   state.query = url.searchParams.get("q") || "";
   state.category = CATEGORY_OPTIONS.includes(url.searchParams.get("category")) ? url.searchParams.get("category") : "all";
   state.signalId = url.searchParams.get("signal") || "";
+  if (state.view === "signals" && state.signalId) {
+    const owner = COMPANIES.find(company => company.events.some(event => event.id === state.signalId));
+    if (owner) state.stage = owner.stageId;
+  }
   state.drawer = null;
   state.mobileNav = false;
   state.stageTransition = false;
@@ -92,8 +97,8 @@ export function updateUrl(push = true) {
   const url = new URL(window.location.href);
   const signalType = url.searchParams.get("signalType");
   url.search = "";
-  if (state.view === "ranking") {
-    url.searchParams.set("view", "ranking");
+  if (["ranking", "archive"].includes(state.view)) {
+    url.searchParams.set("view", state.view);
     url.searchParams.set("stage", state.stage);
     if (state.query) url.searchParams.set("q", state.query);
     if (state.category !== "all") url.searchParams.set("category", state.category);

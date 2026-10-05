@@ -49,5 +49,6 @@ export function companySources(company) {
   add(company.founders?.source, (company.founders?.names || []).join(", "), "team");
   if (company.refresh?.change) add(company.refresh.change.source, company.refresh.change.note, "correction", null, company.refresh.checkedAt);
   if (company.refresh?.profileChange) add(company.refresh.profileChange.source, company.refresh.profileChange.note, "profile correction", null, company.refresh.checkedAt);
+  if (company.rankingCorrection) add(company.rankingCorrection.source, company.rankingCorrection.note, "correction", null, company.rankingReview.date);
   return [...sources.values()];
 }
