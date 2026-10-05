@@ -1,3 +1,4 @@
+import { renderArchive } from "./pages/archive.js";
 import { companyById, parseUrl, PUBLIC_STAGE_IDS, stageById, state, updateUrl } from "./state.js";
 import { renderFooter, renderHeader } from "./shell.js";
 import { filteredCompanies, renderRanking, rankingPreviewMarkup } from "./pages/ranking.js";
@@ -5,6 +6,7 @@ import { renderCompany, renderEvidenceDrawer, renderRankAuditDrawer, renderSearc
 import { renderTrustPage } from "./pages/trust.js";
 
 const pageForView = () => {
+  if (state.view === "archive") return renderArchive();
   if (state.view === "company") return renderCompany();
   if (state.view === "signals") return renderSignals();
   if (state.view === "search") return renderSearch();
@@ -162,6 +164,8 @@ function handleKeydown(event) {
 
 let previewHideTimer;
 function showRankingPreview(target) {
+  // The floating preview covers the only company link on narrow layouts.
+  if (!window.matchMedia("(min-width: 900px) and (hover: hover)").matches) return;
   const row = target.closest?.(".ranking-row");
   const preview = document.querySelector("#ranking-preview");
   if (!row || !preview) return;

@@ -1,9 +1,9 @@
 {
-  "checkedAt": "2026-10-05T09:39:49.977Z",
+  "checkedAt": "2026-10-05T11:08:51.314Z",
   "scope": "HTTP accessibility only; 403, timeouts, and network failures do not prove that a source is dead or a claim is false.",
   "counts": {
-    "reachable": 850,
-    "access-unconfirmed": 56,
+    "reachable": 884,
+    "access-unconfirmed": 57,
     "not-found": 1
   },
   "results": [
@@ -131,6 +131,12 @@
       "url": "https://altura.io/en/blog/series-a-announcement",
       "status": 200,
       "finalUrl": "https://altura.io/en/blog/series-a-announcement",
+      "result": "reachable"
+    },
+    {
+      "url": "https://amilabs.xyz/",
+      "status": 200,
+      "finalUrl": "https://amilabs.xyz/",
       "result": "reachable"
     },
     {
@@ -506,6 +512,12 @@
       "result": "reachable"
     },
     {
+      "url": "https://c4v.com/news/c4-ventures-backs-yann-lecuns-ami-labs-in-a-landmark-1b-round/",
+      "status": 200,
+      "finalUrl": "https://c4v.com/news/c4-ventures-backs-yann-lecuns-ami-labs-in-a-landmark-1b-round/",
+      "result": "reachable"
+    },
+    {
       "url": "https://careers.lightium.com/",
       "status": 206,
       "finalUrl": "https://careers.lightium.com/",
@@ -558,6 +570,18 @@
       "status": 403,
       "finalUrl": "https://celero.inc/celero-communications-secures-140-million-to-accelerate-ai-infrastructure/",
       "result": "access-unconfirmed"
+    },
+    {
+      "url": "https://cinder.ai/",
+      "status": 206,
+      "finalUrl": "https://cinder.ai/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://cinder.ai/resources/blog/cinder-raises-41m-series-b-ai-abuse",
+      "status": 206,
+      "finalUrl": "https://cinder.ai/resources/blog/cinder-raises-41m-series-b-ai-abuse",
+      "result": "reachable"
     },
     {
       "url": "https://clay.com/",
@@ -890,6 +914,12 @@
       "result": "reachable"
     },
     {
+      "url": "https://forgeglobal.com/terray-therapeutics_stock/",
+      "status": 403,
+      "finalUrl": "https://forgeglobal.com/terray-therapeutics_stock/",
+      "result": "access-unconfirmed"
+    },
+    {
       "url": "https://fortune.com/2026/06/03/towns-ai-assistants-andreessen-horowitz-forerunner-55-million",
       "status": 206,
       "finalUrl": "https://fortune.com/2026/06/03/towns-ai-assistants-andreessen-horowitz-forerunner-55-million/",
@@ -1019,6 +1049,18 @@
       "url": "https://gradient-labs.ai/blog/weve-raised-26m-to-bring-autonomous-customer-operations-to-financial-services",
       "status": 200,
       "finalUrl": "https://gradient-labs.ai/blog/weve-raised-26m-to-bring-autonomous-customer-operations-to-financial-services",
+      "result": "reachable"
+    },
+    {
+      "url": "https://gradium.ai/",
+      "status": 200,
+      "finalUrl": "https://gradium.ai/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://gradium.ai/blog/gradium-100-million-funding-nvidia",
+      "status": 200,
+      "finalUrl": "https://gradium.ai/blog/gradium-100-million-funding-nvidia",
       "result": "reachable"
     },
     {
@@ -1166,6 +1208,12 @@
       "result": "reachable"
     },
     {
+      "url": "https://humansand.ai/",
+      "status": 200,
+      "finalUrl": "https://humansand.ai/",
+      "result": "reachable"
+    },
+    {
       "url": "https://ibex-ai.com/",
       "status": 200,
       "finalUrl": "https://ibex-ai.com/",
@@ -1307,6 +1355,18 @@
       "url": "https://liquid.ai/",
       "status": 206,
       "finalUrl": "https://www.liquid.ai/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://livekit.com/",
+      "status": 206,
+      "finalUrl": "https://livekit.com/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://livekit.com/blog/livekit-series-c",
+      "status": 206,
+      "finalUrl": "https://livekit.com/blog/livekit-series-c",
       "result": "reachable"
     },
     {
@@ -1544,6 +1604,12 @@
       "result": "reachable"
     },
     {
+      "url": "https://neocognition.io/",
+      "status": 200,
+      "finalUrl": "https://neocognition.io/",
+      "result": "reachable"
+    },
+    {
       "url": "https://neuralteq.com/subnets/4?action=limit",
       "status": 206,
       "finalUrl": "https://neuralteq.com/subnets/4?action=limit",
@@ -1766,6 +1832,12 @@
       "result": "reachable"
     },
     {
+      "url": "https://persimmon.humansand.ai/",
+      "status": 200,
+      "finalUrl": "https://persimmon.humansand.ai/",
+      "result": "reachable"
+    },
+    {
       "url": "https://photoroom.com/",
       "status": 206,
       "finalUrl": "https://www.photoroom.com/",
@@ -1967,6 +2039,18 @@
       "url": "https://rebellions.ai/newsroom/rebellions-scales-global-growth-with-silicon-valley-backed-series-c/",
       "status": 200,
       "finalUrl": "https://rebellions.ai/newsroom/rebellions-scales-global-growth-with-silicon-valley-backed-series-c/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://regie.ai/",
+      "status": 200,
+      "finalUrl": "https://regie.ai/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://regie.ai/blog/introducing-regie-one",
+      "status": 200,
+      "finalUrl": "https://regie.ai/blog/introducing-regie-one",
       "result": "reachable"
     },
     {
@@ -2534,6 +2618,18 @@
       "result": "reachable"
     },
     {
+      "url": "https://typesafe.ai/",
+      "status": 200,
+      "finalUrl": "https://typesafe.ai/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+      "status": 200,
+      "finalUrl": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+      "result": "reachable"
+    },
+    {
       "url": "https://uk.linkedin.com/company/langchain",
       "status": 200,
       "finalUrl": "https://uk.linkedin.com/company/langchain",
@@ -2663,6 +2759,12 @@
       "url": "https://wafer.ai/",
       "status": 206,
       "finalUrl": "https://www.wafer.ai/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://waldencatalyst.com/blog/neocognition-emerges-from-stealth-to-build-expert-ai-agents",
+      "status": 206,
+      "finalUrl": "https://waldencatalyst.com/blog/neocognition-emerges-from-stealth-to-build-expert-ai-agents",
       "result": "reachable"
     },
     {
@@ -2966,6 +3068,18 @@
       "result": "reachable"
     },
     {
+      "url": "https://www.braintrust.dev/",
+      "status": 200,
+      "finalUrl": "https://www.braintrust.dev/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.braintrust.dev/blog/announcing-series-b",
+      "status": 200,
+      "finalUrl": "https://www.braintrust.dev/blog/announcing-series-b",
+      "result": "reachable"
+    },
+    {
       "url": "https://www.brightmachines.com/",
       "status": 403,
       "finalUrl": "https://www.brightmachines.com/",
@@ -3146,6 +3260,12 @@
       "result": "reachable"
     },
     {
+      "url": "https://www.coalition.vc/en/news/proudly-doubling-down-on-general-intuition",
+      "status": 200,
+      "finalUrl": "https://www.coalition.vc/en/news/proudly-doubling-down-on-general-intuition",
+      "result": "reachable"
+    },
+    {
       "url": "https://www.coalition.vc/news/coalition-capital-backs-general-intuition-s-320m-series-a-to-define-the-next-frontier-in-ai",
       "status": 200,
       "finalUrl": "https://www.coalition.vc/news/coalition-capital-backs-general-intuition-s-320m-series-a-to-define-the-next-frontier-in-ai",
@@ -3185,6 +3305,12 @@
       "url": "https://www.coherehealth.com/news/ey-us-siva-namasivayam-cohere-health-entrepreneur-of-the-year-2025",
       "status": 200,
       "finalUrl": "https://www.coherehealth.com/news/ey-us-siva-namasivayam-cohere-health-entrepreneur-of-the-year-2025",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.cooley.com/news/coverage/2026/2026-04-27-ineffable-intelligence-announces-%241-1-billion-seed-financing",
+      "status": 206,
+      "finalUrl": "https://www.cooley.com/news/coverage/2026/2026-04-27-ineffable-intelligence-announces-%241-1-billion-seed-financing",
       "result": "reachable"
     },
     {
@@ -3245,6 +3371,12 @@
       "url": "https://www.d-matrix.ai/transforming-ai-d-matrixs-pivotal-moments-in-pursuit-of-gen-ai-inference-at-scale/",
       "status": 200,
       "finalUrl": "https://www.d-matrix.ai/transforming-ai-d-matrixs-pivotal-moments-in-pursuit-of-gen-ai-inference-at-scale/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.dcvc.com/news-insights/typesafe-emerges-from-stealth-with-a-new-way-of-doing-ai/",
+      "status": 206,
+      "finalUrl": "https://www.dcvc.com/news-insights/typesafe-emerges-from-stealth-with-a-new-way-of-doing-ai/",
       "result": "reachable"
     },
     {
@@ -3377,6 +3509,18 @@
       "url": "https://www.dyna.co/news/monster-laundry",
       "status": 206,
       "finalUrl": "https://www.dyna.co/news/monster-laundry",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.dynatrace.com/news/blog/dynatrace-completes-acquisition-of-arize/",
+      "status": 200,
+      "finalUrl": "https://www.dynatrace.com/news/blog/dynatrace-completes-acquisition-of-arize/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.edb.gov.sg/en/business-insights/insights/ai-godfather-raises-s1-3-billion-for-startup-with-singapore-as-a-key-base.html",
+      "status": 200,
+      "finalUrl": "https://www.edb.gov.sg/en/news-and-insights/ai-godfather-raises-s1-3-billion-for-startup-with-singapore-as-a-key-base",
       "result": "reachable"
     },
     {
@@ -3527,6 +3671,12 @@
       "url": "https://www.expedera.com/news/",
       "status": 200,
       "finalUrl": "https://www.expedera.com/news/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.eznewswire.com/newsroom/livekit-acquires-loophole-labs-ai-agent-infrastructure",
+      "status": 200,
+      "finalUrl": "https://www.eznewswire.com/newsroom/livekit-acquires-loophole-labs-ai-agent-infrastructure",
       "result": "reachable"
     },
     {
@@ -3728,6 +3878,12 @@
       "result": "reachable"
     },
     {
+      "url": "https://www.goodwinlaw.com/en/news-and-events/news/2026/03/announcements-technology-goodwin-guides-humans-in-raising-over",
+      "status": 200,
+      "finalUrl": "https://www.goodwinlaw.com/en/news-and-events/news/2026/03/announcements-technology-goodwin-guides-humans-in-raising-over",
+      "result": "reachable"
+    },
+    {
       "url": "https://www.gravisrobotics.com/",
       "status": 200,
       "finalUrl": "https://www.gravisrobotics.com/",
@@ -3821,6 +3977,12 @@
       "url": "https://www.inductive.bio/news/inductive-bio-wins-3rd-consecutive-ai-drug-discovery-benchmark",
       "status": 200,
       "finalUrl": "https://www.inductive.bio/news/inductive-bio-wins-3rd-consecutive-ai-drug-discovery-benchmark",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.ineffable.ai/",
+      "status": 200,
+      "finalUrl": "https://www.ineffable.ai/",
       "result": "reachable"
     },
     {
@@ -4241,6 +4403,12 @@
       "url": "https://www.nasdaq.com/press-release/jfb-and-xtend-announce-sec-declares-form-s-4-effective-2026-08-11",
       "status": 200,
       "finalUrl": "https://www.nasdaq.com/press-release/jfb-and-xtend-announce-sec-declares-form-s-4-effective-2026-08-11",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.nasdaqtrader.com/TraderNews.aspx?id=ECA2026-630",
+      "status": 200,
+      "finalUrl": "https://www.nasdaqtrader.com/TraderNews.aspx?id=ECA2026-630",
       "result": "reachable"
     },
     {
@@ -4724,6 +4892,12 @@
       "result": "reachable"
     },
     {
+      "url": "https://www.prnewswire.com/news-releases/regieai-raises-30m-series-b-to-scale-ai-powered-sales-strategies-introducing-regieone-platform-for-smarter-prospecting-302386076.html",
+      "status": 206,
+      "finalUrl": "https://www.prnewswire.com/news-releases/regieai-raises-30m-series-b-to-scale-ai-powered-sales-strategies-introducing-regieone-platform-for-smarter-prospecting-302386076.html",
+      "result": "reachable"
+    },
+    {
       "url": "https://www.prnewswire.com/news-releases/speedata-creator-of-worlds-first-analytics-processing-unit-apu-partners-with-nebul-to-bring-high-performance-big-data-and-ai-analytics-to-european-sovereign-cloud-302692530.html",
       "status": 206,
       "finalUrl": "https://www.prnewswire.com/news-releases/speedata-creator-of-worlds-first-analytics-processing-unit-apu-partners-with-nebul-to-bring-high-performance-big-data-and-ai-analytics-to-european-sovereign-cloud-302692530.html",
@@ -4940,6 +5114,18 @@
       "result": "reachable"
     },
     {
+      "url": "https://www.sapiom.ai/",
+      "status": 206,
+      "finalUrl": "https://www.sapiom.ai/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.sapiom.ai/resources/blog/series-a/",
+      "status": 206,
+      "finalUrl": "https://www.sapiom.ai/resources/blog/series-a/",
+      "result": "reachable"
+    },
+    {
       "url": "https://www.sardine.ai/",
       "status": 206,
       "finalUrl": "https://www.sardine.ai/",
@@ -4991,6 +5177,30 @@
       "url": "https://www.sec.gov/Archives/edgar/data/2024306/000119312526091735/d26422d425.htm",
       "status": 200,
       "finalUrl": "https://www.sec.gov/Archives/edgar/data/2024306/000119312526091735/d26422d425.htm",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.serval.com/",
+      "status": 206,
+      "finalUrl": "https://www.serval.com/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.serval.com/blog/serval%E2%80%99s-next-chapter-raising-75m-to-build-the-new-era-of-enterprise-automation-and-service-management",
+      "status": 206,
+      "finalUrl": "https://www.serval.com/blog/serval%E2%80%99s-next-chapter-raising-75m-to-build-the-new-era-of-enterprise-automation-and-service-management",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.simile.com/",
+      "status": 200,
+      "finalUrl": "https://www.simile.com/",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.simile.com/blog/series-b",
+      "status": 200,
+      "finalUrl": "https://www.simile.com/blog/series-b",
       "result": "reachable"
     },
     {

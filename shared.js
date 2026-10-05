@@ -17,7 +17,7 @@ export function companyRecordState(company) {
   const lifecycle = normalizedState(company?.recordStatus || company?.lifecycle || company?.state || company?.status);
   if (company?.archived === true || lifecycle === "archived") return "archived";
   if (company?.stageConflict === true || normalizedState(company?.stageStatus) === "conflict" || lifecycle === "stage-conflict") return "stage-conflict";
-  if (["stage-changed", "under-review"].includes(company?.recordStatus)) return company.recordStatus;
+  if (["stage-changed", "under-review", "not-selected"].includes(company?.recordStatus)) return company.recordStatus;
   return "";
 }
 
