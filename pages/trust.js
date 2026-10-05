@@ -10,8 +10,8 @@ const TRUST_CONTENT = {
       ["Eligibility", "An identifiable, independently operating company with AI central to its product and at least one reliable public source."],
       ["Financing stage", "Stage follows an explicitly named institutional equity round. Pre-seed is grouped with Seed. Debt, grants and unnamed strategic investments do not advance the stage."],
       ["Ranking", "Editors consider market relevance, product and technology, adoption, team and resources, and recent progress. The order is a qualitative judgment, not a numerical score."],
-      ["Publication", `The current ranking edition is dated ${formatDate(AS_OF)}. Later evidence updates company records. Confirmed acquisitions, stage changes and unresolved operating-status questions are excluded from the active list; historical ranks remain unchanged.`],
-      ["Coverage", "The index contains selected companies, not a complete global census. Candidate pools remain under review. Published pool counts, where available, describe the reviewed pool at the edition cutoff."],
+      ["Publication", `The current ranking edition is dated ${formatDate(AS_OF)}. Each stage contains 50 selected companies. Confirmed stage changes move companies to the corresponding cohort; public, acquired and unresolved records are excluded. The 22 August edition remains available unchanged.`],
+      ["Coverage", "This edition reviews 213 records: the previous 200 companies and 13 additions. Of 205 eligible candidates, 200 are selected and five are alternates. Eight records are excluded. This bounded review is not a complete global census."],
     ],
   },
   "evidence-policy": {
@@ -44,10 +44,10 @@ const TRUST_CONTENT = {
 };
 
 function correctionHistory() {
-  const changed = COMPANIES.filter(company => company.refresh?.change || company.refresh?.profileChange);
+  const changed = COMPANIES.filter(company => company.rankingCorrection || company.refresh?.change || company.refresh?.profileChange);
   return `<section class="company-section correction-history"><p class="correction-count">${changed.length} changes</p>${changed.map(company => {
-    const change = company.refresh.change || company.refresh.profileChange;
-    const label = company.recordStatus === "stage-changed" ? `${company.stage} → ${company.currentStage}` : company.recordStatus === "archived" ? "Acquired" : company.recordStatus === "under-review" ? "Operating status under review" : "Profile updated";
+    const change = company.rankingCorrection || company.refresh.change || company.refresh.profileChange;
+    const label = company.rankingCorrection ? "Financing correction" : company.exclusionReason === "public" ? "Public listing" : company.recordStatus === "archived" ? "Acquired" : company.historicalRanking?.stage !== company.currentStage ? `${company.historicalRanking?.stage} → ${company.currentStage}` : ["under-review", "stage-conflict"].includes(company.recordStatus) ? "Eligibility under review" : "Profile updated";
     return `<article class="detail-fact"><div class="detail-fact-meta"><span>${escapeHtml(label)}</span></div><h3><a href="${companyUrl(company)}">${escapeHtml(company.name)}</a></h3><p>${escapeHtml(change.note)}</p>${sourceLink(change.source, "Original source")}</article>`;
   }).join("")}</section>`;
 }
@@ -56,6 +56,8 @@ export function renderTrustPage(view) {
   const active = TRUST_CONTENT[view] ? view : "about";
   const content = TRUST_CONTENT[active];
   const nav = TRUST_NAV.map(([id, label]) => `<a class="stage-tab ${active === id ? "is-active" : ""}" href="?view=${id}"${active === id ? ' aria-current="page"' : ""}>${label}</a>`).join("");
+  const base = new URL(import.meta.url).protocol === "file:" ? "/" : new URL("../", import.meta.url).pathname;
+  const editionDownload = active === "methodology" ? `<a class="text-link" href="${base}evidence/ranking-${AS_OF}.json" download>Download edition decisions and sources ${arrowIcon()}</a>` : "";
   const sections = content.sections.map(([title, detail]) => `<section class="policy-section"><h2>${escapeHtml(title)}</h2><p>${escapeHtml(detail)}</p></section>`).join("");
-  return `<main class="page-shell trust-page" id="main"><section class="ranking-masthead"><div><h1>${escapeHtml(content.title)}</h1><p>${escapeHtml(content.lead)}</p></div></section><nav class="stage-tabs trust-nav" aria-label="Policies">${nav}</nav><article class="policy-body">${sections}</article>${active === "corrections" ? `${correctionHistory()}<section class="trust-intake"><p>The public contact inbox is not active yet. Corrections cannot be submitted through this page.</p></section>` : ""}<a class="text-link policy-back" href="?view=ranking&stage=seed">Back to the index ${arrowIcon()}</a></main>`;
+  return `<main class="page-shell trust-page" id="main"><section class="ranking-masthead"><div><h1>${escapeHtml(content.title)}</h1><p>${escapeHtml(content.lead)}</p></div></section><nav class="stage-tabs trust-nav" aria-label="Policies">${nav}</nav><article class="policy-body">${sections}${editionDownload}</article>${active === "corrections" ? `${correctionHistory()}<section class="trust-intake"><p>The public contact inbox is not active yet. Corrections cannot be submitted through this page.</p></section>` : ""}<a class="text-link policy-back" href="?view=ranking&stage=seed">Back to the index ${arrowIcon()}</a></main>`;
 }

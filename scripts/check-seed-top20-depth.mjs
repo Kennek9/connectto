@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { COMPANIES, ENRICHED_SEED_IDS } from "../data.js";
+import { SNAPSHOT_COMPANIES as COMPANIES, ENRICHED_SEED_IDS } from "../data.js";
 
 const topTwenty = COMPANIES
   .filter((company) => company.stageId === "seed")
@@ -28,4 +28,4 @@ assert.ok(lightium, "Lightium must remain in the Seed Top 20");
 assert.equal(new URL(lightium.website.href).hostname, "careers.lightium.com", "Lightium must not link to the compromised public domain");
 assert.ok(lightium.profile.sources.every((item) => !["lightium.co", "lightium.com"].includes(new URL(item.href).hostname)), "Lightium profile must not expose the compromised public domain");
 
-console.log("Seed Top 20 depth audit passed: 20 enriched profiles with sourced decision fields.");
+console.log("Archived Seed Top 20 depth audit passed: 20 enriched profiles with sourced decision fields.");

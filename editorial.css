@@ -331,3 +331,16 @@ button:disabled, .button[aria-disabled="true"] { opacity: .45; cursor: not-allow
 body { background-image: var(--paper-texture); background-size: 180px 180px; }
 .site-header { background: transparent; }
 .drawer { background-image: var(--paper-texture); }
+
+/* Ranking editions share the publication's typography and restrained rules. */
+.edition-history-link { margin-top: 10px; font-size: .8rem; }
+.ranking-assessment { border-top: 1px solid var(--color-rule); padding-top: 22px; }
+.rank-history { font-size: .85rem; }
+.ranking-correction { font-size: .9rem; }
+.archive-entry { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 18px; padding: 28px 0; border-bottom: 1px solid var(--color-rule); }
+.archive-entry h2 { margin: 0 0 8px; font-size: 1.25rem; }
+.archive-entry p { max-width: 78ch; line-height: 1.65; }
+.archive-entry summary { cursor: pointer; color: var(--accent); }
+@media (max-width: 899px), (hover: none) {
+  .ranking-preview { display: none; }
+}

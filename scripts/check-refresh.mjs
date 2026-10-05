@@ -1,11 +1,14 @@
 import assert from "node:assert/strict";
-import { COMPANIES, COMPANY_BY_ID, SNAPSHOT_COMPANIES, AS_OF, REFRESH_DATE } from "../data.js";
-import { rankedCompanies, companyRecordState, rankFor, sourceLink } from "../shared.js";
+import { REFRESHED_COMPANIES as COMPANIES, SNAPSHOT_COMPANIES, HISTORICAL_AS_OF as AS_OF, REFRESH_DATE } from "../data.js";
+import { companyRecordState, rankFor, sourceLink } from "../shared.js";
 import { companySources } from "../evidence.js";
 import { REFRESHED_PROFILES } from "../refreshed-profiles.js";
 import { REVIEWED_EVENTS } from "../reviewed-updates.js";
 import { state } from "../state.js";
 import { renderCompany, renderSignals, renderSearch } from "../pages/company-signals-search.js";
+
+const COMPANY_BY_ID = Object.fromEntries(COMPANIES.map(company => [company.id, company]));
+const rankedCompanies = stage => COMPANIES.filter(company => company.stageId === stage && !companyRecordState(company));
 
 assert.equal(AS_OF, "2026-08-22", "Evidence updates must not silently publish a new ranking edition");
 assert.equal(REFRESH_DATE, "2026-10-05");
