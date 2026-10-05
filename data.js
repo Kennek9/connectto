@@ -1,3 +1,6 @@
+import { applyRefresh, REFRESH_DATE } from "./refresh.js";
+export { REFRESH_DATE };
+
 import { AS_OF as CANONICAL_AS_OF, CANONICAL_COMPANIES, COHORT_METADATA } from "./canonical-data.js";
 import { ENRICHED_SEED_IDS, SEED_TOP20_RESEARCH } from "./seed-top20-research.js";
 
@@ -183,6 +186,7 @@ function normalizeFounders(candidate) {
 
 function eventFact(eventItem, label) {
   return {
+    eventId: eventItem.id,
     label,
     title: eventItem.title || "Dated public event",
     detail: eventItem.detail || eventItem.whyItMatters || "Public detail not observed.",
@@ -420,7 +424,8 @@ function enrichCompany(company) {
 }
 
 const stageIndex = new Map(STAGE_ORDER.map((stage, index) => [stage.id, index]));
-export const COMPANIES = CANONICAL_COMPANIES.map(adaptCompany).map(enrichCompany).sort((a, b) => stageIndex.get(a.stageId) - stageIndex.get(b.stageId) || a.editorialRank - b.editorialRank);
+export const SNAPSHOT_COMPANIES = CANONICAL_COMPANIES.map(adaptCompany).map(enrichCompany).sort((a, b) => stageIndex.get(a.stageId) - stageIndex.get(b.stageId) || a.editorialRank - b.editorialRank);
+export const COMPANIES = SNAPSHOT_COMPANIES.map(applyRefresh);
 export const COMPANY_BY_ID = Object.fromEntries(COMPANIES.map((item) => [item.id, item]));
 
 export function disclosedMillions(value) {
