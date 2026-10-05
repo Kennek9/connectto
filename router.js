@@ -1,8 +1,8 @@
 import { renderArchive } from "./pages/archive.js";
 import { companyById, parseUrl, PUBLIC_STAGE_IDS, stageById, state, updateUrl } from "./state.js";
 import { renderFooter, renderHeader } from "./shell.js";
-import { filteredCompanies, renderRanking, rankingPreviewMarkup } from "./pages/ranking.js";
-import { renderCompany, renderEvidenceDrawer, renderRankAuditDrawer, renderSearch, renderSignals } from "./pages/company-signals-search.js";
+import { filteredCompanies, renderRanking } from "./pages/ranking.js";
+import { renderCompany, renderCompanyPreview, renderEvidenceDrawer, renderRankAuditDrawer, renderSearch, renderSignals } from "./pages/company-signals-search.js";
 import { renderTrustPage } from "./pages/trust.js";
 
 const pageForView = () => {
@@ -46,8 +46,9 @@ function trapOverlayFocus(event) {
 export function render(options = {}) {
   const app = document.querySelector("#app");
   if (!app) return;
-  app.innerHTML = `${renderHeader()}${pageForView()}${renderFooter()}${renderEvidenceDrawer(state.drawer)}${renderRankAuditDrawer(state.drawer)}`;
+  app.innerHTML = `${renderHeader()}${pageForView()}${renderFooter()}${renderEvidenceDrawer(state.drawer)}${renderRankAuditDrawer(state.drawer)}${renderCompanyPreview(state.drawer)}`;
   document.body.classList.toggle("has-overlay", Boolean(state.drawer));
+  for (const surface of app.querySelectorAll(".site-header, main, .site-footer")) surface.inert = Boolean(state.drawer);
   document.title = pageTitle();
   const basePath = new URL("./", import.meta.url).pathname;
   for (const link of app.querySelectorAll('a[href^="?"]')) link.setAttribute("href", basePath + link.getAttribute("href"));
@@ -62,8 +63,8 @@ export function render(options = {}) {
     if (options.selection && element?.setSelectionRange) element.setSelectionRange(...options.selection);
   });
   if (state.lens && state.view === "company") requestAnimationFrame(() => {
-    const tabs = document.querySelector(".workspace-tabs");
-    const active = document.querySelector(".workspace-tab.is-active");
+    const tabs = document.querySelector(".company-topics [role=tablist]");
+    const active = document.querySelector(".topic-link.is-active");
     if (tabs && active) tabs.scrollLeft = Math.max(0, active.offsetLeft - Math.max(0, (tabs.clientWidth - active.offsetWidth) / 2));
   });
   if (state.signalId && state.view === "signals") requestAnimationFrame(() => document.getElementById(`signal-${state.signalId}`)?.scrollIntoView({ block: "center" }));
@@ -95,18 +96,24 @@ function handleInput(event) {
 }
 
 function handleChange(event) {
-  if (event.target.dataset.action !== "set-category") return;
-  state.category = event.target.value;
+  const field = event.target.dataset.rankingFilter;
+  if (!["category", "productForm", "region", "sort"].includes(field)) return;
+  state[field] = event.target.value;
   state.visibleCount = 10;
   updateUrl();
-  render({ restoreFocusId: "category-filter" });
+  render({ restoreFocusId: event.target.id });
 }
 
 function handleClick(event) {
   const target = event.target.closest("[data-action]");
   if (!target) return;
   const action = target.dataset.action;
-  if (["open-evidence", "open-rank-audit", "close-drawer", "toggle-mobile-nav", "set-stage", "toggle-lens", "load-more", "load-more-signals", "load-more-search", "show-all", "reset-ranking-filter", "reset-signals-filter", "share"].includes(action)) event.preventDefault();
+  if (["open-company-preview", "toggle-ranking-filters", "open-evidence", "open-rank-audit", "close-drawer", "toggle-mobile-nav", "set-stage", "toggle-lens", "load-more", "load-more-signals", "load-more-search", "show-all", "reset-ranking-filter", "reset-signals-filter", "share"].includes(action)) event.preventDefault();
+  if (action === "open-company-preview") setDrawer({ type: "company-preview", companyId: target.dataset.company }, target.id);
+  if (action === "toggle-ranking-filters") {
+    state.filtersOpen = !state.filtersOpen;
+    render({ restoreFocusId: "more-filters" });
+  }
   if (action === "open-evidence") setDrawer({ type: "evidence", companyId: target.dataset.company, eventId: target.dataset.event }, target.id || null);
   if (action === "open-rank-audit") setDrawer({ type: "rank", companyId: target.dataset.company }, target.id || null);
   if (action === "close-drawer" && (event.target === target || target.classList.contains("drawer-close"))) closeDrawer();
@@ -117,6 +124,10 @@ function handleClick(event) {
     state.view = "ranking";
     state.query = "";
     state.category = "all";
+    state.productForm = "all";
+    state.region = "all";
+    state.sort = "rank";
+    state.filtersOpen = false;
     state.signalId = "";
     state.visibleCount = 10;
     state.mobileNav = false;
@@ -131,9 +142,26 @@ function handleClick(event) {
   if (action === "load-more-signals") { state.visibleCount += 20; render({ restoreFocusId: target.id }); }
   if (action === "load-more-search") { state.visibleCount += 10; render({ restoreFocusId: target.id }); }
   if (action === "show-all") { state.visibleCount = filteredCompanies().length; render({ restoreFocusId: target.id }); }
-  if (action === "reset-ranking-filter") { state.query = ""; state.category = "all"; state.visibleCount = 10; updateUrl(false); render(); }
+  if (action === "reset-ranking-filter") {
+    state.query = "";
+    state.category = state.productForm = state.region = "all";
+    state.visibleCount = 10;
+    updateUrl();
+    render({ restoreFocusId: "ranking-search" });
+  }
   if (action === "reset-signals-filter") { const url = new URL(window.location.href); url.searchParams.delete("signalType"); window.history.replaceState({}, "", url); state.query = ""; state.signalId = ""; state.visibleCount = 10; updateUrl(false); render(); }
-  if (action === "share") navigator.clipboard?.writeText(window.location.href).then(() => { state.toast = "Link copied"; render(); window.setTimeout(() => { state.toast = ""; render(); }, 1600); }).catch(() => { state.toast = "Copy unavailable"; render(); });
+  if (action === "share") sharePage();
+}
+
+async function sharePage() {
+  try {
+    if (!navigator.clipboard) throw new Error("Clipboard unavailable");
+    await navigator.clipboard.writeText(window.location.href);
+    state.toast = "Link copied";
+  } catch {
+    state.toast = "Copy unavailable";
+  }
+  render({ restoreFocusId: "share-company" });
 }
 
 function handleKeydown(event) {
@@ -154,6 +182,8 @@ function handleKeydown(event) {
   if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
     event.preventDefault();
     state.view = "search";
+    state.drawer = null;
+    state.returnFocusId = null;
     state.mobileNav = false;
     state.visibleCount = 10;
     updateUrl();
@@ -162,36 +192,19 @@ function handleKeydown(event) {
   }
 }
 
-let previewHideTimer;
-function showRankingPreview(target) {
-  // The floating preview covers the only company link on narrow layouts.
-  if (!window.matchMedia("(min-width: 900px) and (hover: hover)").matches) return;
-  const row = target.closest?.(".ranking-row");
-  const preview = document.querySelector("#ranking-preview");
-  if (!row || !preview) return;
-  const company = companyById(row.dataset.company);
-  if (!company) return;
-  preview.innerHTML = rankingPreviewMarkup(company);
-  preview.hidden = false;
-}
-
-function queuePreviewHide() {
-  window.clearTimeout(previewHideTimer);
-  previewHideTimer = window.setTimeout(() => {
-    if (!document.querySelector(".ranking-row:hover") && !document.activeElement?.closest(".ranking-row")) document.querySelector("#ranking-preview")?.setAttribute("hidden", "");
-  }, 40);
-}
-
 export function startApp() {
+  document.documentElement.classList.add("app-ready");
   parseUrl();
   document.addEventListener("input", handleInput);
   document.addEventListener("change", handleChange);
   document.addEventListener("click", handleClick);
   document.addEventListener("keydown", handleKeydown);
-  document.addEventListener("pointerover", (event) => { if (event.target.closest?.(".ranking-row")) showRankingPreview(event.target); });
-  document.addEventListener("pointerout", (event) => { const row = event.target.closest?.(".ranking-row"); if (row && !row.contains(event.relatedTarget)) queuePreviewHide(); });
-  document.addEventListener("focusin", (event) => { if (event.target.closest?.(".ranking-row")) showRankingPreview(event.target); });
-  document.addEventListener("focusout", (event) => { if (event.target.closest?.(".ranking-row")) queuePreviewHide(); });
+  document.addEventListener("submit", event => {
+    if (!event.target.matches(".ranking-filter-form")) return;
+    event.preventDefault();
+    updateUrl();
+    render({ restoreFocusId: "ranking-search" });
+  });
   window.addEventListener("popstate", () => { state.drawer = null; parseUrl(); render(); });
   render();
 }

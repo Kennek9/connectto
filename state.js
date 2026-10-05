@@ -23,6 +23,8 @@ export const CATEGORY_OPTIONS = [
   "Vertical Applications",
   "AI Science, Biotech & Healthcare",
 ];
+export const SORT_OPTIONS = { rank: "Editorial rank", name: "Company A–Z", recent: "Latest named round" };
+
 export const LENS_IDS = ["overview", "business", "capital", "traction", "technology", "team-network"];
 
 export const state = {
@@ -30,6 +32,10 @@ export const state = {
   stage: "seed",
   query: "",
   category: "all",
+  productForm: "all",
+  region: "all",
+  sort: "rank",
+  filtersOpen: false,
   visibleCount: 10,
   signalId: "",
   drawer: null,
@@ -75,6 +81,14 @@ export function parseUrl() {
   state.stage = isPublicStage(requestedStage) ? requestedStage : "seed";
   state.query = url.searchParams.get("q") || "";
   state.category = CATEGORY_OPTIONS.includes(url.searchParams.get("category")) ? url.searchParams.get("category") : "all";
+  const forms = new Set(COMPANIES.map(company => company.productForm));
+  const regions = new Set(COMPANIES.map(company => company.region));
+  const requestedForm = url.searchParams.get("form") === "not-observed" ? "Not publicly observed" : url.searchParams.get("form");
+  const requestedRegion = url.searchParams.get("region") === "not-observed" ? "Not publicly observed" : url.searchParams.get("region");
+  state.productForm = forms.has(requestedForm) ? requestedForm : "all";
+  state.region = regions.has(requestedRegion) ? requestedRegion : "all";
+  state.sort = Object.hasOwn(SORT_OPTIONS, url.searchParams.get("sort")) ? url.searchParams.get("sort") : "rank";
+  state.filtersOpen = state.productForm !== "all" || state.region !== "all";
   state.signalId = url.searchParams.get("signal") || "";
   if (state.view === "signals" && state.signalId) {
     const owner = COMPANIES.find(company => company.events.some(event => event.id === state.signalId));
@@ -102,6 +116,9 @@ export function updateUrl(push = true) {
     url.searchParams.set("stage", state.stage);
     if (state.query) url.searchParams.set("q", state.query);
     if (state.category !== "all") url.searchParams.set("category", state.category);
+    if (state.productForm !== "all") url.searchParams.set("form", state.productForm);
+    if (state.region !== "all") url.searchParams.set("region", state.region);
+    if (state.sort !== "rank") url.searchParams.set("sort", state.sort);
   } else if (state.view === "company") {
     const company = companyById(state.companyId);
     if (company) {
