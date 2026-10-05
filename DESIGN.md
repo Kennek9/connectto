@@ -1,100 +1,47 @@
-# Top Seed — Editorial Journal
+# Top Seed — Private Markets Research
 
-Approved direction: editorial, branded and comfortable to read. Updated 2026-10-05.
+Updated 2026-10-05. Refinement authorized by the request for a premium financial website.
 
-## Page system
+## Product and direction
 
-- Ranking: asymmetric featured companies, a complete searchable index, and a recent-evidence rail. The original rank numbers remain visible after exclusions.
-- Company: a reading column with product, funding, adoption and team evidence; a narrow fact rail; dated timeline; expandable original sources.
-- Signals: dated article rows with company, source relationship and evidence state.
-- Search: a simple company index with descriptive results.
-- Policies: a single reading column. Corrections retain the before/after record.
+A source-backed AI company index for investors and operators. The primary path is to narrow a funding cohort, inspect a company and read its evidence. The visual language combines an editorial masthead with the density and alignment of a research table. Rankings are editorial judgments, not prices, returns or investment advice.
 
-The layout remains in the existing page modules. Shared navigation and footer belong to `shell.js`; sources belong to `pages/evidence.js`. Data cannot be replaced with visual fixtures.
+Preserve ivory paper, subtle grain, burgundy emphasis, Newsreader and Manrope. Bring the index into the first desktop viewport. Use rules, hierarchy and aligned numbers rather than large empty cards or decorative financial charts.
 
-## Visual system
+## Composition
 
-Ivory paper with a subtle fixed SVG grain, charcoal text and burgundy links. Newsreader carries headings and the wordmark; Manrope carries body text and controls. Fonts are self-hosted with their OFL licenses.
+- Shared shell: quiet publication line, clear wordmark, compact navigation and a visible search shortcut.
+- Ranking: title and edition facts, funding-stage tabs, compact leaders, searchable table and evidence rail. Current and historical editions stay distinct.
+- Table: stable editorial rank, company/category, named funding round, dated evidence and explicit quick view. Changing display sort never changes the editorial rank.
+- Company: research header, current/previous rank, complete evidence tabs, timeline, sources and factual sidebar.
+- Signals and search: the same type scale, rules and row rhythm. Policies remain a narrow reading column.
 
-- Paper: `#f7f3e8`
-- Secondary surface: `#f0eeea`
-- Ink: `#24251f`
-- Secondary ink: `#41413d`
-- Muted text: `#6c6c65`
-- Rules: `#dedbd5`
-- Accent/focus: `#7b243b`
-- Notice: `#f5eaed`
+## Tokens
 
-All values live in `tokens.css`. `editorial.css` implements this system after the existing compatibility styles. Do not introduce page-specific colors or font families.
+`tokens.css` owns semantic colors, type, spacing, grid and motion. `editorial.css` implements them. Paper #f7f3e8; ink #24251f; muted #6c6c65; rule #dedbd5; burgundy #7b243b. New emphasis uses existing burgundy or pale burgundy surfaces. No extra brand color or font dependency.
 
-## Typography and spacing
+Newsreader: wordmark and editorial headings. Manrope: company names in tables, controls, body and metadata. Use tabular figures for ranks, dates and amounts. Desktop headline 44–60px, section title 24–30px, body 14–16px, metadata 12px minimum. Content max 1380px; prose max 68ch. Controls retain 44px targets.
 
-Display headings are upright Newsreader, normally 40–60px. Section headings are 28–30px. Body text is 14–16px with 1.65–1.8 line height. Metadata is at least 12px. Prose stays within 65–68 characters per line.
+## Interaction and states
 
-Use the named spacing tokens. The content width is capped at 1380px. Major sections use 24–40px vertical space. Interactive targets have a 44px minimum where practical; dense source citations remain separate from neighboring controls.
+- Search and select filters update results immediately and persist in the URL. Native form submission remains a fallback. Active filters have a clear reset and useful empty state.
+- Sort by editorial rank, company name or named-round date. Rank numbers remain immutable.
+- Quick view opens only on an explicit button, supports Escape, traps keyboard focus and returns focus to its trigger. Full company pages and source links remain available.
+- Funding-stage tabs stay available while scrolling and support arrow keys. Company research tabs have stable hash links.
+- No automatic hover popovers, decorative tickers, fake trading metrics, account gates or inert buttons.
+- Short color/opacity transitions only; reduced motion renders the complete static result.
 
-## Copy
+## Responsive behavior
 
-Keep facts, dates, source relationships and material uncertainty. Remove publishing-process boilerplate, repeated headlines, invented certainty, vague benefits and empty fields. Historical ranking rationale belongs in its review drawer, not in the main profile introduction.
+Desktop has an aligned table and evidence rail. Tablet retains a compact leader strip and simplifies table details. Mobile stacks funding and evidence under each company, with the research index immediately reachable. Advanced filters collapse, research tabs scroll within their own rail, and dialogs fit the viewport. Validate 390×844, 768×1024, 1440×900 and narrow 320px. No essential fact is removed solely to fit.
 
-A primary source is not independent validation. Company-reported metrics stay attributed. These distinctions belong next to the affected claim or in the evidence policy, not as repeated slogans across every component.
+## Evidence and copy
 
-## Interaction
+Keep facts, dates, source relationships and material uncertainty. Do not invent prices, logos, performance, testimonials or metrics. Initials identify records; they are not official company logos. Dates of evidence are distinct from ranking cutoff. No repeated publishing slogans.
 
-Visible source links, native search/filter forms, keyboard-operable tabs and disclosures, focus-trapped drawers, Escape recovery, stable company URLs and downloadable evidence records. No decorative motion. Reduced-motion mode removes transitions.
+## Reference registry and provenance
 
-## Responsive
-
-At desktop widths the index has an evidence rail and companies use a facts rail. Smaller layouts stack reading surfaces. Validate at 320, 375, 414, 768 and desktop widths. Preserve access to facts and downloads on small screens; avoid horizontal overflow and clipped controls.
-
-## Design references
-
-The approved editorial direction is represented by these internally generated concepts:
-
-- Ranking: `.hallmark/concepts/ranking.png`
-- Company: `.hallmark/concepts/company.png`
-
-The user subsequently changed the accent from vermilion to burgundy; then requested ivory paper with subtle grain; the ink remains unchanged. The live dataset controls facts, counts and ordering. The complete index includes the featured companies; actual recent events are sorted by date. These are intentional differences from illustrative concept rows.
-
-## Exports
-
-`tokens.css` is the canonical export. Equivalent integration mappings:
-
-```css
-/* Tailwind v4 */
-@theme {
-  --color-paper: #f7f3e8;
-  --color-ink: #24251f;
-  --color-accent: #7b243b;
-  --font-display: "Newsreader", serif;
-  --font-body: "Manrope", sans-serif;
-}
-/* shadcn mapping */
-:root {
-  --background: var(--color-paper);
-  --foreground: var(--color-ink);
-  --primary: var(--color-accent-strong);
-  --border: var(--color-rule);
-  --ring: var(--color-focus);
-}
-```
-
-```json
-{
-  "color": {
-    "paper": { "$value": "#f7f3e8", "$type": "color" },
-    "ink": { "$value": "#24251f", "$type": "color" },
-    "accent": { "$value": "#7b243b", "$type": "color" }
-  },
-  "font": {
-    "display": { "$value": "Newsreader", "$type": "fontFamily" },
-    "body": { "$value": "Manrope", "$type": "fontFamily" }
-  }
-}
-```
-
-## Verification notes
-
-Compared the two design concepts with rendered IAB screenshots at 1487×1058 and 1374×1145. Inspected page structure, type pairing, content hierarchy, spacing, source treatment and controls. Verified ranking and company layouts at 320, 375, 414 and 768px without clipped primary controls or horizontal overflow.
-
-Intentional differences: actual data replaces illustrative rows; the index shows ten records per page, including featured companies; a native Apply button submits filters; company pages retain additional sourced research below the concept's shortened view. The user's later instructions replace the original accent with burgundy and add ivory paper grain. Initials are record identifiers, not representations of official company logos.
+- Existing Top Seed live page, inspected 2026-10-05: owned visual baseline; ivory grain, serif masthead and burgundy retained. Oversized empty first viewport and automatic overlays are replaced.
+- https://www.ft.com/markets, read 2026-10-05: public content-architecture reference for separating lead coverage, dated updates and an indexed archive. Not a visual clone; no text, brand or assets reused.
+- https://pitchbook.com/, read 2026-10-05: public product-positioning reference for private-market research. No proprietary UI, data or assets copied.
+- Fonts remain the existing self-hosted OFL-licensed files. Grain remains the existing local SVG. No new generated or third-party imagery is required.

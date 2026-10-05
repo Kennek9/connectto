@@ -85,16 +85,36 @@ function signalTypeKey(type) {
   return String(type || "").replace(/[^a-z]/gi, "").toLowerCase();
 }
 
+const SIGNAL_FILTERS = {
+  capital: "Funding", "product-work": "Products", "technical-work": "Research",
+  adoption: "Adoption", company: "Company", other: "Other",
+};
+const SIGNAL_GROUPS = {
+  funding: "capital",
+  product: "product-work", productlaunch: "product-work", productrelease: "product-work",
+  productupdate: "product-work", productcomplianceupdate: "product-work", clinicalproductlaunch: "product-work",
+  research: "technical-work", technology: "technical-work", technical: "technical-work",
+  opensource: "technical-work", technicalproductupdate: "technical-work", producttechnicalupdate: "technical-work", scienceproductupdate: "technical-work",
+  customer: "adoption", usage: "adoption", deployment: "adoption", deploymentmilestone: "adoption",
+  partnership: "adoption", deploymentpartnership: "adoption", productdeployment: "adoption",
+  producttractionmilestone: "adoption", clinicalmilestone: "adoption", clinicalvalidation: "adoption", clinicalproductmilestone: "adoption",
+  corporate: "company", corporatestatus: "company", productacquisition: "company",
+  talent: "company", operations: "company", talentoperations: "company", manufacturing: "company", regulatory: "company",
+};
+
 function signalTypeMatches(eventItem, requested) {
   if (!requested) return true;
   const key = signalTypeKey(eventItem?.type);
+  if (Object.hasOwn(SIGNAL_FILTERS, requested)) return (SIGNAL_GROUPS[key] || "other") === requested;
+  // Retain the meaning of previously shared raw-type filter URLs.
   return key === signalTypeKey(requested) || (key === "opensource" && signalTypeKey(requested) === "developer");
 }
 
 function signalTypeOptions() {
-  const options = [...new Set(COMPANIES.flatMap((company) => companyEvents(company).map((item) => item.type)).filter(Boolean))];
-  return ["", ...options];
+  const groups = new Set(COMPANIES.flatMap(company => company.events.map(event => SIGNAL_GROUPS[signalTypeKey(event.type)] || "other")));
+  return ["", ...Object.keys(SIGNAL_FILTERS).filter(key => groups.has(key))];
 }
+
 
 function lifecycleLabel(company) {
   const recordState = companyRecordState(company);
@@ -172,7 +192,7 @@ function renderCompanyGaps(company) {
 }
 
 function renderCompanyRank(company) {
-  return `<header class="company-sheet" aria-labelledby="company-title"><h1 id="company-title">${escapeHtml(company.name)}</h1><p class="company-deck">${escapeHtml(company.profile.shortDescription || company.summary)}</p><div class="company-meta"><span>${escapeHtml(company.hq)}</span><span>${escapeHtml(company.productForm)}</span><span>${escapeHtml(company.currentStage)}</span>${sourceLink(company.website, "Website")}<button class="text-link" type="button" data-action="share">Share</button>${state.toast ? `<span class="share-toast" role="status">${escapeHtml(state.toast)}</span>` : ""}</div></header>`;
+  return `<header class="company-sheet" aria-labelledby="company-title"><span class="eyebrow">Company research / ${escapeHtml(company.currentStage)}</span><h1 id="company-title">${escapeHtml(company.name)}</h1><p class="company-deck">${escapeHtml(company.profile.shortDescription || company.summary)}</p><div class="company-meta"><span>${escapeHtml(company.hq)}</span><span>${escapeHtml(company.productForm)}</span><span>${escapeHtml(company.currentStage)}</span>${sourceLink(company.website, "Website")}<button id="share-company" class="text-link" type="button" data-action="share">Share</button>${state.toast ? `<span class="share-toast" role="status">${escapeHtml(state.toast)}</span>` : ""}</div></header>`;
 }
 
 function renderCompanyEvents(company) {
@@ -200,15 +220,14 @@ function renderCompanyContext(company) {
   const active = specs.find(spec => spec.id === activeId);
   const order = ["business", "traction", "capital", "technology", "team-network"];
   const shown = active ? [active] : order.map(id => specs.find(spec => spec.id === id)).filter(spec => spec.facts.length);
-  const navigation = [["overview", "Overview"], ["capital", "Funding"]];
-  if (active && active.id !== "capital") navigation.push([active.id, labels[active.id]]);
-  return `<section class="company-section research-workspace" id="company-details"><nav class="company-topics" aria-label="Company research lenses"><div role="tablist">${navigation.map(([id, label]) => `<button id="lens-toggle-${id}" type="button" role="tab" data-action="toggle-lens" data-lens="${id}" aria-selected="${activeId === id}" aria-controls="lens-detail-${activeId}" class="topic-link ${activeId === id ? "is-active" : ""}">${label}</button>`).join("")}</div><a href="#company-timeline">Timeline</a><a href="#sources">Sources (${companySources(company).length})</a></nav><div class="workspace-stage" id="lens-detail-${activeId}" role="tabpanel">${shown.map(spec => `<section class="research-overview-section"><h2>${labels[spec.id]}</h2>${spec.id === "business" && company.products?.length ? `<h3>${escapeHtml(company.products.join(", "))}</h3>` : ""}${spec.id === "capital" ? renderFundingHistory(company) : spec.id === "team-network" ? renderDetailFacts(companyResearch(company).team?.facts) + renderNetworkLensDetail(spec) : renderDetailFacts(spec.facts, "No sourced detail.", { omitFirstTitle: spec.id === "business" })}</section>`).join("")}</div></section>`;
+  const navigation = [["overview", "Overview"], ...Object.entries(labels)];
+  return `<section class="company-section research-workspace" id="company-details"><nav class="company-topics" aria-label="Company research lenses"><div role="tablist" aria-label="Research sections">${navigation.map(([id, label]) => `<button id="lens-toggle-${id}" type="button" role="tab" data-action="toggle-lens" data-lens="${id}" aria-selected="${activeId === id}" aria-controls="lens-detail-${activeId}" class="topic-link ${activeId === id ? "is-active" : ""}">${label}</button>`).join("")}</div><a href="#company-timeline">Timeline</a><a href="#sources">Sources (${companySources(company).length})</a></nav><div class="workspace-stage" id="lens-detail-${activeId}" role="tabpanel">${shown.map(spec => `<section class="research-overview-section"><h2>${labels[spec.id]}</h2>${spec.id === "business" && company.products?.length ? `<h3>${escapeHtml(company.products.join(", "))}</h3>` : ""}${spec.id === "capital" ? renderFundingHistory(company) : spec.id === "team-network" ? renderDetailFacts(companyResearch(company).team?.facts) + renderNetworkLensDetail(spec) : renderDetailFacts(spec.facts, "No sourced detail.", { omitFirstTitle: spec.id === "business" })}</section>`).join("")}</div></section>`;
 }
 
 export function renderCompany() {
   const company = companyById(state.companyId);
   if (!company) return `<main class="page-shell" id="main"><section class="stage-empty"><h1>Company not found.</h1><a href="?view=search">Search companies</a></section></main>`;
-  return `<main class="page-shell company-page" id="main"><nav class="company-breadcrumb" aria-label="Breadcrumb"><a href="?view=search">Companies</a><span>/</span><span>${escapeHtml(company.name)}</span></nav><div class="company-article-layout"><div class="company-reading">${renderCompanyRank(company)}${renderCompanyRecordState(company)}${renderCompanyAssessment(company)}${renderCompanyContext(company)}${renderCompanyEvents(company)}${renderSourceLedger(company)}${renderCompanyGaps(company)}</div><aside class="company-facts-rail">${renderCompanyProfile(company)}</aside></div></main>`;
+  return `<main class="page-shell company-page" id="main"><nav class="company-breadcrumb" aria-label="Breadcrumb"><a href="?view=ranking&stage=${company.stageId}">${escapeHtml(company.stage)} index</a><span>/</span><span>${escapeHtml(company.name)}</span></nav><div class="company-article-layout"><div class="company-reading">${renderCompanyRank(company)}${renderCompanyRecordState(company)}${renderCompanyAssessment(company)}${renderCompanyContext(company)}${renderCompanyEvents(company)}${renderSourceLedger(company)}${renderCompanyGaps(company)}</div><aside class="company-facts-rail">${renderCompanyProfile(company)}</aside></div></main>`;
 }
 
 export function renderEvidenceDrawer(drawer) {
@@ -225,7 +244,7 @@ export function renderEvidenceDrawer(drawer) {
 function renderCompanyAssessment(company) {
   const previous = company.historicalRanking;
   const history = previous ? `<p class="rank-history"><a href="?view=archive&stage=${previous.stageId}#archive-${company.id}">${formatDate(previous.date)} · ${escapeHtml(previous.stage)} #${previous.rank}</a></p>` : `<p class="rank-history">First appearance in Top Seed.</p>`;
-  return `<section class="company-section ranking-assessment" aria-labelledby="assessment-title"><h2 id="assessment-title">${company.selected ? `#${company.editorialRank} in ${escapeHtml(company.stage)}` : "Selection review"} · ${formatDate(AS_OF)}</h2>${company.selected ? `<p>${escapeHtml(company.rankingReview.rationale)}</p>` : ""}${history}${company.rankingCorrection ? `<p class="ranking-correction">${escapeHtml(company.rankingCorrection.note)} ${sourceLink(company.rankingCorrection.source, "Correction source")}</p>` : ""}<button class="text-link" type="button" data-action="open-rank-audit" data-company="${company.id}">Review ranking evidence ${arrowIcon()}</button></section>`;
+  return `<section class="company-section ranking-assessment" aria-labelledby="assessment-title"><h2 id="assessment-title">${company.selected ? `#${company.editorialRank} in ${escapeHtml(company.stage)}` : "Selection review"} · ${formatDate(AS_OF)}</h2>${company.selected ? `<p class="assessment-copy">${escapeHtml(company.rankingReview.rationale)}</p>` : ""}${history}${company.rankingCorrection ? `<p class="ranking-correction">${escapeHtml(company.rankingCorrection.note)} ${sourceLink(company.rankingCorrection.source, "Correction source")}</p>` : ""}<button id="assessment-evidence" class="text-link" type="button" data-action="open-rank-audit" data-company="${company.id}">Review ranking evidence ${arrowIcon()}</button></section>`;
 }
 
 export function renderRankAuditDrawer(drawer) {
@@ -259,7 +278,7 @@ export function renderSignals() {
   const remaining = rows.length - displayed.length;
   const type = signalTypeParam();
   const filterHref = nextType => `?${new URLSearchParams({ view: "signals", stage: state.stage, ...(state.query ? { q: state.query } : {}), ...(nextType ? { signalType: nextType } : {}) })}`;
-  return `<main class="page-shell signals-page" id="main"><section class="ranking-masthead"><div><h1>Signals.</h1><p>${rows.length} events · ${escapeHtml(stageById(state.stage).label)} ranking cohort</p></div><label class="search-field">${searchIcon()}<input id="signals-search" type="search" aria-label="Find a signal" placeholder="Find a signal" value="${escapeHtml(state.query)}" data-action="signals-search"></label></section><nav class="stage-tabs" aria-label="Signal cohorts">${PUBLIC_STAGE_IDS.map(id => `<a class="stage-tab ${id === state.stage ? "is-active" : ""}" href="?view=signals&stage=${id}">${escapeHtml(stageById(id).label)}</a>`).join("")}</nav><nav class="signal-filter-strip" aria-label="Signal types">${signalTypeOptions().map(value => `<a class="signal-filter ${value === type ? "is-active" : ""}" href="${filterHref(value)}">${value ? signalLabel(value, false) : "All events"}</a>`).join("")}</nav><section class="signals-stream" aria-label="Dated events">${displayed.length ? displayed.map(renderSignalRow).join("") : `<div class="list-empty"><strong>No public signals match.</strong><a class="text-link" href="?view=signals&stage=${state.stage}">Clear signal filters</a></div>`}</section>${remaining ? `<button class="load-more" type="button" data-action="load-more-signals">Load ${Math.min(20, remaining)} more</button>` : ""}</main>`;
+  return `<main class="page-shell signals-page" id="main"><section class="ranking-masthead"><div><h1>Signals.</h1><p>${rows.length} events · ${escapeHtml(stageById(state.stage).label)} ranking cohort</p></div><label class="search-field">${searchIcon()}<input id="signals-search" type="search" aria-label="Find a signal" placeholder="Find a signal" value="${escapeHtml(state.query)}" data-action="signals-search"></label></section><nav class="stage-tabs" aria-label="Signal cohorts">${PUBLIC_STAGE_IDS.map(id => `<a class="stage-tab ${id === state.stage ? "is-active" : ""}" href="?view=signals&stage=${id}">${escapeHtml(stageById(id).label)}</a>`).join("")}</nav><nav class="signal-filter-strip" aria-label="Signal types">${signalTypeOptions().map(value => `<a class="signal-filter ${value === type ? "is-active" : ""}" href="${filterHref(value)}">${value ? SIGNAL_FILTERS[value] : "All events"}</a>`).join("")}</nav><section class="signals-stream" aria-label="Dated events">${displayed.length ? displayed.map(renderSignalRow).join("") : `<div class="list-empty"><strong>No public signals match.</strong><a class="text-link" href="?view=signals&stage=${state.stage}">Clear signal filters</a></div>`}</section>${remaining ? `<button class="load-more" type="button" data-action="load-more-signals">Load ${Math.min(20, remaining)} more</button>` : ""}</main>`;
 }
 
 function searchText(company) {
@@ -289,4 +308,21 @@ export function renderSearch() {
   const displayed = matches.slice(0, state.visibleCount);
   const remaining = matches.length - displayed.length;
   return `<main class="page-shell search-page" id="main"><section class="ranking-masthead"><div><h1>Company search.</h1><p>${COMPANIES.length} companies. Search products, founders and evidence.</p></div></section><label class="search-field search-page-field">${searchIcon()}<input id="search-page-input" type="search" aria-label="Find a company" placeholder="Find a company" value="${escapeHtml(state.query)}" data-action="search-page-input"></label><p class="search-count">${matches.length} results</p><section class="search-results" aria-label="Search results">${displayed.map(company => `<a class="search-result" href="${companyUrl(company)}" aria-label="Open ${escapeHtml(company.name)} company page">${logo(company, "small-mark")}<span><strong>${escapeHtml(company.name)}</strong><small>${escapeHtml(company.currentStage)} · ${escapeHtml(company.category)}${lifecycleLabel(company) ? ` · ${escapeHtml(lifecycleLabel(company))}` : ""}</small><p>${escapeHtml(company.summary)}</p></span>${chevronIcon()}</a>`).join("") || `<div class="list-empty"><strong>No companies match.</strong><a class="text-link" href="?view=search">Clear search</a></div>`}</section>${remaining ? `<button class="load-more" type="button" data-action="load-more-search">Load ${Math.min(10, remaining)} more</button>` : ""}</main>`;
+}
+
+export function renderCompanyPreview(drawer) {
+  if (drawer?.type !== "company-preview") return "";
+  const company = companyById(drawer.companyId);
+  if (!company) return "";
+  const sources = companySources(company);
+  const event = latestPublicEvent(company);
+  return `<div class="drawer-backdrop" data-action="close-drawer"><aside class="drawer company-preview-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" data-overlay-panel>
+    <div class="preview-topline"><span class="eyebrow">Company brief</span><button class="drawer-close" type="button" data-action="close-drawer" aria-label="Close company brief">${closeIcon()}</button></div>
+    <div class="preview-body"><div class="preview-identity">${logo(company)}<span>${escapeHtml(company.currentStage)} <span aria-hidden="true">/</span> ${company.selected ? `Rank ${company.editorialRank}` : "Not ranked"}</span></div>
+    <h2 id="drawer-title">${escapeHtml(company.name)}</h2><p class="preview-description">${escapeHtml(company.summary)}</p>
+    <dl class="brief-metrics"><div><dt>Named round</dt><dd>${escapeHtml(company.funding.amount)}</dd></div><div><dt>Announced</dt><dd>${formatDate(company.funding.date)}</dd></div><div><dt>Source library</dt><dd>${sources.length} sources</dd></div></dl>
+    <section class="brief-assessment"><span class="eyebrow">Editorial assessment</span><p>${escapeHtml(company.rankingReview.rationale)}</p></section>
+    ${event ? `<section class="brief-event"><span class="eyebrow">Latest recorded event</span><h3>${escapeHtml(event.title)}</h3><p>${formatDate(event.date)} · ${escapeHtml(event.source.relationship)}</p>${sourceLink(event.source, "Original source")}</section>` : ""}
+    </div><div class="brief-actions"><a class="button button-primary" href="${companyUrl(company)}">Read full research ${arrowIcon()}</a><a class="text-link" href="${companyUrl(company)}#sources">Source library ${arrowIcon()}</a></div>
+  </aside></div>`;
 }
