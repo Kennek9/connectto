@@ -4,7 +4,10 @@ export { REFRESH_DATE };
 import { AS_OF as CANONICAL_AS_OF, CANONICAL_COMPANIES, COHORT_METADATA } from "./canonical-data.js";
 import { ENRICHED_SEED_IDS, SEED_TOP20_RESEARCH } from "./seed-top20-research.js";
 
-export const AS_OF = CANONICAL_AS_OF;
+import { EDITION_DATE, applyEdition, adaptEditionCandidate, editionStages } from "./edition.js";
+import { EDITION_CANDIDATES } from "./edition-candidates.js";
+export const HISTORICAL_AS_OF = CANONICAL_AS_OF;
+export const AS_OF = EDITION_DATE;
 export { COHORT_METADATA, ENRICHED_SEED_IDS };
 
 const cohortById = new Map(COHORT_METADATA.map((cohort) => [cohort.id, cohort]));
@@ -36,7 +39,7 @@ const PUBLIC_STAGE_ORDER = COHORT_METADATA.map((cohort) => ({
   coverage: cohort.coverage ?? null,
 }));
 
-export const STAGE_ORDER = [...PUBLIC_STAGE_ORDER, {
+export const HISTORICAL_STAGE_ORDER = [...PUBLIC_STAGE_ORDER, {
   id: "series-d-plus",
   label: "Series D+",
   note: "Coming soon",
@@ -101,7 +104,7 @@ function sourceFrom(rawSource, fallback = {}) {
     provenance: relationship,
     relationship,
     announcementDate,
-    asOf: raw.asOf || fallback.asOf || AS_OF,
+    asOf: raw.asOf || fallback.asOf || CANONICAL_AS_OF,
     evidenceState,
     status: evidenceState,
   };
@@ -199,7 +202,7 @@ function eventFact(eventItem, label) {
 function adaptCompany(entry) {
   const candidate = entry.sourceRecord;
   const cohort = cohortById.get(entry.cohort);
-  const cutoff = cohort?.cutoffDate || AS_OF;
+  const cutoff = entry.cutoffDate || cohort?.cutoffDate || CANONICAL_AS_OF;
   const stage = cohort?.label || candidate.stage || "Stage not publicly observed";
   const websiteUrl = candidate.website || "";
   const domain = websiteHost(websiteUrl);
@@ -423,9 +426,13 @@ function enrichCompany(company) {
   };
 }
 
-const stageIndex = new Map(STAGE_ORDER.map((stage, index) => [stage.id, index]));
+const stageIndex = new Map(HISTORICAL_STAGE_ORDER.map((stage, index) => [stage.id, index]));
 export const SNAPSHOT_COMPANIES = CANONICAL_COMPANIES.map(adaptCompany).map(enrichCompany).sort((a, b) => stageIndex.get(a.stageId) - stageIndex.get(b.stageId) || a.editorialRank - b.editorialRank);
-export const COMPANIES = SNAPSHOT_COMPANIES.map(applyRefresh);
+export const REFRESHED_COMPANIES = SNAPSHOT_COMPANIES.map(applyRefresh);
+const snapshotById = new Map(SNAPSHOT_COMPANIES.map(company => [company.id, company]));
+export const COMPANIES = [...REFRESHED_COMPANIES, ...EDITION_CANDIDATES.map(record => adaptEditionCandidate(record, adaptCompany))]
+  .map(company => applyEdition(company, snapshotById.get(company.id)));
+export const STAGE_ORDER = [...editionStages(COMPANIES), HISTORICAL_STAGE_ORDER.at(-1)];
 export const COMPANY_BY_ID = Object.fromEntries(COMPANIES.map((item) => [item.id, item]));
 
 export function disclosedMillions(value) {

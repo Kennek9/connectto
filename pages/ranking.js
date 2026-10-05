@@ -1,4 +1,4 @@
-import { AS_OF, REFRESH_DATE, COMPANIES, arrowIcon, chevronIcon, companyRecordState, escapeHtml, formatDate, latestSignal, logo, rankedCompanies, searchIcon, sourceLink, stageCompanies } from "../shared.js";
+import { AS_OF, REFRESH_DATE, COMPANIES, arrowIcon, chevronIcon, escapeHtml, formatDate, latestSignal, logo, rankedCompanies, searchIcon, sourceLink, stageCompanies } from "../shared.js";
 import { companySources } from "../evidence.js";
 import { CATEGORY_OPTIONS, PUBLIC_STAGE_IDS, stageById, state, companyUrl } from "../state.js";
 
@@ -51,10 +51,11 @@ function renderLatestUpdates() {
 }
 
 function renderChanges() {
-  const changed = COMPANIES.filter(company => company.stageId === state.stage && companyRecordState(company));
-  if (!changed.length) return "";
-  const label = company => company.recordStatus === "stage-changed" ? `Now ${company.currentStage}` : company.recordStatus === "archived" ? "Acquired" : "Under review";
-  return `<section class="edition-changes"><h3>Edition changes</h3>${changed.map(company => `<a href="${companyUrl(company)}"><span>${escapeHtml(company.name)}</span><small>${escapeHtml(label(company))}</small></a>`).join("")}<p>Historical ranks retained. These companies are excluded from the active list.</p></section>`;
+  const changed = COMPANIES.filter(company =>
+    (company.stageId === state.stage && company.selected && (!company.historicalRanking || company.historicalRanking.stageId !== state.stage)) ||
+    (company.historicalRanking?.stageId === state.stage && (!company.selected || company.stageId !== state.stage)));
+  const label = company => company.selected ? `Now ${company.stage} #${company.editorialRank}` : company.exclusionReason === "public" ? "Public company" : company.selectionStatus === "alternate" ? "Not selected" : company.recordStatus === "archived" ? "Acquired" : company.recordStatus === "stage-changed" ? `Now ${company.currentStage}` : "Under review";
+  return `<section class="edition-changes"><h3>Edition changes</h3>${changed.map(company => `<a href="${companyUrl(company)}"><span>${escapeHtml(company.name)}</span><small>${escapeHtml(label(company))}</small></a>`).join("")}<a class="text-link" href="?view=archive&stage=${state.stage}">22 Aug edition ${arrowIcon()}</a></section>`;
 }
 
 function filterOptions(values, selected, label) {
@@ -92,7 +93,7 @@ function renderRankingList() {
   const filtered = filteredCompanies();
   const displayed = filtered.slice(0, state.visibleCount);
   const remaining = filtered.length - displayed.length;
-  return `<section class="full-ranking" id="full-ranking" aria-labelledby="ranking-list-title"><div class="index-heading"><h2 id="ranking-list-title">Company index</h2><span>${filtered.length} companies</span></div>${renderFilterForm(records)}<div class="list-columns" aria-hidden="true"><span>#</span><span>Company</span><span>Latest round</span><span>Evidence</span></div><div id="ranking-preview" class="ranking-preview" hidden></div><div class="ranking-rows">${displayed.length ? displayed.map(renderListRow).join("") : `<div class="list-empty"><strong>No companies match.</strong><a href="?view=ranking&stage=${state.stage}" class="text-link">Clear filters</a></div>`}</div>${remaining ? `<div class="load-more-group"><button class="load-more" type="button" data-action="load-more">Load ${Math.min(10, remaining)} more ${chevronIcon()}</button><button class="text-link" type="button" data-action="show-all">Show all ${filtered.length}</button></div>` : ""}</section>`;
+  return `<section class="full-ranking" id="full-ranking" aria-labelledby="ranking-list-title"><div class="index-heading"><h2 id="ranking-list-title">Company index</h2><span>${filtered.length} companies</span></div>${renderFilterForm(records)}<div class="list-columns" aria-hidden="true"><span>#</span><span>Company</span><span>Named round</span><span>Evidence</span></div><div id="ranking-preview" class="ranking-preview" hidden></div><div class="ranking-rows">${displayed.length ? displayed.map(renderListRow).join("") : `<div class="list-empty"><strong>No companies match.</strong><a href="?view=ranking&stage=${state.stage}" class="text-link">Clear filters</a></div>`}</div>${remaining ? `<div class="load-more-group"><button class="load-more" type="button" data-action="load-more">Load ${Math.min(10, remaining)} more ${chevronIcon()}</button><button class="text-link" type="button" data-action="show-all">Show all ${filtered.length}</button></div>` : ""}</section>`;
 }
 
 function rankingPreviewMarkup(company) {
@@ -104,7 +105,7 @@ export function renderRanking() {
   const records = stageCompanies(state.stage);
   const filters = rankingFilters();
   const filtered = filters.query || [filters.category, filters.form, filters.region].some(value => value !== "all");
-  return `<main class="page-shell ranking-page" id="main"><section class="ranking-masthead"><div><h1>The ${escapeHtml(stage.label)} edition.</h1><p>${records.length} companies · Ranking ${formatDate(AS_OF)}</p></div><a class="text-link" href="?view=methodology">Methodology ${arrowIcon()}</a></section>${renderStageTabs()}<div id="stage-content">${filtered ? "" : renderStageCover()}<div class="journal-index-layout">${renderRankingList()}<aside class="journal-rail">${renderLatestUpdates()}${renderChanges()}<p class="edition-note">Evidence updated ${formatDate(REFRESH_DATE)}.<br>Editorial beta.</p></aside></div></div></main>`;
+  return `<main class="page-shell ranking-page" id="main"><section class="ranking-masthead"><div><h1>The ${escapeHtml(stage.label)} edition.</h1><p>${records.length} companies · Ranking ${formatDate(AS_OF)}</p><a class="text-link edition-history-link" href="?view=archive&stage=${state.stage}">Previous edition · 22 Aug 2026</a></div><a class="text-link" href="?view=methodology">Methodology ${arrowIcon()}</a></section>${renderStageTabs()}<div id="stage-content">${filtered ? "" : renderStageCover()}<div class="journal-index-layout">${renderRankingList()}<aside class="journal-rail">${renderLatestUpdates()}${renderChanges()}<p class="edition-note">${stage.eligibleCount} eligible candidates reviewed · ${stage.alternateCount} not selected.<br>Evidence updated ${formatDate(REFRESH_DATE)}.<br>Editorial beta.</p></aside></div></div></main>`;
 }
 
 export { filteredCompanies, rankingPreviewMarkup };

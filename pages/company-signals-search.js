@@ -8,12 +8,10 @@ import {
   companyRecordState,
   chevronIcon,
   closeIcon,
-  evidenceCoverage,
   escapeHtml,
   formatDate,
   latestPublicEvent,
   logo,
-  rankFor,
   searchIcon,
   signalLabel,
   sourceRecordState,
@@ -100,21 +98,8 @@ function signalTypeOptions() {
 
 function lifecycleLabel(company) {
   const recordState = companyRecordState(company);
-  return { archived: "Archived record", "stage-conflict": "Stage conflict under review", "stage-changed": `Now ${company.currentStage} · awaiting new ranking`, "under-review": "Operating status under review" }[recordState] || "";
+  return { archived: "Archived record", "stage-conflict": "Stage conflict under review", "stage-changed": `Now ${company.currentStage} · outside this index`, "not-selected": "Not selected this edition", "under-review": "Operating status under review" }[recordState] || "";
 }
-
-function companyWhySelected(company) {
-  const details = company?.companyDetails || {};
-  const candidates = [company?.whySelected, company?.selectionReason, company?.why, details.whySelected, details.selection?.why, company?.rankRationale];
-  for (const value of candidates) {
-    if (Array.isArray(value)) {
-      const item = value.find((entry) => entry?.detail || entry?.title);
-      if (item) return item.detail || item.title;
-    } else if (value && !/^not publicly observed$/i.test(String(value))) return String(value);
-  }
-  return "Top Seed’s editorial selection rationale was not publicly observed in this snapshot.";
-}
-
 
 function renderDetailFact(fact, omitTitle = false) {
   const reviewed = fact.lastReviewed || fact.source?.lastChecked || fact.source?.asOf || AS_OF;
@@ -154,13 +139,8 @@ function companyLensSpec(company) {
 export function renderCompanyRecordState(company) {
   const recordState = companyRecordState(company);
   if (!recordState) return "";
-  const date = company.refresh?.change?.source?.publicationDate;
-  const text = recordState === "stage-changed"
-    ? `Moved to ${company.currentStage}${date ? ` on ${formatDate(date)}` : ""}. Previous ${company.stage} rank: #${company.editorialRank}.`
-    : recordState === "archived" ? `Archived record${date ? ` · acquisition confirmed ${formatDate(date)}` : ""}.`
-    : recordState === "under-review" ? company.refresh?.change?.publicSummary || "Operating status under review."
-    : "Stage conflict under review.";
-  return `<aside class="record-state record-state--${recordState}" role="status"><p>${escapeHtml(text)}</p><a class="text-link" href="?view=corrections">View correction ${arrowIcon()}</a></aside>`;
+  const text = company.rankingReview?.rationale || ({ archived: "Archived record", "stage-conflict": "Stage conflict under review" }[recordState] || "Eligibility under review.");
+  return `<aside class="record-state record-state--${recordState}" role="status"><p>${escapeHtml(text)}</p><a class="text-link" href="?view=archive&stage=${company.historicalRanking?.stageId || company.stageId || "seed"}">Previous edition ${arrowIcon()}</a></aside>`;
 }
 
 
@@ -182,7 +162,7 @@ function renderCompanyProfile(company) {
     ["Products", company.products],
     ["Serves", company.audience],
   ].filter(([, value]) => value && value !== "Not publicly observed" && (!Array.isArray(value) || value.length));
-  return `<section class="company-profile-block" aria-labelledby="company-profile-title"><h2 id="company-profile-title">At a glance</h2><dl>${values.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${Array.isArray(value) ? value.map(escapeHtml).join("<br>") : escapeHtml(value)}</dd></div>`).join("")}</dl></section><section class="research-record"><h3>Research record</h3><p><a href="#sources">${sources.length} sources</a></p><p>Checked ${formatDate(company.refresh.checkedAt || AS_OF)}</p><p>Ranking ${formatDate(AS_OF)}</p><a class="text-link" href="${base}evidence/${company.id}.json" download="${company.id}-evidence.json">Download evidence ${arrowIcon()}</a><button id="rank-audit-trigger" class="text-link" type="button" data-action="open-rank-audit" data-company="${company.id}">Historical rank ${company.editorialRank} ${arrowIcon()}</button></section>`;
+  return `<section class="company-profile-block" aria-labelledby="company-profile-title"><h2 id="company-profile-title">At a glance</h2><dl>${values.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${Array.isArray(value) ? value.map(escapeHtml).join("<br>") : escapeHtml(value)}</dd></div>`).join("")}</dl></section><section class="research-record"><h3>Research record</h3><p><a href="#sources">${sources.length} sources</a></p><p>Checked ${formatDate(company.refresh.checkedAt || AS_OF)}</p><p>Ranking ${formatDate(AS_OF)}</p><a class="text-link" href="${base}evidence/${company.id}.json" download="${company.id}-evidence.json">Download evidence ${arrowIcon()}</a><button id="rank-audit-trigger" class="text-link" type="button" data-action="open-rank-audit" data-company="${company.id}">${company.selected ? `Rank #${company.editorialRank}` : "Selection review"} ${arrowIcon()}</button></section>`;
 }
 
 function renderCompanyGaps(company) {
@@ -206,7 +186,7 @@ function renderFundingHistory(company) {
   return `<div class="funding-history">${entries.map(event => {
     const isOriginal = event.id === `${company.id}-funding`;
     const isLatest = event.source.href === funding.source.href;
-    const round = isOriginal ? company.historicalFunding : isLatest ? funding : null;
+    const round = isLatest ? funding : isOriginal ? company.historicalFunding : null;
     const title = round ? `${round.amount} ${round.stage}` : event.title;
     const context = isLatest ? [funding.leadInvestor ? `Led by ${funding.leadInvestor}.` : "", funding.valuation ? `Valuation ${funding.valuation}.` : ""].filter(Boolean).join(" ") : "";
     return `<article><time datetime="${event.date}">${formatDate(event.date)}</time><div><strong>${escapeHtml(title)}</strong>${context ? `<p>${escapeHtml(context)}</p>` : ""}</div>${sourceLink(event.source, "Source")}</article>`;
@@ -228,7 +208,7 @@ function renderCompanyContext(company) {
 export function renderCompany() {
   const company = companyById(state.companyId);
   if (!company) return `<main class="page-shell" id="main"><section class="stage-empty"><h1>Company not found.</h1><a href="?view=search">Search companies</a></section></main>`;
-  return `<main class="page-shell company-page" id="main"><nav class="company-breadcrumb" aria-label="Breadcrumb"><a href="?view=search">Companies</a><span>/</span><span>${escapeHtml(company.name)}</span></nav><div class="company-article-layout"><div class="company-reading">${renderCompanyRank(company)}${renderCompanyRecordState(company)}${renderCompanyContext(company)}${renderCompanyEvents(company)}${renderSourceLedger(company)}${renderCompanyGaps(company)}</div><aside class="company-facts-rail">${renderCompanyProfile(company)}</aside></div></main>`;
+  return `<main class="page-shell company-page" id="main"><nav class="company-breadcrumb" aria-label="Breadcrumb"><a href="?view=search">Companies</a><span>/</span><span>${escapeHtml(company.name)}</span></nav><div class="company-article-layout"><div class="company-reading">${renderCompanyRank(company)}${renderCompanyRecordState(company)}${renderCompanyAssessment(company)}${renderCompanyContext(company)}${renderCompanyEvents(company)}${renderSourceLedger(company)}${renderCompanyGaps(company)}</div><aside class="company-facts-rail">${renderCompanyProfile(company)}</aside></div></main>`;
 }
 
 export function renderEvidenceDrawer(drawer) {
@@ -242,18 +222,19 @@ export function renderEvidenceDrawer(drawer) {
   return `<div class="drawer-backdrop" data-action="close-drawer"><aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" data-overlay-panel><button class="drawer-close" type="button" data-action="close-drawer" aria-label="Close evidence drawer">${closeIcon()}</button><span class="section-kicker">${escapeHtml(company.name)} · evidence</span><h2 id="drawer-title">${escapeHtml(eventItem.title || "Dated public event")}</h2><div class="drawer-facts"><div><span>Event date</span><strong>${formatDate(eventItem.date || publicationDate)}</strong></div><div><span>Source date</span><strong>${formatDate(publicationDate)}</strong></div><div><span>Type</span><strong>${signalLabel(eventItem.type, false)}</strong></div><div><span>Evidence state</span><strong>${escapeHtml(eventStatus(eventItem))}</strong></div><div><span>Relationship</span><strong>${escapeHtml(sourceState ? "Source unavailable · replacement under review" : eventRelationship(eventItem))}</strong></div></div><p class="drawer-detail">${escapeHtml(eventItem.detail || "Public detail not observed.")}</p><div class="drawer-source-block"><span class="section-kicker">Original source</span>${sourceLink(eventItem.source, eventItem.source?.label)}<small>Claim reviewed ${eventItem.lastReviewed || eventItem.source?.lastChecked || eventItem.source?.asOf || AS_OF}. Source relationship remains visible alongside evidence state.</small></div></aside></div>`;
 }
 
-function rankEvidence(company) {
-  return companyEvents(company).slice(0, 3);
+function renderCompanyAssessment(company) {
+  const previous = company.historicalRanking;
+  const history = previous ? `<p class="rank-history"><a href="?view=archive&stage=${previous.stageId}#archive-${company.id}">${formatDate(previous.date)} · ${escapeHtml(previous.stage)} #${previous.rank}</a></p>` : `<p class="rank-history">First appearance in Top Seed.</p>`;
+  return `<section class="company-section ranking-assessment" aria-labelledby="assessment-title"><h2 id="assessment-title">${company.selected ? `#${company.editorialRank} in ${escapeHtml(company.stage)}` : "Selection review"} · ${formatDate(AS_OF)}</h2>${company.selected ? `<p>${escapeHtml(company.rankingReview.rationale)}</p>` : ""}${history}${company.rankingCorrection ? `<p class="ranking-correction">${escapeHtml(company.rankingCorrection.note)} ${sourceLink(company.rankingCorrection.source, "Correction source")}</p>` : ""}<button class="text-link" type="button" data-action="open-rank-audit" data-company="${company.id}">Review ranking evidence ${arrowIcon()}</button></section>`;
 }
 
 export function renderRankAuditDrawer(drawer) {
   if (!drawer || drawer.type !== "rank") return "";
   const company = companyById(drawer.companyId);
   if (!company) return "";
-  const coverage = evidenceCoverage(company);
-  const recordState = companyRecordState(company);
-  const keyEvidence = rankEvidence(company).filter(event => event.date <= AS_OF && (!event.lastReviewed || event.lastReviewed <= AS_OF));
-  return `<div class="drawer-backdrop" data-action="close-drawer"><aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" data-overlay-panel><button class="drawer-close" type="button" data-action="close-drawer" aria-label="Close rank audit">${closeIcon()}</button><span class="section-kicker">${escapeHtml(company.name)} · rank review</span><h2 id="drawer-title">Historical rank review · ${AS_OF}</h2><p class="drawer-rationale">${escapeHtml(companyWhySelected(company))}</p><div class="drawer-facts"><div><span>Rank</span><strong>${recordState ? "No current rank" : `#${company.editorialRank} (${AS_OF})`}</strong></div><div><span>Stage</span><strong>${escapeHtml(company.currentStage || company.stage || "Stage not observed")}</strong></div><div><span>Dated signals</span><strong>${coverage.signalCount}</strong></div><div><span>Publication</span><strong>Editorial beta</strong></div></div><div class="rank-evidence"><span class="section-kicker">Key evidence</span>${keyEvidence.map((eventItem) => `<div class="rank-evidence-item"><div><strong>${escapeHtml(eventItem.title || "Dated public event")}</strong><small>${formatDate(eventItem.date || eventSourceDate(eventItem))} · ${escapeHtml(eventStatus(eventItem))} · ${escapeHtml(sourceRecordState(eventItem.source) ? "Source unavailable · replacement under review" : eventRelationship(eventItem))}</small></div>${sourceLink(eventItem.source, "Open source")}</div>`).join("")}</div><div class="drawer-source-block"><span class="section-kicker">Evidence policy</span><a href="?view=evidence-policy">Read evidence policy</a></div></aside></div>`;
+  const previous = company.historicalRanking;
+  const history = previous ? `${formatDate(previous.date)} · ${previous.stage} #${previous.rank}` : "New to this index";
+  return `<div class="drawer-backdrop" data-action="close-drawer"><aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" data-overlay-panel><button class="drawer-close" type="button" data-action="close-drawer" aria-label="Close rank audit">${closeIcon()}</button><span class="section-kicker">${escapeHtml(company.name)} · editorial assessment</span><h2 id="drawer-title">Ranking review · ${formatDate(AS_OF)}</h2><p class="drawer-rationale">${escapeHtml(company.rankingReview.rationale)}</p><div class="drawer-facts"><div><span>Current rank</span><strong>${company.selected ? `#${company.editorialRank} · ${escapeHtml(company.stage)}` : "Not ranked"}</strong></div><div><span>Previous edition</span><strong>${escapeHtml(history)}</strong></div></div><div class="rank-evidence"><span class="section-kicker">Supporting evidence</span>${company.rankingReview.evidence.map(item => `<div class="rank-evidence-item"><div><strong>${escapeHtml(item.claim)}</strong><small>${escapeHtml(item.relationship)} · ${escapeHtml(item.evidenceState)}${item.publicationDate ? ` · ${formatDate(item.publicationDate)}` : ""}</small></div>${sourceLink(item, "Source")}</div>`).join("")}</div><div class="drawer-source-block"><a href="?view=methodology">Qualitative judgment · methodology</a></div></aside></div>`;
 }
 
 function publicSignalRows() {
