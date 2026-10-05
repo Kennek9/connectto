@@ -1,7 +1,10 @@
 import assert from "node:assert/strict";
-import { AS_OF, COMPANIES, COMPANY_BY_ID, COHORT_METADATA, ENRICHED_SEED_IDS, FALLBACK_ONLY_LOGO_HOSTS, STAGE_ORDER } from "../data.js";
-import { eventAgeDays, logo, rankedCompanies } from "../shared.js";
+import { AS_OF, SNAPSHOT_COMPANIES as COMPANIES, COHORT_METADATA, ENRICHED_SEED_IDS, FALLBACK_ONLY_LOGO_HOSTS, STAGE_ORDER } from "../data.js";
+import { eventAgeDays, logo } from "../shared.js";
 
+// The original edition remains immutable; current facts are checked in check-refresh.mjs.
+const COMPANY_BY_ID = Object.fromEntries(COMPANIES.map(company => [company.id, company]));
+const rankedCompanies = stage => COMPANIES.filter(company => company.stageId === stage).sort((a, b) => a.editorialRank - b.editorialRank);
 const errors = [];
 const expectedCutoff = "2026-08-22";
 const expectedStages = ["seed", "series-a", "series-b", "series-c"];

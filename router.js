@@ -1,7 +1,7 @@
 import { companyById, parseUrl, PUBLIC_STAGE_IDS, stageById, state, updateUrl } from "./state.js";
 import { renderFooter, renderHeader } from "./shell.js";
 import { filteredCompanies, renderRanking, rankingPreviewMarkup } from "./pages/ranking.js";
-import { renderCompany, renderEvidenceDrawer, renderLogoInspector, renderRankAuditDrawer, renderSearch, renderSignals } from "./pages/company-signals-search.js";
+import { renderCompany, renderEvidenceDrawer, renderRankAuditDrawer, renderSearch, renderSignals } from "./pages/company-signals-search.js";
 import { renderTrustPage } from "./pages/trust.js";
 
 const pageForView = () => {
@@ -26,7 +26,7 @@ function focusableElements(panel) {
 
 function trapOverlayFocus(event) {
   if (event.key !== "Tab") return;
-  const panel = document.querySelector("[data-overlay-panel]") || document.querySelector("#logo-inspector[open]");
+  const panel = document.querySelector("[data-overlay-panel]");
   if (!panel) return;
   const focusables = focusableElements(panel);
   if (!focusables.length) return;
@@ -44,23 +44,28 @@ function trapOverlayFocus(event) {
 export function render(options = {}) {
   const app = document.querySelector("#app");
   if (!app) return;
-  app.innerHTML = `${renderHeader()}${pageForView()}${renderFooter()}${renderEvidenceDrawer(state.drawer)}${renderRankAuditDrawer(state.drawer)}${renderLogoInspector()}`;
-  document.body.classList.toggle("has-overlay", Boolean(state.drawer || state.logoInspector));
+  app.innerHTML = `${renderHeader()}${pageForView()}${renderFooter()}${renderEvidenceDrawer(state.drawer)}${renderRankAuditDrawer(state.drawer)}`;
+  document.body.classList.toggle("has-overlay", Boolean(state.drawer));
   document.title = pageTitle();
-  if (options.restoreFocusId) requestAnimationFrame(() => document.getElementById(options.restoreFocusId)?.focus({ preventScroll: true }));
+  const basePath = new URL("./", import.meta.url).pathname;
+  for (const link of app.querySelectorAll('a[href^="?"]')) link.setAttribute("href", basePath + link.getAttribute("href"));
+  const company = state.view === "company" ? companyById(state.companyId) : null;
+  const description = company?.summary || "Explore AI companies, original sources, financing and product evidence.";
+  document.querySelector('meta[name="description"]')?.setAttribute("content", description);
+  document.querySelector('meta[property="og:title"]')?.setAttribute("content", document.title);
+  document.querySelector('meta[property="og:description"]')?.setAttribute("content", description);
+  if (options.restoreFocusId) requestAnimationFrame(() => {
+    const element = document.getElementById(options.restoreFocusId);
+    element?.focus({ preventScroll: true });
+    if (options.selection && element?.setSelectionRange) element.setSelectionRange(...options.selection);
+  });
   if (state.lens && state.view === "company") requestAnimationFrame(() => {
     const tabs = document.querySelector(".workspace-tabs");
     const active = document.querySelector(".workspace-tab.is-active");
     if (tabs && active) tabs.scrollLeft = Math.max(0, active.offsetLeft - Math.max(0, (tabs.clientWidth - active.offsetWidth) / 2));
   });
   if (state.signalId && state.view === "signals") requestAnimationFrame(() => document.getElementById(`signal-${state.signalId}`)?.scrollIntoView({ block: "center" }));
-  if (state.logoInspector) requestAnimationFrame(() => {
-    const dialog = document.querySelector("#logo-inspector");
-    if (!dialog) return;
-    if (!dialog.open) dialog.showModal();
-    dialog.querySelector(".logo-inspector-close")?.focus();
-    dialog.addEventListener("cancel", (event) => { event.preventDefault(); closeLogoInspector(); }, { once: true });
-  });
+
 }
 
 function setDrawer(drawer, returnFocusId = null) {
@@ -77,14 +82,6 @@ function closeDrawer() {
   render({ restoreFocusId: focusId });
 }
 
-function closeLogoInspector() {
-  const focusId = state.logoInspectorReturnFocusId;
-  const dialog = document.querySelector("#logo-inspector");
-  if (dialog?.open) dialog.close();
-  state.logoInspector = null;
-  state.logoInspectorReturnFocusId = null;
-  render({ restoreFocusId: focusId });
-}
 
 function handleInput(event) {
   const action = event.target.dataset.action;
@@ -92,7 +89,7 @@ function handleInput(event) {
   state.query = event.target.value;
   state.visibleCount = 10;
   updateUrl(false);
-  render({ restoreFocusId: event.target.id });
+  render({ restoreFocusId: event.target.id, selection: [event.target.selectionStart, event.target.selectionEnd] });
 }
 
 function handleChange(event) {
@@ -107,11 +104,9 @@ function handleClick(event) {
   const target = event.target.closest("[data-action]");
   if (!target) return;
   const action = target.dataset.action;
-  if (["open-evidence", "open-rank-audit", "close-drawer", "open-logo-inspector", "close-logo-inspector", "toggle-mobile-nav", "set-stage", "toggle-lens", "load-more", "load-more-signals", "load-more-search", "show-all", "reset-ranking-filter", "reset-signals-filter", "share"].includes(action)) event.preventDefault();
+  if (["open-evidence", "open-rank-audit", "close-drawer", "toggle-mobile-nav", "set-stage", "toggle-lens", "load-more", "load-more-signals", "load-more-search", "show-all", "reset-ranking-filter", "reset-signals-filter", "share"].includes(action)) event.preventDefault();
   if (action === "open-evidence") setDrawer({ type: "evidence", companyId: target.dataset.company, eventId: target.dataset.event }, target.id || null);
   if (action === "open-rank-audit") setDrawer({ type: "rank", companyId: target.dataset.company }, target.id || null);
-  if (action === "open-logo-inspector") { state.logoInspector = target.dataset.company; state.logoInspectorReturnFocusId = target.id || null; render(); }
-  if (action === "close-logo-inspector") closeLogoInspector();
   if (action === "close-drawer" && (event.target === target || target.classList.contains("drawer-close"))) closeDrawer();
   if (action === "toggle-mobile-nav") { state.mobileNav = !state.mobileNav; render({ restoreFocusId: target.id }); }
   if (action === "set-stage") {
@@ -135,14 +130,21 @@ function handleClick(event) {
   if (action === "load-more-search") { state.visibleCount += 10; render({ restoreFocusId: target.id }); }
   if (action === "show-all") { state.visibleCount = filteredCompanies().length; render({ restoreFocusId: target.id }); }
   if (action === "reset-ranking-filter") { state.query = ""; state.category = "all"; state.visibleCount = 10; updateUrl(false); render(); }
-  if (action === "reset-signals-filter") { state.query = ""; state.signalId = ""; state.visibleCount = 10; updateUrl(false); render(); }
+  if (action === "reset-signals-filter") { const url = new URL(window.location.href); url.searchParams.delete("signalType"); window.history.replaceState({}, "", url); state.query = ""; state.signalId = ""; state.visibleCount = 10; updateUrl(false); render(); }
   if (action === "share") navigator.clipboard?.writeText(window.location.href).then(() => { state.toast = "Link copied"; render(); window.setTimeout(() => { state.toast = ""; render(); }, 1600); }).catch(() => { state.toast = "Copy unavailable"; render(); });
 }
 
 function handleKeydown(event) {
+  if (["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key) && event.target.matches('[role="tab"]')) {
+    const tabs = [...event.target.closest('[role="tablist"]').querySelectorAll('[role="tab"]')];
+    const index = tabs.indexOf(event.target);
+    const next = event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : (index + (event.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+    event.preventDefault();
+    tabs[next].click();
+    return;
+  }
   if (event.key === "Tab") trapOverlayFocus(event);
   if (event.key === "Escape") {
-    if (state.logoInspector) { closeLogoInspector(); event.preventDefault(); return; }
     if (state.drawer) { closeDrawer(); event.preventDefault(); return; }
     if (state.lens) { const focusId = document.activeElement?.id || `lens-toggle-${state.lens}`; state.lens = null; updateUrl(false); render({ restoreFocusId: focusId }); event.preventDefault(); return; }
     if (state.mobileNav) { state.mobileNav = false; render({ restoreFocusId: "mobile-menu-trigger" }); event.preventDefault(); return; }
@@ -186,6 +188,6 @@ export function startApp() {
   document.addEventListener("pointerout", (event) => { const row = event.target.closest?.(".ranking-row"); if (row && !row.contains(event.relatedTarget)) queuePreviewHide(); });
   document.addEventListener("focusin", (event) => { if (event.target.closest?.(".ranking-row")) showRankingPreview(event.target); });
   document.addEventListener("focusout", (event) => { if (event.target.closest?.(".ranking-row")) queuePreviewHide(); });
-  window.addEventListener("popstate", () => { state.drawer = null; state.logoInspector = null; state.logoInspectorReturnFocusId = null; parseUrl(); render(); });
+  window.addEventListener("popstate", () => { state.drawer = null; parseUrl(); render(); });
   render();
 }

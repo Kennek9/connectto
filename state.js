@@ -22,7 +22,7 @@ export const CATEGORY_OPTIONS = [
   "Vertical Applications",
   "AI Science, Biotech & Healthcare",
 ];
-export const LENS_IDS = ["business", "capital", "traction", "technology", "team-network"];
+export const LENS_IDS = ["overview", "business", "capital", "traction", "technology", "team-network"];
 
 export const state = {
   view: "ranking",
@@ -34,8 +34,6 @@ export const state = {
   drawer: null,
   mobileNav: false,
   returnFocusId: null,
-  logoInspector: null,
-  logoInspectorReturnFocusId: null,
   lens: null,
   stageTransition: false,
   companyId: "airweave",
@@ -59,7 +57,8 @@ export function defaultCompanyId(stageId = state.stage) {
 }
 
 export function companyUrl(company) {
-  return `?view=company&stage=${encodeURIComponent(company.stageId)}&company=${encodeURIComponent(company.id)}`;
+  const base = new URL(import.meta.url).protocol === "file:" ? "/" : new URL("./", import.meta.url).pathname;
+  return `${base}companies/${encodeURIComponent(company.id)}/`;
 }
 
 export function signalUrl(company, eventItem) {
@@ -68,7 +67,8 @@ export function signalUrl(company, eventItem) {
 
 export function parseUrl() {
   const url = new URL(window.location.href);
-  const requestedView = url.searchParams.get("view");
+  const pathCompany = url.pathname.match(/\/companies\/([^/]+)\/(?:index\.html)?$/)?.[1];
+  const requestedView = url.searchParams.get("view") || (pathCompany ? "company" : null);
   const requestedStage = url.searchParams.get("stage");
   state.view = PUBLIC_VIEW_IDS.includes(requestedView) ? requestedView : "ranking";
   state.stage = isPublicStage(requestedStage) ? requestedStage : "seed";
@@ -77,12 +77,11 @@ export function parseUrl() {
   state.signalId = url.searchParams.get("signal") || "";
   state.drawer = null;
   state.mobileNav = false;
-  state.logoInspector = null;
-  state.logoInspectorReturnFocusId = null;
   state.stageTransition = false;
   state.toast = "";
-  const requestedCompany = url.searchParams.get("company");
+  const requestedCompany = url.searchParams.get("company") || pathCompany;
   state.companyId = requestedCompany ? (companyById(requestedCompany)?.id || requestedCompany) : defaultCompanyId(state.stage) || "";
+  if (state.view === "company" && companyById(state.companyId)) state.stage = companyById(state.companyId).stageId;
   let requestedLens = "";
   try { requestedLens = url.hash.startsWith("#lens=") ? decodeURIComponent(url.hash.slice(6)) : ""; } catch { requestedLens = ""; }
   state.lens = LENS_IDS.includes(requestedLens) && state.view === "company" ? requestedLens : null;
@@ -91,6 +90,7 @@ export function parseUrl() {
 
 export function updateUrl(push = true) {
   const url = new URL(window.location.href);
+  const signalType = url.searchParams.get("signalType");
   url.search = "";
   if (state.view === "ranking") {
     url.searchParams.set("view", "ranking");
@@ -108,6 +108,7 @@ export function updateUrl(push = true) {
       url.searchParams.set("stage", state.stage);
     }
   } else if (state.view === "signals") {
+    if (signalType) url.searchParams.set("signalType", signalType);
     url.searchParams.set("view", "signals");
     url.searchParams.set("stage", state.stage);
     if (state.query) url.searchParams.set("q", state.query);

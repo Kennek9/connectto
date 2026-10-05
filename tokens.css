@@ -1,34 +1,35 @@
-/* Hallmark · token source · custom light research · light / roman-serif / chromatic-green ~150° */
+/* Hallmark · token source · Editorial Journal · light / Newsreader / burgundy */
 :root {
-  --color-paper: oklch(97% 0.012 145);
-  --color-paper-2: oklch(94% 0.014 145);
-  --color-paper-3: oklch(91% 0.016 145);
-  --color-ink: oklch(20% 0.018 150);
-  --color-ink-2: oklch(31% 0.015 150);
-  --color-rule: oklch(84% 0.014 145);
-  --color-rule-2: oklch(73% 0.014 145);
-  --color-muted: oklch(49% 0.014 150);
-  --color-neutral: oklch(39% 0.014 150);
-  --color-accent: oklch(87% 0.18 116);
-  --color-accent-strong: oklch(47% 0.14 150);
-  --color-accent-ink: oklch(20% 0.018 150);
-  --color-focus: oklch(54% 0.18 150);
-  --color-scrim: oklch(20% 0.018 150 / .56);
-  --color-selection: oklch(87% 0.18 116);
-  --color-verified-halo: oklch(47% 0.14 150 / .12);
+  --color-paper: #f7f3e8;
+  --paper-texture: url("assets/paper-grain.svg");
+  --color-paper-2: #f0eeea;
+  --color-paper-3: #e8e5df;
+  --color-ink: #24251f;
+  --color-ink-2: #41413d;
+  --color-rule: #dedbd5;
+  --color-rule-2: #b9b6ae;
+  --color-muted: #6c6c65;
+  --color-neutral: #565650;
+  --color-accent: #f1e4e8;
+  --color-accent-strong: #7b243b;
+  --color-accent-ink: #24251f;
+  --color-focus: #7b243b;
+  --color-scrim: oklch(25% 0.008 70 / .48);
+  --color-selection: #f1e4e8;
+  --color-verified-halo: #f1e4e8;
 
-  --font-display: "Baskerville", "Iowan Old Style", "Times New Roman", serif;
-  --font-body: "Avenir Next", "Helvetica Neue", sans-serif;
+  --font-display: "Newsreader", "Iowan Old Style", serif;
+  --font-body: "Manrope", "Avenir Next", sans-serif;
   --font-outlier: var(--font-body);
   --font-weight-regular: 400;
   --font-weight-medium: 600;
   --font-weight-bold: 700;
-  --display-leading: .96;
+  --display-leading: 1.05;
   --editorial-leading: 1.56;
   --ui-leading: 1.3;
   --mono-leading: 1.45;
   --display-tracking: -.035em;
-  --meta-tracking: .09em;
+  --meta-tracking: .025em;
 
   --text-xs: .75rem;
   --text-sm: .875rem;
@@ -38,7 +39,7 @@
   --text-xl: 1.9531rem;
   --text-2xl: 2.4414rem;
   --text-3xl: 3.0518rem;
-  --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-display: clamp(2.5rem, 4vw, 3.75rem);
 
   --space-3xs: .125rem;
   --space-2xs: .25rem;
@@ -51,11 +52,18 @@
   --space-3xl: 6rem;
   --space-4xl: 9rem;
 
+  --color-notice: #f5eaed;
+  --color-on-accent: #f7f3e8;
+  --space-5: 1.25rem;
+  --space-7: 1.75rem;
+  --space-9: 2.25rem;
+  --space-12: 3rem;
+  --space-14: 3.5rem;
   --rule-hair: .5px;
   --rule-fine: 1px;
-  --radius-card: 0;
+  --radius-card: 3px;
   --radius-pill: 0;
-  --radius-input: 0;
+  --radius-input: 3px;
 
   --ease-out: cubic-bezier(.16, 1, .3, 1);
   --ease-in: cubic-bezier(.7, 0, .84, 0);
@@ -64,8 +72,8 @@
   --dur-short: 220ms;
   --dur-long: 420ms;
 
-  --layout-max: 1320px;
-  --layout-gutter: clamp(1rem, 4vw, 2rem);
+  --layout-max: 1380px;
+  --layout-gutter: clamp(1rem, 4vw, 3rem);
   --hit: 44px;
   --cover-mark-size: 56px;
   --z-base: 1;
