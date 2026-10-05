@@ -1,0 +1,56 @@
+{
+  "version": "1.1.0",
+  "scannedAt": "2026-10-05",
+  "project": "Top Seed",
+  "framework": "vanilla HTML/CSS/JavaScript",
+  "entry": "index.html",
+  "routes": [
+    "ranking",
+    "signals",
+    "search",
+    "company",
+    "methodology",
+    "evidence-policy",
+    "corrections",
+    "about"
+  ],
+  "pageModules": [
+    "pages/ranking.js",
+    "pages/company-signals-search.js",
+    "pages/trust.js"
+  ],
+  "fontStackBefore": {
+    "display": "Baskerville / Iowan Old Style / Georgia",
+    "body": "Georgia / Times New Roman",
+    "ui": "Arial Narrow / Helvetica Neue / Arial",
+    "mono": "SFMono-Regular / Menlo / Monaco / Consolas",
+    "remoteFonts": false
+  },
+  "paletteBefore": "Legacy hex Field Ledger tokens in styles.css; replaced by custom light-research OKLCH tokens.css.",
+  "motionBefore": "CSS-only transitions and animations; no framer-motion, GSAP, Motion, Lenis, Lottie, or animation dependency detected.",
+  "spacingBefore": "Existing 4px custom-property scale (--s1 through --s16).",
+  "dataBoundary": "200 sourced profiles, historical ranking preserved, current evidence updated separately.",
+  "hallmark": {
+    "genre": "editorial",
+    "theme": "Editorial Journal",
+    "macrostructure": "Ecosystem Index / reading column with facts rail",
+    "navigation": "N9 restrained wordmark with three destinations",
+    "footer": "Ft2 inline",
+    "enrichment": "none",
+    "motion": "none"
+  },
+  "ownedFiles": [
+    "DESIGN.md",
+    "tokens.css",
+    "editorial.css",
+    "shell.js",
+    "pages/ranking.js",
+    "pages/company-signals-search.js",
+    "pages/evidence.js",
+    "pages/trust.js"
+  ],
+  "unownedWorkspaceChanges": [
+    ".agents/",
+    "skills-lock.json"
+  ]
+}

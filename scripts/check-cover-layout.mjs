@@ -1,43 +1,41 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
+import { renderRanking } from "../pages/ranking.js";
+import { state } from "../state.js";
 
-const [css, app] = await Promise.all([readFile("styles.css", "utf8"), readFile("pages/ranking.js", "utf8")]);
-const rule = css.match(/\.cover-profile-top\s*\{([^}]*)\}/)?.[1] || "";
-const fundingRule = css.match(/\.cover-funding\s*\{([^}]*)\}/)?.[1] || "";
-const updatesRule = css.match(/\.update-item\s*\{([^}]*)\}/)?.[1] || "";
-const updateTriggerRule = css.match(/\.update-item-trigger\s*\{([^}]*)\}/)?.[1] || "";
-const signalRule = css.match(/\.signal-row\s*\{([^}]*)\}/)?.[1] || "";
+// The approved editorial redesign replaces the old three-card cover.
+// Preserve ranked discovery and filter behavior; browser QA checks geometry.
+const before = { ...state };
+try {
+  state.stage = "seed";
+  state.query = "";
+  state.category = "all";
+  state.visibleCount = 10;
+  const index = renderRanking();
+  assert.match(index, /The Seed edition/);
+  assert.equal((index.match(/class="featured-company /g) || []).length, 3);
+  assert.equal((index.match(/class="ranking-row"/g) || []).length, 10);
+  assert.match(index, /aria-label="Funding stage"/);
+  assert.match(index, /id="stage-content"/);
+  assert.match(index, /id="ranking-list-title"/);
+  assert.match(index, /Recent evidence/);
+  assert.doesNotMatch(index, /Top three with the clearest proof|Evidence first\. Context visible/);
 
-assert.match(rule, /display:\s*grid/, "Top 3 identity header must use a stable grid");
-assert.match(rule, /grid-template-columns:\s*var\(--cover-mark-size\)\s+minmax\(0,\s*1fr\)\s+auto/, "Top 3 identity columns must reserve a fixed logo slot");
-assert.doesNotMatch(css, /grid-template-rows:\s*28px\s+(?:72|58)px/, "Top 3 identity rows must remain content-driven");
-assert.match(rule, /grid-template-areas:\s*"rank rank stage"\s*"mark title title"/, "Rank metadata and company identity must use separate rails");
-assert.match(rule, /align-items:\s*center/, "Top 3 logos and company names must share the same vertical center");
-assert.match(app, /cover-profile cover-profile--\$\{position\}/, "Top 3 cards must expose their position class for the tablet cover layout");
-assert.match(fundingRule, /grid-template-columns:\s*minmax\(min-content,\s*1fr\)\s+minmax\(0,\s*1fr\)/, "Funding facts must reserve a token-safe amount column and flexible stage column");
-assert.match(css, /\.cover-funding\s+strong\s*\{[^}]*grid-column:\s*1\s*;/s, "Funding amount must stay in the first value column");
-assert.match(css, /\.cover-funding\s+strong\s*\{[^}]*word-break:\s*normal/s, "Funding amount tokens must wrap only at natural word boundaries");
-assert.match(css, /\.cover-funding\s+b\s*\{[^}]*grid-column:\s*2\s*;/s, "Funding stage must stay in the second value column");
-assert.match(css, /\.cover-funding\s+\.source-link\s*\{[^}]*grid-column:\s*1\s*\/\s*-1\s*;/s, "Funding source must occupy its own full-width row");
-assert.match(updatesRule, /grid-template-columns:\s*minmax\(0,\s*1fr\)\s+auto/, "Update wrapper must reserve content and source columns");
-assert.match(updateTriggerRule, /display:\s*grid/, "Update trigger must own the icon/content/chevron grid");
-assert.match(updateTriggerRule, /grid-template-columns:\s*36px\s+minmax\(0,\s*1fr\)\s+16px/, "Update trigger must keep its three internal columns");
-assert.match(app, /class="update-item-trigger"/, "Update wrapper must contain a dedicated trigger");
-assert.match(app, /class="update-source"/, "Update wrapper must contain a dedicated source rail");
-assert.match(css, /\.cover-profile-top\s+h2\s*\{[^}]*word-break:\s*normal/s, "Long Top 3 names must wrap at word boundaries");
-assert.match(signalRule, /grid-template-columns:[^;]*44px\s*;/, "Signal rows must reserve the full 44px action target");
-assert.match(css, /\.nav-link\s*\{[^}]*min-width:\s*var\(--hit\)/s, "Primary navigation links must meet the 44px touch target");
-assert.match(css, /\.source-link\s*\{[^}]*min-width:\s*var\(--hit\)/s, "Source links must meet the 44px touch target");
-assert.match(css, /\.signal-row-mark\s*\{[^}]*min-width:\s*var\(--hit\)/s, "Signal company marks must meet the 44px touch target");
-assert.match(css, /\.signal-filter\s*\{[^}]*min-height:\s*var\(--hit\)/s, "Signal filters must meet the 44px touch target");
-assert.match(css, /\.signal-row-date small, \.detail-fact-meta small\s*\{[^}]*font:\s*inherit/s, "Metadata small text must preserve the 12px metadata floor");
-assert.match(app, /: `<span class="row-signal row-signal--missing">/, "Missing signal rows must keep the direct-child fallback markup");
-assert.match(css, /\.row-signal-wrap\s*>\s*\.row-signal\s*\{[^}]*grid-column:\s*1\s*;/s, "Only wrapped signal controls may use the mobile inner signal column");
-assert.doesNotMatch(css, /^\s*\.row-signal\s*\{\s*grid-column:\s*1\s*;/m, "Direct missing signal rows must not be placed in the rank column");
-assert.doesNotMatch(app, /\sstyle\s*=/, "Lead proof markup must not carry inline style declarations");
-assert.match(css, /\.cover-lead-proof\s*\{[^}]*margin-top:\s*0[^}]*padding-top:\s*var\(--s1\)[^}]*gap:\s*var\(--s1\)/s, "Lead proof spacing must use the shared compact tokens");
-assert.match(css, /\.cover-lead-proof\s*>\s*a:not\(\.source-link\)\s*\{[^}]*gap:\s*var\(--s2\)/s, "Lead proof evidence link must use the shared small gap token");
-assert.match(css, /\.source-link\s*\{[^}]*display:\s*inline-flex/s, "Source links must retain the shared inline-flex treatment");
-assert.doesNotMatch(css, /\.cover-lead-proof\s*>\s*a\s*\{/, "Lead proof source links must not inherit the main evidence grid");
+  state.query = "Bauplan";
+  const filtered = renderRanking();
+  assert.equal((filtered.match(/class="ranking-row"/g) || []).length, 1);
+  assert.match(filtered, /aria-label="Rank 30"/);
+  assert.doesNotMatch(filtered, /class="featured-edition"/);
 
-console.log("Cover layout audit passed: Top 3, funding, and update sub-grids preserve content-driven wrapping and source rails.");
+  state.query = "Wafer";
+  assert.match(renderRanking(), /No companies match/);
+  state.query = "zz-no-company-zz";
+  assert.match(renderRanking(), /Clear filters/);
+} finally {
+  Object.assign(state, before);
+}
+const template = await readFile("index.html", "utf8");
+const build = await readFile("scripts/build.mjs", "utf8");
+assert.match(template, /href="editorial.css"/);
+assert.match(build, /editorial\.css/);
+console.log("Editorial index contract passed: featured records, complete index, stable filtered ranks, excluded records and style build wiring.");
