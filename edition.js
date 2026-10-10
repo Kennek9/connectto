@@ -63,6 +63,12 @@ const ADDITIONAL_EVENTS = {
     detail: "LiveKit announced the acquisition of Loophole Labs and its eight-person engineering team. Integration and faster agent startup are planned outcomes, not confirmed production results.",
     source: source("https://www.eznewswire.com/newsroom/livekit-acquires-loophole-labs-ai-agent-infrastructure", "Company-provided press release", "2026-09-24"),
   },
+  "typesafe-ai": {
+    id: "typesafe-ai-2026-09-15-seed", type: "funding", date: "2026-09-15",
+    title: "TypeSafe AI emerges from stealth with $40M Seed",
+    detail: "DCVC reported the $40M Seed financing alongside the Jev early-access launch. The later $870M Series A supersedes it as the current stage.",
+    source: source("https://www.dcvc.com/news-insights/typesafe-emerges-from-stealth-with-a-new-way-of-doing-ai/", "Investor announcement", "2026-09-15"),
+  },
 };
 
 export function adaptEditionCandidate(record, adaptCompany) {

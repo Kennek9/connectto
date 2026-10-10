@@ -14,7 +14,7 @@ export const REFRESHED_PROFILES = {
       "label": "Contextual AI product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -31,7 +31,7 @@ export const REFRESHED_PROFILES = {
       "label": "Apptronik product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -48,7 +48,7 @@ export const REFRESHED_PROFILES = {
       "label": "Fundamental product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -65,7 +65,7 @@ export const REFRESHED_PROFILES = {
       "label": "Lila Sciences product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -84,7 +84,7 @@ export const REFRESHED_PROFILES = {
       "label": "nexos.ai product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -102,7 +102,7 @@ export const REFRESHED_PROFILES = {
       "label": "Elicit product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -119,7 +119,7 @@ export const REFRESHED_PROFILES = {
       "label": "Peec AI product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -136,7 +136,7 @@ export const REFRESHED_PROFILES = {
       "label": "InOrbit.AI product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -153,7 +153,7 @@ export const REFRESHED_PROFILES = {
       "label": "7AI product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -170,7 +170,7 @@ export const REFRESHED_PROFILES = {
       "label": "Resolve AI product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -185,7 +185,7 @@ export const REFRESHED_PROFILES = {
       "label": "Toma product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     },
     "summary": "Applied research collective working on hardware and software, from research to working applications."
@@ -205,7 +205,7 @@ export const REFRESHED_PROFILES = {
       "label": "LangChain product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -222,7 +222,7 @@ export const REFRESHED_PROFILES = {
       "label": "PhysicsX product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     },
     "facts": [
@@ -236,7 +236,7 @@ export const REFRESHED_PROFILES = {
           "label": "PhysicsX",
           "relationship": "Company announcement",
           "publicationDate": "2026-06-08",
-          "lastChecked": "2026-10-05",
+          "lastChecked": "2026-10-10",
           "evidenceState": "Direct"
         },
         "lastReviewed": "2026-10-05",
@@ -253,7 +253,7 @@ export const REFRESHED_PROFILES = {
           "label": "PhysicsX",
           "relationship": "Company announcement",
           "publicationDate": "2026-06-08",
-          "lastChecked": "2026-10-05",
+          "lastChecked": "2026-10-10",
           "evidenceState": "Direct"
         },
         "lastReviewed": "2026-10-05",
@@ -275,7 +275,7 @@ export const REFRESHED_PROFILES = {
       "label": "TENEX.AI product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -293,7 +293,7 @@ export const REFRESHED_PROFILES = {
       "label": "Pinecone product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -311,7 +311,7 @@ export const REFRESHED_PROFILES = {
       "label": "Qdrant product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -328,7 +328,7 @@ export const REFRESHED_PROFILES = {
       "label": "Unstructured product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -348,7 +348,7 @@ export const REFRESHED_PROFILES = {
       "label": "Browserbase product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -366,7 +366,7 @@ export const REFRESHED_PROFILES = {
       "label": "Relevance AI product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -385,7 +385,7 @@ export const REFRESHED_PROFILES = {
       "label": "TechWolf product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -402,7 +402,7 @@ export const REFRESHED_PROFILES = {
       "label": "Noma Security product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -421,7 +421,7 @@ export const REFRESHED_PROFILES = {
       "label": "Tabs product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -440,7 +440,7 @@ export const REFRESHED_PROFILES = {
       "label": "Pika product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -458,7 +458,7 @@ export const REFRESHED_PROFILES = {
       "label": "Photoroom product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -478,7 +478,7 @@ export const REFRESHED_PROFILES = {
       "label": "Gamma product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -497,7 +497,7 @@ export const REFRESHED_PROFILES = {
       "label": "EnCharge AI product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -515,7 +515,7 @@ export const REFRESHED_PROFILES = {
       "label": "Positron product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     },
     "facts": [
@@ -529,7 +529,7 @@ export const REFRESHED_PROFILES = {
           "label": "Positron via PR Newswire",
           "relationship": "Company press release",
           "publicationDate": "2026-09-10",
-          "lastChecked": "2026-10-05",
+          "lastChecked": "2026-10-10",
           "evidenceState": "Direct"
         },
         "lastReviewed": "2026-10-05",
@@ -546,7 +546,7 @@ export const REFRESHED_PROFILES = {
           "label": "Positron via PR Newswire",
           "relationship": "Company press release",
           "publicationDate": "2026-09-10",
-          "lastChecked": "2026-10-05",
+          "lastChecked": "2026-10-10",
           "evidenceState": "Direct"
         },
         "lastReviewed": "2026-10-05",
@@ -572,7 +572,7 @@ export const REFRESHED_PROFILES = {
       "label": "Mistral AI product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     },
     "facts": [
@@ -586,7 +586,7 @@ export const REFRESHED_PROFILES = {
           "label": "Mistral AI",
           "relationship": "Company announcement",
           "publicationDate": "2026-09-08",
-          "lastChecked": "2026-10-05",
+          "lastChecked": "2026-10-10",
           "evidenceState": "Direct"
         },
         "lastReviewed": "2026-10-05",
@@ -603,7 +603,7 @@ export const REFRESHED_PROFILES = {
           "label": "Mistral AI",
           "relationship": "Company announcement",
           "publicationDate": "2026-09-08",
-          "lastChecked": "2026-10-05",
+          "lastChecked": "2026-10-10",
           "evidenceState": "Direct"
         },
         "lastReviewed": "2026-10-05",
@@ -627,7 +627,7 @@ export const REFRESHED_PROFILES = {
       "label": "Together AI product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -645,7 +645,7 @@ export const REFRESHED_PROFILES = {
       "label": "Nscale product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     },
     "facts": [
@@ -659,7 +659,7 @@ export const REFRESHED_PROFILES = {
           "label": "Nscale product website",
           "relationship": "Company product description",
           "evidenceState": "Direct",
-          "lastChecked": "2026-10-05",
+          "lastChecked": "2026-10-10",
           "publicationDate": null
         },
         "lastReviewed": "2026-10-05",
@@ -683,7 +683,7 @@ export const REFRESHED_PROFILES = {
       "label": "Exa product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -701,7 +701,7 @@ export const REFRESHED_PROFILES = {
       "label": "Figure product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     },
     "facts": [
@@ -716,7 +716,7 @@ export const REFRESHED_PROFILES = {
           "relationship": "Company announcement",
           "publicationDate": "2026-09-03",
           "evidenceState": "Direct",
-          "lastChecked": "2026-10-05"
+          "lastChecked": "2026-10-10"
         },
         "lastReviewed": "2026-10-05",
         "evidenceState": "Direct",
@@ -737,7 +737,7 @@ export const REFRESHED_PROFILES = {
       "label": "Waabi product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -754,7 +754,7 @@ export const REFRESHED_PROFILES = {
       "label": "Skild AI product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     },
     "facts": [
@@ -769,7 +769,7 @@ export const REFRESHED_PROFILES = {
           "relationship": "Company announcement",
           "publicationDate": "2026-09-10",
           "evidenceState": "Direct",
-          "lastChecked": "2026-10-05"
+          "lastChecked": "2026-10-10"
         },
         "lastReviewed": "2026-10-05",
         "evidenceState": "Direct",
@@ -786,7 +786,7 @@ export const REFRESHED_PROFILES = {
           "relationship": "Company announcement",
           "publicationDate": "2026-09-10",
           "evidenceState": "Direct",
-          "lastChecked": "2026-10-05"
+          "lastChecked": "2026-10-10"
         },
         "lastReviewed": "2026-10-05",
         "evidenceState": "Direct",
@@ -808,7 +808,7 @@ export const REFRESHED_PROFILES = {
       "label": "Rebellions product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -825,7 +825,7 @@ export const REFRESHED_PROFILES = {
       "label": "d-Matrix product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -842,7 +842,7 @@ export const REFRESHED_PROFILES = {
       "label": "FuriosaAI product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -860,7 +860,7 @@ export const REFRESHED_PROFILES = {
       "label": "Axelera AI product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -879,7 +879,7 @@ export const REFRESHED_PROFILES = {
       "label": "Deepgram product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -897,7 +897,7 @@ export const REFRESHED_PROFILES = {
       "label": "AssemblyAI product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -915,7 +915,7 @@ export const REFRESHED_PROFILES = {
       "label": "Writer product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -932,7 +932,7 @@ export const REFRESHED_PROFILES = {
       "label": "Anaconda product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -950,7 +950,7 @@ export const REFRESHED_PROFILES = {
       "label": "n8n product website",
       "relationship": "Company product description",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -968,7 +968,7 @@ export const REFRESHED_PROFILES = {
       "label": "Potato official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -985,7 +985,7 @@ export const REFRESHED_PROFILES = {
       "label": "Altertable official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1002,7 +1002,7 @@ export const REFRESHED_PROFILES = {
       "label": "Applied Labs official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1019,7 +1019,7 @@ export const REFRESHED_PROFILES = {
       "label": "Leaping AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1036,7 +1036,7 @@ export const REFRESHED_PROFILES = {
       "label": "Sphinx official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1054,7 +1054,7 @@ export const REFRESHED_PROFILES = {
       "label": "Presentations.ai official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1073,7 +1073,7 @@ export const REFRESHED_PROFILES = {
       "label": "PromptLayer official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1090,7 +1090,7 @@ export const REFRESHED_PROFILES = {
       "label": "Paid official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1107,7 +1107,7 @@ export const REFRESHED_PROFILES = {
       "label": "Bauplan official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1125,7 +1125,7 @@ export const REFRESHED_PROFILES = {
       "label": "Boltz official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1142,7 +1142,7 @@ export const REFRESHED_PROFILES = {
       "label": "Typedef official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1160,7 +1160,7 @@ export const REFRESHED_PROFILES = {
       "label": "Pulse AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1177,7 +1177,7 @@ export const REFRESHED_PROFILES = {
       "label": "Zephyr AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1194,7 +1194,7 @@ export const REFRESHED_PROFILES = {
       "label": "Synthetic official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1211,7 +1211,7 @@ export const REFRESHED_PROFILES = {
       "label": "Tako official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1229,7 +1229,7 @@ export const REFRESHED_PROFILES = {
       "label": "Inductive Bio official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1247,7 +1247,7 @@ export const REFRESHED_PROFILES = {
       "label": "Paxton AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1264,7 +1264,7 @@ export const REFRESHED_PROFILES = {
       "label": "Translucent AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1283,7 +1283,7 @@ export const REFRESHED_PROFILES = {
       "label": "Rocket.new official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1301,7 +1301,7 @@ export const REFRESHED_PROFILES = {
       "label": "Orchid Security official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1318,7 +1318,7 @@ export const REFRESHED_PROFILES = {
       "label": "Tracelight official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1337,7 +1337,7 @@ export const REFRESHED_PROFILES = {
       "label": "Fastbreak AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1356,7 +1356,7 @@ export const REFRESHED_PROFILES = {
       "label": "Blaxel official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1375,7 +1375,7 @@ export const REFRESHED_PROFILES = {
       "label": "Trigger.dev official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1392,7 +1392,7 @@ export const REFRESHED_PROFILES = {
       "label": "Altura official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1412,7 +1412,7 @@ export const REFRESHED_PROFILES = {
       "label": "Taito.ai official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1429,7 +1429,7 @@ export const REFRESHED_PROFILES = {
       "label": "Prophet Security official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1446,7 +1446,7 @@ export const REFRESHED_PROFILES = {
       "label": "Gradient Labs official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1463,7 +1463,7 @@ export const REFRESHED_PROFILES = {
       "label": "Town official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1480,7 +1480,7 @@ export const REFRESHED_PROFILES = {
       "label": "Automat official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1497,7 +1497,7 @@ export const REFRESHED_PROFILES = {
       "label": "Gravis Robotics official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1515,7 +1515,7 @@ export const REFRESHED_PROFILES = {
       "label": "Mastra official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1532,7 +1532,7 @@ export const REFRESHED_PROFILES = {
       "label": "Nebulock official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1549,7 +1549,7 @@ export const REFRESHED_PROFILES = {
       "label": "Eudia official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1566,7 +1566,7 @@ export const REFRESHED_PROFILES = {
       "label": "Vellum official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     },
     "summary": "Personal AI assistant with persistent memory, schedules and access across devices."
@@ -1584,7 +1584,7 @@ export const REFRESHED_PROFILES = {
       "label": "Deck official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1601,7 +1601,7 @@ export const REFRESHED_PROFILES = {
       "label": "Pipeshift official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1619,7 +1619,7 @@ export const REFRESHED_PROFILES = {
       "label": "Latent Labs official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1636,7 +1636,7 @@ export const REFRESHED_PROFILES = {
       "label": "Corridor official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1653,7 +1653,7 @@ export const REFRESHED_PROFILES = {
       "label": "Quilter official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1671,7 +1671,7 @@ export const REFRESHED_PROFILES = {
       "label": "Quibim official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1689,7 +1689,7 @@ export const REFRESHED_PROFILES = {
       "label": "Nomic Bio official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1706,7 +1706,7 @@ export const REFRESHED_PROFILES = {
       "label": "MemryX official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1723,7 +1723,7 @@ export const REFRESHED_PROFILES = {
       "label": "Cradle official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1741,7 +1741,7 @@ export const REFRESHED_PROFILES = {
       "label": "Sakana AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1758,7 +1758,7 @@ export const REFRESHED_PROFILES = {
       "label": "GrowthX official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1775,7 +1775,7 @@ export const REFRESHED_PROFILES = {
       "label": "XTEND official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1794,7 +1794,7 @@ export const REFRESHED_PROFILES = {
       "label": "GrayMatter Robotics official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1811,7 +1811,7 @@ export const REFRESHED_PROFILES = {
       "label": "Cassidy official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1828,7 +1828,7 @@ export const REFRESHED_PROFILES = {
       "label": "Baya Systems official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1846,7 +1846,7 @@ export const REFRESHED_PROFILES = {
       "label": "Mimica official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1864,7 +1864,7 @@ export const REFRESHED_PROFILES = {
       "label": "Pickle Robot official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1881,7 +1881,7 @@ export const REFRESHED_PROFILES = {
       "label": "Envisagenics official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1899,7 +1899,7 @@ export const REFRESHED_PROFILES = {
       "label": "Evertune official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1916,7 +1916,7 @@ export const REFRESHED_PROFILES = {
       "label": "WisdomAI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1933,7 +1933,7 @@ export const REFRESHED_PROFILES = {
       "label": "Dropzone AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1950,7 +1950,7 @@ export const REFRESHED_PROFILES = {
       "label": "Orbem official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1967,7 +1967,7 @@ export const REFRESHED_PROFILES = {
       "label": "OLIX official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -1985,7 +1985,7 @@ export const REFRESHED_PROFILES = {
       "label": "Cast AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2004,7 +2004,7 @@ export const REFRESHED_PROFILES = {
       "label": "Sardine official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2023,7 +2023,7 @@ export const REFRESHED_PROFILES = {
       "label": "Arize AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2042,7 +2042,7 @@ export const REFRESHED_PROFILES = {
       "label": "Bright Machines official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2059,7 +2059,7 @@ export const REFRESHED_PROFILES = {
       "label": "Verse official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2076,7 +2076,7 @@ export const REFRESHED_PROFILES = {
       "label": "Nabla official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2093,7 +2093,7 @@ export const REFRESHED_PROFILES = {
       "label": "Rillet official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2110,7 +2110,7 @@ export const REFRESHED_PROFILES = {
       "label": "Karius official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2128,7 +2128,7 @@ export const REFRESHED_PROFILES = {
       "label": "Hailo official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2146,7 +2146,7 @@ export const REFRESHED_PROFILES = {
       "label": "Observe.AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2164,7 +2164,7 @@ export const REFRESHED_PROFILES = {
       "label": "RobCo official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2181,7 +2181,7 @@ export const REFRESHED_PROFILES = {
       "label": "Gradial official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2199,7 +2199,7 @@ export const REFRESHED_PROFILES = {
       "label": "Encord official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2216,7 +2216,7 @@ export const REFRESHED_PROFILES = {
       "label": "Healx official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2233,7 +2233,7 @@ export const REFRESHED_PROFILES = {
       "label": "Rhombus official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2251,7 +2251,7 @@ export const REFRESHED_PROFILES = {
       "label": "Manifold official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2268,7 +2268,7 @@ export const REFRESHED_PROFILES = {
       "label": "Ibex official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2287,7 +2287,7 @@ export const REFRESHED_PROFILES = {
       "label": "Fiddler AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2306,7 +2306,7 @@ export const REFRESHED_PROFILES = {
       "label": "Helm.ai official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2324,7 +2324,7 @@ export const REFRESHED_PROFILES = {
       "label": "Patronus AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     },
     "summary": "Research and infrastructure for simulating digital workflows and training AI agents."
@@ -2342,7 +2342,7 @@ export const REFRESHED_PROFILES = {
       "label": "Bria official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2361,7 +2361,7 @@ export const REFRESHED_PROFILES = {
       "label": "You.com official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2379,7 +2379,7 @@ export const REFRESHED_PROFILES = {
       "label": "Unlearn official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2398,7 +2398,7 @@ export const REFRESHED_PROFILES = {
       "label": "Cohere Health official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2417,7 +2417,7 @@ export const REFRESHED_PROFILES = {
       "label": "Clay official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2435,7 +2435,7 @@ export const REFRESHED_PROFILES = {
       "label": "Unconventional AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2453,7 +2453,7 @@ export const REFRESHED_PROFILES = {
       "label": "Browser Use official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2470,7 +2470,7 @@ export const REFRESHED_PROFILES = {
       "label": "Argon AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2487,7 +2487,7 @@ export const REFRESHED_PROFILES = {
       "label": "Wafer official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2504,7 +2504,7 @@ export const REFRESHED_PROFILES = {
       "label": "Airweave official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2521,7 +2521,7 @@ export const REFRESHED_PROFILES = {
       "label": "Sycamore official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2539,7 +2539,7 @@ export const REFRESHED_PROFILES = {
       "label": "NeuralTrust official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2556,7 +2556,7 @@ export const REFRESHED_PROFILES = {
       "label": "Synthesize Bio official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2573,7 +2573,7 @@ export const REFRESHED_PROFILES = {
       "label": "Pramaana Labs official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2591,7 +2591,7 @@ export const REFRESHED_PROFILES = {
       "label": "dottxt official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2610,7 +2610,7 @@ export const REFRESHED_PROFILES = {
       "label": "FlexAI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2628,7 +2628,7 @@ export const REFRESHED_PROFILES = {
       "label": "NcodiN official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2645,7 +2645,7 @@ export const REFRESHED_PROFILES = {
       "label": "Lightium official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2662,7 +2662,7 @@ export const REFRESHED_PROFILES = {
       "label": "Maisa AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2679,7 +2679,7 @@ export const REFRESHED_PROFILES = {
       "label": "TAHO Labs official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2697,7 +2697,7 @@ export const REFRESHED_PROFILES = {
       "label": "Thinking Machines Lab official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2716,7 +2716,7 @@ export const REFRESHED_PROFILES = {
       "label": "Fish Audio official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2733,7 +2733,7 @@ export const REFRESHED_PROFILES = {
       "label": "Myria Biosciences official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2750,7 +2750,7 @@ export const REFRESHED_PROFILES = {
       "label": "elvex official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2767,7 +2767,7 @@ export const REFRESHED_PROFILES = {
       "label": "Archetype AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2784,7 +2784,7 @@ export const REFRESHED_PROFILES = {
       "label": "Zania official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2801,7 +2801,7 @@ export const REFRESHED_PROFILES = {
       "label": "Trilobio official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2818,7 +2818,7 @@ export const REFRESHED_PROFILES = {
       "label": "Cellbyte official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2835,7 +2835,7 @@ export const REFRESHED_PROFILES = {
       "label": "Differential Bio official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2852,7 +2852,7 @@ export const REFRESHED_PROFILES = {
       "label": "Azalea Robotics official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2869,7 +2869,7 @@ export const REFRESHED_PROFILES = {
       "label": "Liquid AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2886,7 +2886,7 @@ export const REFRESHED_PROFILES = {
       "label": "Argmax official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2903,7 +2903,7 @@ export const REFRESHED_PROFILES = {
       "label": "Lemurian Labs official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2920,7 +2920,7 @@ export const REFRESHED_PROFILES = {
       "label": "Scaled Cognition official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2938,7 +2938,7 @@ export const REFRESHED_PROFILES = {
       "label": "Medra official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2955,7 +2955,7 @@ export const REFRESHED_PROFILES = {
       "label": "Orbital Industries official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2972,7 +2972,7 @@ export const REFRESHED_PROFILES = {
       "label": "Botpress official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -2989,7 +2989,7 @@ export const REFRESHED_PROFILES = {
       "label": "Celero Communications official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3006,7 +3006,7 @@ export const REFRESHED_PROFILES = {
       "label": "Infinitus official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3024,7 +3024,7 @@ export const REFRESHED_PROFILES = {
       "label": "Manifold Labs official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3042,7 +3042,7 @@ export const REFRESHED_PROFILES = {
       "label": "Nuritas official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3060,7 +3060,7 @@ export const REFRESHED_PROFILES = {
       "label": "Mendaera official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3077,7 +3077,7 @@ export const REFRESHED_PROFILES = {
       "label": "Attention official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3094,7 +3094,7 @@ export const REFRESHED_PROFILES = {
       "label": "Speedata official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3112,7 +3112,7 @@ export const REFRESHED_PROFILES = {
       "label": "Dyna Robotics official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3129,7 +3129,7 @@ export const REFRESHED_PROFILES = {
       "label": "Isomorphic Labs official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3146,7 +3146,7 @@ export const REFRESHED_PROFILES = {
       "label": "Phaidra official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3163,7 +3163,7 @@ export const REFRESHED_PROFILES = {
       "label": "Expedera official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3180,7 +3180,7 @@ export const REFRESHED_PROFILES = {
       "label": "PathAI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3198,7 +3198,7 @@ export const REFRESHED_PROFILES = {
       "label": "Inception official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3216,7 +3216,7 @@ export const REFRESHED_PROFILES = {
       "label": "Dedalus Labs official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     },
     "summary": "Persistent compute environments for AI agents, with isolated Linux machines and retained runtime state.",
@@ -3235,7 +3235,7 @@ export const REFRESHED_PROFILES = {
       "label": "Arondite official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3252,7 +3252,7 @@ export const REFRESHED_PROFILES = {
       "label": "Scripta Therapeutics official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3269,7 +3269,7 @@ export const REFRESHED_PROFILES = {
       "label": "TensorZero official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3288,7 +3288,7 @@ export const REFRESHED_PROFILES = {
       "label": "Promise Bio official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3305,7 +3305,7 @@ export const REFRESHED_PROFILES = {
       "label": "Groq official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3323,7 +3323,7 @@ export const REFRESHED_PROFILES = {
       "label": "General Intuition official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3341,7 +3341,7 @@ export const REFRESHED_PROFILES = {
       "label": "Dyna.Ai official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3360,7 +3360,7 @@ export const REFRESHED_PROFILES = {
       "label": "Galatek official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3379,7 +3379,7 @@ export const REFRESHED_PROFILES = {
       "label": "Momentic indexed official page",
       "relationship": "Company page observed through search index",
       "evidenceState": "Reported",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3396,7 +3396,7 @@ export const REFRESHED_PROFILES = {
       "label": "Sekai indexed official page",
       "relationship": "Company page observed through search index",
       "evidenceState": "Reported",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3413,7 +3413,7 @@ export const REFRESHED_PROFILES = {
       "label": "Slingshot AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     },
     "website": "https://slingshotai.com/"
@@ -3431,7 +3431,7 @@ export const REFRESHED_PROFILES = {
       "label": "Odyssey official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3448,7 +3448,7 @@ export const REFRESHED_PROFILES = {
       "label": "Allen Control Systems official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3466,7 +3466,7 @@ export const REFRESHED_PROFILES = {
       "label": "Black Forest Labs official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3483,7 +3483,7 @@ export const REFRESHED_PROFILES = {
       "label": "Collaborative Robotics official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3500,7 +3500,7 @@ export const REFRESHED_PROFILES = {
       "label": "Terray Therapeutics official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3519,7 +3519,7 @@ export const REFRESHED_PROFILES = {
       "label": "EdgeCortix official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3537,7 +3537,7 @@ export const REFRESHED_PROFILES = {
       "label": "Hebbia official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3557,7 +3557,7 @@ export const REFRESHED_PROFILES = {
       "label": "Luma AI official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3574,7 +3574,7 @@ export const REFRESHED_PROFILES = {
       "label": "Harmonic official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3594,7 +3594,7 @@ export const REFRESHED_PROFILES = {
       "label": "Render official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3612,7 +3612,7 @@ export const REFRESHED_PROFILES = {
       "label": "CodeRabbit official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3630,7 +3630,7 @@ export const REFRESHED_PROFILES = {
       "label": "Norm Ai official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3647,7 +3647,7 @@ export const REFRESHED_PROFILES = {
       "label": "Starship Technologies official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3664,7 +3664,7 @@ export const REFRESHED_PROFILES = {
       "label": "Ultromics official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3682,7 +3682,7 @@ export const REFRESHED_PROFILES = {
       "label": "Deep Genomics official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3699,7 +3699,7 @@ export const REFRESHED_PROFILES = {
       "label": "Proximie official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   },
@@ -3716,7 +3716,7 @@ export const REFRESHED_PROFILES = {
       "label": "Certis Oncology official source",
       "relationship": "Company material",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "publicationDate": null
     }
   }

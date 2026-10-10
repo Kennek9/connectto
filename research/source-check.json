@@ -1,9 +1,9 @@
 {
-  "checkedAt": "2026-10-05T11:08:51.314Z",
+  "checkedAt": "2026-10-10T07:58:21.676Z",
   "scope": "HTTP accessibility only; 403, timeouts, and network failures do not prove that a source is dead or a claim is false.",
   "counts": {
-    "reachable": 884,
-    "access-unconfirmed": 57,
+    "reachable": 904,
+    "access-unconfirmed": 47,
     "not-found": 1
   },
   "results": [
@@ -344,6 +344,12 @@
       "result": "reachable"
     },
     {
+      "url": "https://bfl.ai/blog/flux-3-action",
+      "status": 206,
+      "finalUrl": "https://bfl.ai/models/flux-3-action",
+      "result": "reachable"
+    },
+    {
       "url": "https://bfl.ai/blog/our-300m-series-b",
       "status": 206,
       "finalUrl": "https://bfl.ai/blog/our-300m-series-b",
@@ -669,15 +675,15 @@
     },
     {
       "url": "https://dedaluslabs.pro/",
-      "status": null,
-      "result": "access-unconfirmed",
-      "error": "TimeoutError"
+      "status": 206,
+      "finalUrl": "https://dedaluslabs.pro/",
+      "result": "reachable"
     },
     {
       "url": "https://dedaluslabs.pro/blog/dedalus-seed-round",
-      "status": null,
-      "result": "access-unconfirmed",
-      "error": "TimeoutError"
+      "status": 206,
+      "finalUrl": "https://dedaluslabs.pro/blog/dedalus-seed-round",
+      "result": "reachable"
     },
     {
       "url": "https://deepgram.com/",
@@ -830,6 +836,12 @@
       "result": "reachable"
     },
     {
+      "url": "https://exa.ai/blog/atlas-benchmark",
+      "status": 206,
+      "finalUrl": "https://exa.ai/blog/atlas-benchmark",
+      "result": "reachable"
+    },
+    {
       "url": "https://exa.ai/blog/exa-api-2-1",
       "status": 206,
       "finalUrl": "https://exa.ai/blog/exa-api-2-1",
@@ -885,15 +897,15 @@
     },
     {
       "url": "https://fish.audio/",
-      "status": null,
-      "result": "access-unconfirmed",
-      "error": "TypeError"
+      "status": 200,
+      "finalUrl": "https://fish.audio/",
+      "result": "reachable"
     },
     {
       "url": "https://fish.audio/zh-CN/blog/s2-1-pro-free-api/",
-      "status": null,
-      "result": "access-unconfirmed",
-      "error": "TypeError"
+      "status": 200,
+      "finalUrl": "https://fish.audio/zh-CN/blog/s2-1-pro-free-api/",
+      "result": "reachable"
     },
     {
       "url": "https://flex.ai/",
@@ -1155,20 +1167,20 @@
     },
     {
       "url": "https://healx.ai/",
-      "status": 200,
+      "status": 206,
       "finalUrl": "https://healx.ai/",
       "result": "reachable"
     },
     {
       "url": "https://healx.ai/about/",
-      "status": 200,
-      "finalUrl": "https://healx.ai/about/",
+      "status": 206,
+      "finalUrl": "https://healx.ai/",
       "result": "reachable"
     },
     {
       "url": "https://healx.ai/healx-announces-47-million-series-c-financing-and-fda-clearance-of-phase-2-ind-for-neurofibromatosis-type-1-trial/",
-      "status": 200,
-      "finalUrl": "https://healx.ai/healx-announces-47-million-series-c-financing-and-fda-clearance-of-phase-2-ind-for-neurofibromatosis-type-1-trial/",
+      "status": 206,
+      "finalUrl": "https://healx.ai/",
       "result": "reachable"
     },
     {
@@ -1209,9 +1221,9 @@
     },
     {
       "url": "https://humansand.ai/",
-      "status": 200,
-      "finalUrl": "https://humansand.ai/",
-      "result": "reachable"
+      "status": null,
+      "result": "access-unconfirmed",
+      "error": "TypeError"
     },
     {
       "url": "https://ibex-ai.com/",
@@ -1514,6 +1526,12 @@
       "result": "reachable"
     },
     {
+      "url": "https://mistral.ai/news/mistral-large-4/",
+      "status": 206,
+      "finalUrl": "https://mistral.ai/news/mistral-large-4/",
+      "result": "reachable"
+    },
+    {
       "url": "https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/",
       "status": 206,
       "finalUrl": "https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/",
@@ -1521,7 +1539,7 @@
     },
     {
       "url": "https://mistral.ai/news/voxtral/",
-      "status": 206,
+      "status": 200,
       "finalUrl": "https://mistral.ai/news/voxtral/",
       "result": "reachable"
     },
@@ -1617,31 +1635,31 @@
     },
     {
       "url": "https://neuraltrust.ai/",
-      "status": 200,
+      "status": 206,
       "finalUrl": "https://neuraltrust.ai/",
       "result": "reachable"
     },
     {
       "url": "https://neuraltrust.ai/careers",
-      "status": 200,
+      "status": 206,
       "finalUrl": "https://neuraltrust.ai/careers",
       "result": "reachable"
     },
     {
       "url": "https://neuraltrust.ai/news/introducing-the-generative-application-firewall-gaf",
-      "status": 200,
+      "status": 206,
       "finalUrl": "https://neuraltrust.ai/news/introducing-the-generative-application-firewall-gaf",
       "result": "reachable"
     },
     {
       "url": "https://neuraltrust.ai/news/neuraltrust-opens-new-london-office",
-      "status": 200,
+      "status": 206,
       "finalUrl": "https://neuraltrust.ai/news/neuraltrust-opens-new-london-office",
       "result": "reachable"
     },
     {
       "url": "https://neuraltrust.ai/news/neuraltrust-raises-20m",
-      "status": 200,
+      "status": 206,
       "finalUrl": "https://neuraltrust.ai/news/neuraltrust-raises-20m",
       "result": "reachable"
     },
@@ -1655,6 +1673,12 @@
       "url": "https://news.bloomberglaw.com/artificial-intelligence/spark-capital-jared-leto-back-ai-video-startup-pika",
       "status": 200,
       "finalUrl": "https://news.bloomberglaw.com/artificial-intelligence/spark-capital-jared-leto-back-ai-video-startup-pika",
+      "result": "reachable"
+    },
+    {
+      "url": "https://news.sap.com/2026/10/sap-to-acquire-techwolf-evidence-based-work-age-of-ai/",
+      "status": 206,
+      "finalUrl": "https://news.sap.com/2026/10/sap-to-acquire-techwolf-evidence-based-work-age-of-ai/",
       "result": "reachable"
     },
     {
@@ -1804,13 +1828,13 @@
     {
       "url": "https://patronus.ai/",
       "status": 200,
-      "finalUrl": "https://patronus.ai/",
+      "finalUrl": "https://www.patronus.ai/",
       "result": "reachable"
     },
     {
       "url": "https://patronus.ai/company",
       "status": 200,
-      "finalUrl": "https://patronus.ai/company",
+      "finalUrl": "https://www.patronus.ai/company",
       "result": "reachable"
     },
     {
@@ -2224,7 +2248,7 @@
     {
       "url": "https://sekaiapp.com/play/quantum-bounce-arena",
       "status": 206,
-      "finalUrl": "https://sekai.ai/play/quantum-bounce-arena",
+      "finalUrl": "https://sekai.ai/play/3e97a7f1-f39e-4fe6-8eac-d6dccd88f587",
       "result": "reachable"
     },
     {
@@ -2480,6 +2504,12 @@
       "result": "reachable"
     },
     {
+      "url": "https://techcrunch.com/2026/10/09/the-maker-of-non-text-ai-model-jev-valued-at-7-5b-just-weeks-after-launch/",
+      "status": 200,
+      "finalUrl": "https://techcrunch.com/2026/10/09/the-maker-of-non-text-ai-model-jev-valued-at-7-5b-just-weeks-after-launch/",
+      "result": "reachable"
+    },
+    {
       "url": "https://techwolf.ai/",
       "status": 200,
       "finalUrl": "https://www.techwolf.ai/",
@@ -2630,6 +2660,12 @@
       "result": "reachable"
     },
     {
+      "url": "https://typesafe.ai/blog/series-ai",
+      "status": 200,
+      "finalUrl": "https://typesafe.ai/blog/series-ai",
+      "result": "reachable"
+    },
+    {
       "url": "https://uk.linkedin.com/company/langchain",
       "status": 200,
       "finalUrl": "https://uk.linkedin.com/company/langchain",
@@ -2691,15 +2727,15 @@
     },
     {
       "url": "https://verse.inc/",
-      "status": null,
-      "result": "access-unconfirmed",
-      "error": "TypeError"
+      "status": 200,
+      "finalUrl": "https://verse.inc/",
+      "result": "reachable"
     },
     {
       "url": "https://verse.inc/blog/behind-the-meter-energy-storage-faster-data-center-interconnection",
-      "status": null,
-      "result": "access-unconfirmed",
-      "error": "TypeError"
+      "status": 200,
+      "finalUrl": "https://verse.inc/blog/behind-the-meter-energy-storage-faster-data-center-interconnection",
+      "result": "reachable"
     },
     {
       "url": "https://verse.inc/company/about",
@@ -2721,9 +2757,9 @@
     },
     {
       "url": "https://verse.inc/newsroom/series-b",
-      "status": null,
-      "result": "access-unconfirmed",
-      "error": "TypeError"
+      "status": 200,
+      "finalUrl": "https://verse.inc/newsroom/series-b",
+      "result": "reachable"
     },
     {
       "url": "https://via.tt.se/pressmeddelande/4237127/positron-ai-raises-dollar230-million-series-b-at-over-dollar1-billion-valuation-to-scale-energy-efficient-ai-inference?lang=en",
@@ -2931,13 +2967,13 @@
     },
     {
       "url": "https://www.assemblyai.com/blog/announcing-our-50m-series-c-to-build-superhuman-speech-ai-models",
-      "status": 200,
+      "status": 206,
       "finalUrl": "https://www.assemblyai.com/blog/announcing-our-50m-series-c-to-build-superhuman-speech-ai-models",
       "result": "reachable"
     },
     {
       "url": "https://www.assemblyai.com/blog/speech-language-model-and-improved-streaming-model",
-      "status": 200,
+      "status": 206,
       "finalUrl": "https://www.assemblyai.com/blog/speech-language-model-and-improved-streaming-model",
       "result": "reachable"
     },
@@ -3610,25 +3646,25 @@
     {
       "url": "https://www.eudia.com/news/eudia-collaborates-with-nvidia-to-transform-document-intelligence",
       "status": 200,
-      "finalUrl": "https://www.eudia.com/news/eudia-collaborates-with-nvidia-to-transform-document-intelligence",
+      "finalUrl": "https://www.eudia.com/newsroom/eudia-collaborates-with-nvidia-to-transform-document-intelligence",
       "result": "reachable"
     },
     {
       "url": "https://www.eudia.com/news/eudia-expanding-legal-reach-with-acquisition-of-out-house",
       "status": 200,
-      "finalUrl": "https://www.eudia.com/news/eudia-expanding-legal-reach-with-acquisition-of-out-house",
+      "finalUrl": "https://www.eudia.com/newsroom/eudia-expanding-legal-reach-with-acquisition-of-out-house",
       "result": "reachable"
     },
     {
       "url": "https://www.eudia.com/news/eudia-launches-unified-workspace-for-enterprise-legal-teams",
       "status": 200,
-      "finalUrl": "https://www.eudia.com/news/eudia-launches-unified-workspace-for-enterprise-legal-teams",
+      "finalUrl": "https://www.eudia.com/newsroom/eudia-launches-unified-workspace-for-enterprise-legal-teams",
       "result": "reachable"
     },
     {
       "url": "https://www.eudia.com/news/omar-haroun-honored-by-goldman-sachs-for-entrepreneurship",
       "status": 200,
-      "finalUrl": "https://www.eudia.com/news/omar-haroun-honored-by-goldman-sachs-for-entrepreneurship",
+      "finalUrl": "https://www.eudia.com/newsroom/omar-haroun-honored-by-goldman-sachs-for-entrepreneurship",
       "result": "reachable"
     },
     {
@@ -3737,6 +3773,12 @@
       "url": "https://www.figure.ai/news/production-at-bmw",
       "status": 206,
       "finalUrl": "https://www.figure.ai/news/production-at-bmw",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.financialcontent.com/article/bizwire-2026-10-6-diagrid-brings-durable-execution-to-n8n-so-workflows-resume-where-they-fail",
+      "status": 200,
+      "finalUrl": "https://www.financialcontent.com/article/bizwire-2026-10-6-diagrid-brings-durable-execution-to-n8n-so-workflows-resume-where-they-fail",
       "result": "reachable"
     },
     {
@@ -3999,13 +4041,13 @@
     },
     {
       "url": "https://www.infinitus.ai/blog/infinitus-named-a-fast-company-worlds-most-innovative-company-in-2025/",
-      "status": 206,
+      "status": 200,
       "finalUrl": "https://www.infinitus.ai/blog/infinitus-named-a-fast-company-worlds-most-innovative-company-in-2025/",
       "result": "reachable"
     },
     {
       "url": "https://www.infinitus.ai/category/product/",
-      "status": 206,
+      "status": 200,
       "finalUrl": "https://www.infinitus.ai/category/product/",
       "result": "reachable"
     },
@@ -4079,6 +4121,12 @@
       "url": "https://www.langchain.com/blog/langgraph-cloud",
       "status": 200,
       "finalUrl": "https://www.langchain.com/blog/langgraph-cloud",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.langchain.com/blog/managed-deep-agents-schedules-per-run-configuration-slack",
+      "status": 200,
+      "finalUrl": "https://www.langchain.com/blog/managed-deep-agents-schedules-per-run-configuration-slack",
       "result": "reachable"
     },
     {
@@ -4251,15 +4299,15 @@
     },
     {
       "url": "https://www.manifold.ai/resources/agent-os-launch",
-      "status": null,
-      "result": "access-unconfirmed",
-      "error": "TypeError"
+      "status": 200,
+      "finalUrl": "https://www.manifold.ai/resources/agent-os-launch",
+      "result": "reachable"
     },
     {
       "url": "https://www.manifold.ai/resources/manifold-series-b",
-      "status": null,
-      "result": "access-unconfirmed",
-      "error": "TypeError"
+      "status": 200,
+      "finalUrl": "https://www.manifold.ai/resources/manifold-series-b",
+      "result": "reachable"
     },
     {
       "url": "https://www.manifold.inc/mission",
@@ -4448,6 +4496,12 @@
       "result": "reachable"
     },
     {
+      "url": "https://www.nscale.com/press-releases/execution-at-scale",
+      "status": 200,
+      "finalUrl": "https://www.nscale.com/press-releases/execution-at-scale",
+      "result": "reachable"
+    },
+    {
       "url": "https://www.nscale.com/press-releases/nscale-files-initial-public-offering?trk=public_post_comment-text",
       "status": 200,
       "finalUrl": "https://www.nscale.com/press-releases/nscale-files-initial-public-offering?trk=public_post_comment-text",
@@ -4455,9 +4509,9 @@
     },
     {
       "url": "https://www.nscale.com/press-releases/nscale-microsoft-2025",
-      "status": null,
-      "result": "access-unconfirmed",
-      "error": "TypeError"
+      "status": 200,
+      "finalUrl": "https://www.nscale.com/press-releases/nscale-microsoft-2025",
+      "result": "reachable"
     },
     {
       "url": "https://www.nscale.com/press-releases/nscale-series-c",
@@ -4516,7 +4570,7 @@
     {
       "url": "https://www.optica.org/about/newsroom/corporate_member_news/2024/lightium_secures_7_million_seed_funding_to_meet_explosion_in_data_center_growth_resulting_from_ai_i/",
       "status": 200,
-      "finalUrl": "https://validate.perfdrive.com/?ssa=d673caa2-81df-3f44-db37-35ee5b91d768&ssb=47584218765&ssc=https%3A%2F%2Fwww.optica.org%2Fabout%2Fnewsroom%2Fcorporate_member_news%2F2024%2Flightium_secures_7_million_seed_funding_to_meet_explosion_in_data_center_growth_resulting_from_ai_i%2F&ssi=3b8a1428-d3hu-0944-891e-2d01218f9253&ssk=botmanager_support@radware.com&ssm=63710173044267275105459844688686&ssn=1e70340ca5b3c3f703e2c28ed62174170532234ae682-0ae7-9a6e-ba0d67&sso=921da6e-b332-096b4f8ea4bf83e8ff67f00d0bb4890b667b82cf0ab06247&ssp=18200860671791176522179113669743825&ssq=38258979307884702401393078778021882526661&ssr=ODkuMjA4LjI0MS4xMDY=&sst=TopSeed-SourceCheck%2F1.0&ssv=&ssw=",
+      "finalUrl": "https://validate.perfdrive.com/?ssa=4d4ee460-9bb3-76e6-34fd-8c8a0f2eb371&ssb=70088285642&ssc=https%3A%2F%2Fwww.optica.org%2Fabout%2Fnewsroom%2Fcorporate_member_news%2F2024%2Flightium_secures_7_million_seed_funding_to_meet_explosion_in_data_center_growth_resulting_from_ai_i%2F&ssi=0a3e5edb-d3hu-05cd-c31e-f039a0aa7e3c&ssk=botmanager_support@radware.com&ssm=95241172442458693104911832630116&ssn=37bddcc1b1905b6a81f9733c79ac46f468e5618404ab-4989-2cf7-f11500&sso=f4bf8f7-f91b-8bb4c28fbb2861d670d2419919538f2eebb75e41daeab20a&ssp=87286219891791665059179166454175176&ssq=39135631899040322623518990807694060446512&ssr=NDUuNzguNzUuMTI5&sst=TopSeed-SourceCheck%2F1.0&ssv=&ssw=",
       "result": "reachable"
     },
     {
@@ -4635,9 +4689,9 @@
     },
     {
       "url": "https://www.phaidra.ai/blog/phaidra-nvidia-ai-agents-for-gigawatt-scale-ai-factories",
-      "status": null,
-      "result": "access-unconfirmed",
-      "error": "TypeError"
+      "status": 200,
+      "finalUrl": "https://www.phaidra.ai/blog/phaidra-nvidia-ai-agents-for-gigawatt-scale-ai-factories",
+      "result": "reachable"
     },
     {
       "url": "https://www.phaidra.ai/news?page=1",
@@ -4797,7 +4851,7 @@
     },
     {
       "url": "https://www.prnewswire.co.uk/news-releases/xtend-secures-40m-to-redefine-robotics-with-ai-powered-common-sense-302141733.html",
-      "status": 206,
+      "status": 200,
       "finalUrl": "https://www.prnewswire.co.uk/news-releases/xtend-secures-40m-to-redefine-robotics-with-ai-powered-common-sense-302141733.html",
       "result": "reachable"
     },
@@ -5122,7 +5176,7 @@
     {
       "url": "https://www.sapiom.ai/resources/blog/series-a/",
       "status": 206,
-      "finalUrl": "https://www.sapiom.ai/resources/blog/series-a/",
+      "finalUrl": "https://www.sapiom.ai/blog/series-a/",
       "result": "reachable"
     },
     {
@@ -5393,6 +5447,12 @@
       "url": "https://www.together.ai/blog/announcing-our-series-c",
       "status": 200,
       "finalUrl": "https://www.together.ai/blog/announcing-our-series-c",
+      "result": "reachable"
+    },
+    {
+      "url": "https://www.together.ai/blog/expanding-our-enterprise-inference-capacity-with-ibm-cloud-and-nvidia",
+      "status": 200,
+      "finalUrl": "https://www.together.ai/blog/expanding-our-enterprise-inference-capacity-with-ibm-cloud-and-nvidia",
       "result": "reachable"
     },
     {

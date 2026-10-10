@@ -7,7 +7,7 @@ import { renderRanking } from "../pages/ranking.js";
 import { renderArchive } from "../pages/archive.js";
 import { renderCompany, renderRankAuditDrawer, renderSignals } from "../pages/company-signals-search.js";
 
-assert.equal(AS_OF, "2026-10-05");
+assert.equal(AS_OF, "2026-10-10");
 assert.equal(COMPANIES.length, 213, "Review the previous 200 and 13 new candidates");
 assert.equal(COMPANIES.filter(company => company.selected).length, 200);
 assert.equal(COMPANIES.filter(company => company.selectionStatus === "alternate").length, 5);
@@ -24,7 +24,7 @@ for (const stage of STAGE_ORDER.filter(stage => stage.open)) {
   state.category = "all";
   state.visibleCount = 50;
   const html = renderRanking();
-  assert.match(html, /05 Oct 2026/);
+  assert.match(html, /10 Oct 2026/);
   assert.equal((html.match(/class="ranking-row"/g) || []).length, 50);
 }
 for (const company of COMPANIES) {
@@ -52,7 +52,7 @@ for (const company of COMPANIES) {
   if (!company.selected) assert.equal(rankFor(company), null);
 }
 // Independent behavioral expectations from dated financing and lifecycle sources.
-for (const [id, stage, rank] of [["wafer", "series-a", 19], ["physicsx", "series-c", 6], ["positron", "series-c", 14], ["celero-communications", "series-c", 31]]) {
+for (const [id, stage, rank] of [["wafer", "series-a", 20], ["typesafe-ai", "series-a", 19], ["physicsx", "series-c", 6], ["positron", "series-c", 14], ["celero-communications", "series-c", 31]]) {
   assert.equal(COMPANY_BY_ID[id].stageId, stage);
   assert.equal(rankFor(COMPANY_BY_ID[id]), rank);
 }

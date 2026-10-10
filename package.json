@@ -2,7 +2,7 @@
   "name": "top-seed",
   "private": true,
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "scripts": {
     "build": "node scripts/build.mjs",
     "test": "node --check app.js && node --check router.js && node --check state.js && node --check shared.js && node --check shell.js && node --check pages/ranking.js && node --check pages/company-signals-search.js && node --check pages/trust.js && node --check data.js && node --check canonical-data.js && node scripts/check-cover-layout.mjs && node scripts/check-app-structure.mjs && node scripts/check-seed-top20-depth.mjs && node scripts/check-refresh.mjs && node scripts/check-ranking-edition.mjs && node scripts/check-research-interactions.mjs",

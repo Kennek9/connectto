@@ -24,7 +24,7 @@ try {
   state.query = "Bauplan";
   const filtered = renderRanking();
   assert.equal((filtered.match(/class="ranking-row"/g) || []).length, 1);
-  assert.match(filtered, /aria-label="Rank 20"/);
+  assert.match(filtered, /aria-label="Rank 19"/);
   assert.doesNotMatch(filtered, /class="featured-edition"/);
 
   state.query = "Wafer";

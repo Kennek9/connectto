@@ -1,6 +1,6 @@
 // Editorial order, not an algorithmic score. Each line is one reviewed decision.
 // Evidence pointers are attached from the reviewed company record in edition.js.
-export const EDITION_DATE = "2026-10-05";
+export const EDITION_DATE = "2026-10-10";
 export const METHOD_VERSION = "editorial-beta-2026-10";
 export const EDITION_RANKINGS = {
   seed: [
@@ -14,7 +14,6 @@ export const EDITION_RANKINGS = {
     ["dottxt", "Structured generation targets a basic reliability problem in AI software. Outlines and published engine comparisons make the technical approach inspectable."],
     ["neuraltrust", "Agent security and identity controls address production risks across AI applications. Product evidence matters more than its recent office expansion."],
     ["unconventional-ai", "Open model work and research grants add substance to the computing thesis. Large capital commitments still do not establish hardware commercialization."],
-    ["typesafe-ai", "Typed decisions and confidence estimates offer a distinct automation approach. Jev is early access, so vendor benchmarks are not treated as proven production reliability."],
     ["airweave", "A context retrieval layer addresses fragmented agent data. Its documented internal use provides a concrete workflow, with external adoption still less established."],
     ["ami-labs", "World models address reasoning over physical environments with a strong research team. Its placement reflects research potential; scaled deployment is not established."],
     ["argmax", "On-device inference has a concrete SDK and a new major release. This gives developers a practical alternative where cloud latency or privacy matters."],
@@ -54,6 +53,7 @@ export const EDITION_RANKINGS = {
     ["tako", "Structured-data and web search APIs offer agents a defined retrieval surface. Usage and retrieval quality remain less disclosed than API availability."],
     ["presentations-ai", "Presentation generation and PowerPoint export solve a concrete creation task. The competitive field is crowded and retention evidence remains limited."],
     ["taito", "Custom people-operations agents expand beyond performance feedback. Product breadth supports inclusion, with limited public evidence of sustained organizational outcomes."],
+    ["synthetic", "AI bookkeeping addresses a recurring finance-operations task with a launched product. The promoted place follows the Seed evidence pool; durable customer economics remain less evidenced than established tools."],
   ],
   "series-a": [
     ["apptronik", "Apollo has a concrete robot and an expanded operating facility. Manufacturing and deployment evidence carry the case; the large extension is capital context."],
@@ -74,6 +74,7 @@ export const EDITION_RANKINGS = {
     ["trigger-dev", "Durable tasks and queues solve execution problems for agents. Ongoing releases provide concrete infrastructure evidence across application types."],
     ["quibim", "Imaging AI has reported deployment across more than 180 sites. Real clinical settings strengthen the case, without implying all products have identical validation."],
     ["sapiom", "Routing and managed execution address agent cost and reliability. Reported transaction volume adds operating context, but is not a paying-customer count."],
+    ["typesafe-ai", "Jev's early-access decision model now has a confirmed $870M Series A at a $7.5B valuation. Company-reported enterprise adoption is context, not independently verified production results."],
     ["wafer", "KernelArena and inference optimization target measurable compute performance. The confirmed Series A moves it out of Seed into a more demanding peer group."],
     ["contextual-ai", "Technical-knowledge agents and reranking remain identifiable products. The DeepMind licensing and talent transition makes continuity more material than its former top rank."],
     ["archetype-ai", "Newton agents connect sensor understanding to physical operations. The approach is differentiated, while broad deployment results remain limited."],
@@ -105,7 +106,6 @@ export const EDITION_RANKINGS = {
     ["evertune", "AI-search analytics and marketplace distribution create a defined marketing workflow. Visibility gains are not treated as proven revenue gains."],
     ["growthx", "A launched marketing platform connects AI to content operations. The product is concrete, but durable differentiation remains less established."],
     ["sekai", "Playable mini-apps demonstrate a consumer creation product. Reported creation volume does not establish active retention or sustainable economics."],
-    ["slingshot-ai", "Ash is an identifiable mental-health conversation product. Public launch supports inclusion, but therapeutic effectiveness is not inferred from availability."],
   ],
   "series-b": [
     ["langchain", "Agent development and LangSmith span building, tracing and evaluation. The breadth of usable infrastructure supports leadership within this reviewed cohort."],
@@ -215,7 +215,7 @@ export const EDITION_RANKINGS = {
 
 export const EDITION_ALTERNATES = {
   "myria-biosciences": "GEMMS remains an eligible early-stage research platform. The reviewed pool offered stronger inspectable product or partnership evidence for the 50 selected places.",
-  "synthetic": "AI bookkeeping remains eligible, but the reviewed evidence did not distinguish adoption and execution sufficiently from the selected companies.",
+  "slingshot-ai": "Ash remains an eligible mental-health conversation product. TypeSafe AI's confirmed Series A moved it into this cohort and displaced the final selected place in this edition.",
   "cellbyte": "Drug-launch intelligence remains eligible. The selected cohort has stronger technical or operating evidence in this edition's comparison.",
   "cassidy": "The agent platform remains eligible. Selected enterprise and developer products offered more specific technical or operating evidence.",
   "dyna-ai": "The enterprise agent platform remains eligible. Partnerships alone provided a weaker comparative case than the selected companies' product and deployment evidence.",

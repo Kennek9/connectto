@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0 — 2026-10-10
+
+- 发布 10 月 10 日编辑榜单：TypeSafe AI 确认 $870M Series A，升入 Series A 第 19 位；Synthetic 递补进入 Seed，Slingshot AI 转为候补。
+- 新增 8 条已核实事件：SAP 签约收购 TechWolf（未交割）、Mistral Large 4 预览、LangChain Managed Deep Agents v0.9、Together AI 的 IBM Cloud/NVIDIA 集群、Exa ATLAS 基准、Black Forest Labs FLUX 3 Action、Nscale 部署翻倍、n8n 的 Diagrid 集成。
+- 942+ 条来源链接重新做 HTTP 可访问性核查；来源 checked 日期推进到 2026-10-10，历史事件的 claim 复核日期保持不变。
+
 ## 0.3.0 — 2026-10-05
 
 - 完善金融研究界面：刊头、版次概览、紧凑榜单、对齐的数据列和名次变化；保留米白纸纹与勃艮第红。

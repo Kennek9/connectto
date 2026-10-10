@@ -11,7 +11,7 @@ const COMPANY_BY_ID = Object.fromEntries(COMPANIES.map(company => [company.id, c
 const rankedCompanies = stage => COMPANIES.filter(company => company.stageId === stage && !companyRecordState(company));
 
 assert.equal(AS_OF, "2026-08-22", "Evidence updates must not silently publish a new ranking edition");
-assert.equal(REFRESH_DATE, "2026-10-05");
+assert.equal(REFRESH_DATE, "2026-10-10");
 for (const company of COMPANIES) {
   const previous = SNAPSHOT_COMPANIES.find(item => item.id === company.id);
   assert.deepEqual(company.sourceRecord, previous.sourceRecord, `${company.id}: preserve the original record`);

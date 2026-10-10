@@ -36,8 +36,8 @@ try {
   parseUrl();
   assert.equal(state.region, "all");
   assert.equal(state.productForm, "all");
-  assert.equal(filteredCompanies()[0].id, "typesafe-ai", "September 15 is the latest reviewed named Seed announcement");
-  assert.equal(filteredCompanies()[0].editorialRank, 11);
+  assert.equal(filteredCompanies()[0].id, "fish-audio", "Fish Audio holds the latest reviewed named Seed announcement after TypeSafe AI moved cohorts");
+  assert.equal(filteredCompanies()[0].editorialRank, 5);
   browser.location.href = "http://top-seed.test/?view=ranking&sort=constructor";
   parseUrl();
   assert.equal(state.sort, "rank");

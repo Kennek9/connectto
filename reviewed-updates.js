@@ -1,5 +1,5 @@
 // Reviewed changes; dates describe evidence, not a blanket revalidation of all historical facts.
-export const REFRESH_DATE = "2026-10-05";
+export const REFRESH_DATE = "2026-10-10";
 export const COMPANY_UPDATES = {
   "wafer": {
     "currentStage": "Series A",
@@ -14,7 +14,7 @@ export const COMPANY_UPDATES = {
         "label": "Wilson Sonsini",
         "relationship": "Transaction counsel",
         "publicationDate": "2026-09-01",
-        "lastChecked": "2026-10-05",
+        "lastChecked": "2026-10-10",
         "evidenceState": "Direct"
       },
       "leadInvestor": "Marathon and Chemistry",
@@ -31,7 +31,7 @@ export const COMPANY_UPDATES = {
       "label": "Wilson Sonsini",
       "relationship": "Transaction counsel",
       "publicationDate": "2026-09-01",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "evidenceState": "Direct"
     }
   },
@@ -48,7 +48,7 @@ export const COMPANY_UPDATES = {
         "label": "PhysicsX",
         "relationship": "Company announcement",
         "publicationDate": "2026-06-08",
-        "lastChecked": "2026-10-05",
+        "lastChecked": "2026-10-10",
         "evidenceState": "Direct"
       },
       "leadInvestor": "Temasek",
@@ -63,7 +63,7 @@ export const COMPANY_UPDATES = {
       "label": "PhysicsX",
       "relationship": "Company announcement",
       "publicationDate": "2026-06-08",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "evidenceState": "Direct"
     }
   },
@@ -80,7 +80,7 @@ export const COMPANY_UPDATES = {
         "label": "Positron via PR Newswire",
         "relationship": "Company press release",
         "publicationDate": "2026-09-10",
-        "lastChecked": "2026-10-05",
+        "lastChecked": "2026-10-10",
         "evidenceState": "Direct"
       },
       "leadInvestor": "NEA, Atreides, Valor, Andra Capital, SemiAnalysis Capital and Jim Clark",
@@ -92,7 +92,7 @@ export const COMPANY_UPDATES = {
       "label": "Positron via PR Newswire",
       "relationship": "Company press release",
       "publicationDate": "2026-09-10",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "evidenceState": "Direct"
     }
   },
@@ -109,7 +109,7 @@ export const COMPANY_UPDATES = {
         "label": "Celero Communications",
         "relationship": "Company announcement",
         "publicationDate": "2026-09-08",
-        "lastChecked": "2026-10-05",
+        "lastChecked": "2026-10-10",
         "evidenceState": "Direct"
       },
       "leadInvestor": "Atreides Management, Valor Equity Partners and CapitalG",
@@ -125,7 +125,7 @@ export const COMPANY_UPDATES = {
       "label": "Celero Communications",
       "relationship": "Company announcement",
       "publicationDate": "2026-09-08",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "evidenceState": "Direct"
     }
   },
@@ -142,7 +142,7 @@ export const COMPANY_UPDATES = {
         "label": "Mistral AI",
         "relationship": "Company announcement",
         "publicationDate": "2026-09-08",
-        "lastChecked": "2026-10-05",
+        "lastChecked": "2026-10-10",
         "evidenceState": "Direct"
       },
       "leadInvestor": "Samsung Electronics",
@@ -157,7 +157,7 @@ export const COMPANY_UPDATES = {
       "label": "Mistral AI",
       "relationship": "Company announcement",
       "publicationDate": "2026-09-08",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "evidenceState": "Direct"
     }
   },
@@ -174,7 +174,7 @@ export const COMPANY_UPDATES = {
         "label": "Clay",
         "relationship": "Company announcement",
         "publicationDate": "2026-09-09",
-        "lastChecked": "2026-10-05",
+        "lastChecked": "2026-10-10",
         "evidenceState": "Direct"
       },
       "leadInvestor": "Wellington",
@@ -193,7 +193,7 @@ export const COMPANY_UPDATES = {
       "label": "Clay",
       "relationship": "Company announcement",
       "publicationDate": "2026-09-09",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "evidenceState": "Direct"
     }
   },
@@ -205,7 +205,7 @@ export const COMPANY_UPDATES = {
       "label": "Baseten",
       "relationship": "Acquirer announcement",
       "publicationDate": "2026-09-10",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "evidenceState": "Direct"
     }
   },
@@ -217,7 +217,7 @@ export const COMPANY_UPDATES = {
       "label": "Microchip",
       "relationship": "Acquirer announcement",
       "publicationDate": "2026-09-21",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "evidenceState": "Direct"
     }
   },
@@ -229,7 +229,7 @@ export const COMPANY_UPDATES = {
       "label": "TensorZero website",
       "relationship": "Company website",
       "publicationDate": null,
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "evidenceState": "Direct"
     },
     "publicSummary": "The project is no longer maintained. Company operating status remains under review."
@@ -252,7 +252,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-10",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -271,7 +271,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-07",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -290,7 +290,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-15",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -309,7 +309,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Partner press release",
       "publicationDate": "2026-09-23",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -328,7 +328,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-14",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -347,7 +347,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-14",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -366,7 +366,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-23",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -385,7 +385,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-09",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -404,7 +404,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-02",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -423,7 +423,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-10",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -442,7 +442,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-03",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -461,7 +461,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-14",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -480,7 +480,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-09",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -499,7 +499,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-07",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -518,7 +518,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-17",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -537,7 +537,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-16",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -556,7 +556,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-29",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -575,7 +575,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-17",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -594,7 +594,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-01",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -613,7 +613,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-22",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -632,7 +632,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-30",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -651,7 +651,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-08",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -670,7 +670,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-01",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -689,7 +689,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-03",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -708,7 +708,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-10",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -727,7 +727,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-10",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -746,7 +746,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-15",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -765,7 +765,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-09",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -784,7 +784,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-11",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -803,7 +803,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-25",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -822,7 +822,7 @@ export const REVIEWED_EVENTS = [
       "relationship": "Company announcement",
       "publicationDate": "2026-09-18",
       "evidenceState": "Direct",
-      "lastChecked": "2026-10-05"
+      "lastChecked": "2026-10-10"
     }
   },
   {
@@ -840,7 +840,7 @@ export const REVIEWED_EVENTS = [
       "label": "Wilson Sonsini",
       "relationship": "Transaction counsel",
       "publicationDate": "2026-09-01",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "evidenceState": "Direct"
     }
   },
@@ -859,7 +859,7 @@ export const REVIEWED_EVENTS = [
       "label": "PhysicsX",
       "relationship": "Company announcement",
       "publicationDate": "2026-06-08",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "evidenceState": "Direct"
     }
   },
@@ -878,7 +878,7 @@ export const REVIEWED_EVENTS = [
       "label": "Positron via PR Newswire",
       "relationship": "Company press release",
       "publicationDate": "2026-09-10",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "evidenceState": "Direct"
     }
   },
@@ -897,7 +897,7 @@ export const REVIEWED_EVENTS = [
       "label": "Celero Communications",
       "relationship": "Company announcement",
       "publicationDate": "2026-09-08",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "evidenceState": "Direct"
     }
   },
@@ -916,7 +916,7 @@ export const REVIEWED_EVENTS = [
       "label": "Mistral AI",
       "relationship": "Company announcement",
       "publicationDate": "2026-09-08",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "evidenceState": "Direct"
     }
   },
@@ -935,7 +935,7 @@ export const REVIEWED_EVENTS = [
       "label": "Clay",
       "relationship": "Company announcement",
       "publicationDate": "2026-09-09",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "evidenceState": "Direct"
     }
   },
@@ -954,7 +954,7 @@ export const REVIEWED_EVENTS = [
       "label": "Baseten",
       "relationship": "Acquirer announcement",
       "publicationDate": "2026-09-10",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
       "evidenceState": "Direct"
     }
   },
@@ -973,7 +973,159 @@ export const REVIEWED_EVENTS = [
       "label": "Microchip",
       "relationship": "Acquirer announcement",
       "publicationDate": "2026-09-21",
-      "lastChecked": "2026-10-05",
+      "lastChecked": "2026-10-10",
+      "evidenceState": "Direct"
+    }
+  },
+  {
+    "companyId": "techwolf",
+    "id": "techwolf-2026-10-06-acquisition",
+    "type": "corporate",
+    "date": "2026-10-06",
+    "title": "SAP agrees to acquire TechWolf",
+    "detail": "SAP and TechWolf announced an acquisition agreement. The deal is expected to close in Q4 2026 subject to regulatory approval; terms were not disclosed.",
+    "whyItMatters": "A signed agreement is not a completed acquisition. TechWolf remains an independently operating company until close.",
+    "evidenceState": "Direct",
+    "lastReviewed": "2026-10-10",
+    "source": {
+      "href": "https://news.sap.com/2026/10/sap-to-acquire-techwolf-evidence-based-work-age-of-ai/",
+      "label": "SAP",
+      "relationship": "Acquirer announcement",
+      "publicationDate": "2026-10-06",
+      "lastChecked": "2026-10-10",
+      "evidenceState": "Direct"
+    }
+  },
+  {
+    "companyId": "mistral-ai",
+    "id": "mistral-ai-2026-10-06-technology",
+    "type": "technology",
+    "date": "2026-10-06",
+    "title": "Mistral AI opens a public preview of Mistral Large 4",
+    "detail": "Mistral released a public preview of Mistral Large 4, a natively multimodal 1 trillion-parameter model, with API access on Mistral Studio and open weights planned by the end of October.",
+    "whyItMatters": "A dated frontier-model release is observable product activity; benchmark and capability claims remain company-reported.",
+    "evidenceState": "Direct",
+    "lastReviewed": "2026-10-10",
+    "source": {
+      "href": "https://mistral.ai/news/mistral-large-4/",
+      "label": "Mistral AI",
+      "relationship": "Company announcement",
+      "publicationDate": "2026-10-06",
+      "lastChecked": "2026-10-10",
+      "evidenceState": "Direct"
+    }
+  },
+  {
+    "companyId": "langchain",
+    "id": "langchain-2026-10-07-product",
+    "type": "product",
+    "date": "2026-10-07",
+    "title": "LangChain releases Managed Deep Agents v0.9",
+    "detail": "LangChain released Managed Deep Agents v0.9 in public beta, adding scheduled follow-ups, per-run configuration and Slack reactions.",
+    "whyItMatters": "A dated product release provides a checkable milestone for the agent platform.",
+    "evidenceState": "Direct",
+    "lastReviewed": "2026-10-10",
+    "source": {
+      "href": "https://www.langchain.com/blog/managed-deep-agents-schedules-per-run-configuration-slack",
+      "label": "LangChain",
+      "relationship": "Company announcement",
+      "publicationDate": "2026-10-07",
+      "lastChecked": "2026-10-10",
+      "evidenceState": "Direct"
+    }
+  },
+  {
+    "companyId": "together-ai",
+    "id": "together-ai-2026-10-06-partnership",
+    "type": "partnership",
+    "date": "2026-10-06",
+    "title": "Together AI announces an IBM Cloud and NVIDIA inference cluster",
+    "detail": "Together AI said it is the first customer of a dedicated NVIDIA B300 inference cluster on IBM Cloud with Spectrum-X networking.",
+    "whyItMatters": "A named infrastructure commitment describes purchased capacity, not customer revenue.",
+    "evidenceState": "Direct",
+    "lastReviewed": "2026-10-10",
+    "source": {
+      "href": "https://www.together.ai/blog/expanding-our-enterprise-inference-capacity-with-ibm-cloud-and-nvidia",
+      "label": "Together AI",
+      "relationship": "Company announcement",
+      "publicationDate": "2026-10-06",
+      "lastChecked": "2026-10-10",
+      "evidenceState": "Direct"
+    }
+  },
+  {
+    "companyId": "exa",
+    "id": "exa-2026-10-08-research",
+    "type": "research",
+    "date": "2026-10-08",
+    "title": "Exa previews the ATLAS agentic search benchmark",
+    "detail": "Exa published a preview of ATLAS, a 547-task benchmark for agent responses on search-intensive workflows.",
+    "whyItMatters": "A published benchmark is observable research output; its construction and grading pipeline are company-operated.",
+    "evidenceState": "Direct",
+    "lastReviewed": "2026-10-10",
+    "source": {
+      "href": "https://exa.ai/blog/atlas-benchmark",
+      "label": "Exa",
+      "relationship": "Company announcement",
+      "publicationDate": "2026-10-08",
+      "lastChecked": "2026-10-10",
+      "evidenceState": "Direct"
+    }
+  },
+  {
+    "companyId": "black-forest-labs",
+    "id": "black-forest-labs-2026-10-06-opensource",
+    "type": "openSource",
+    "date": "2026-10-06",
+    "title": "Black Forest Labs releases open-weight FLUX 3 Action",
+    "detail": "Black Forest Labs published weights, code and a research report for FLUX 3 Action, a 7B world-action model for robot control that it reports leads the RoboLab-120 leaderboard.",
+    "whyItMatters": "Open weights make the release independently inspectable; benchmark results remain company-reported.",
+    "evidenceState": "Direct",
+    "lastReviewed": "2026-10-10",
+    "source": {
+      "href": "https://bfl.ai/blog/flux-3-action",
+      "label": "Black Forest Labs",
+      "relationship": "Company announcement",
+      "publicationDate": "2026-09",
+      "lastChecked": "2026-10-10",
+      "evidenceState": "Direct"
+    }
+  },
+  {
+    "companyId": "nscale",
+    "id": "nscale-2026-10-01-usage",
+    "type": "usage",
+    "date": "2026-10-01",
+    "title": "Nscale reports doubling GPU deployments to over 50,000",
+    "detail": "Nscale said it deployed 24,000 GPUs in the last month, bringing its 2026 deployments above 50,000 across six active data centers in five countries.",
+    "whyItMatters": "Deployment counts are company-reported operating metrics, not independently measured utilization or revenue.",
+    "evidenceState": "Direct",
+    "lastReviewed": "2026-10-10",
+    "source": {
+      "href": "https://www.nscale.com/press-releases/execution-at-scale",
+      "label": "Nscale",
+      "relationship": "Company announcement",
+      "publicationDate": "2026-10-01",
+      "lastChecked": "2026-10-10",
+      "evidenceState": "Direct"
+    }
+  },
+  {
+    "companyId": "n8n",
+    "id": "n8n-2026-10-06-partnership",
+    "type": "partnership",
+    "date": "2026-10-06",
+    "title": "Diagrid brings durable execution to n8n workflows",
+    "detail": "Diagrid announced a Dapr Workflows integration that gives n8n workflows automatic crash recovery and duplicate-safe side effects.",
+    "whyItMatters": "A third-party integration extends the n8n ecosystem; it does not establish n8n's own revenue or usage.",
+    "evidenceState": "Direct",
+    "lastReviewed": "2026-10-10",
+    "source": {
+      "href": "https://www.financialcontent.com/article/bizwire-2026-10-6-diagrid-brings-durable-execution-to-n8n-so-workflows-resume-where-they-fail",
+      "label": "Diagrid via Business Wire",
+      "relationship": "Partner press release",
+      "publicationDate": "2026-10-06",
+      "lastChecked": "2026-10-10",
       "evidenceState": "Direct"
     }
   }

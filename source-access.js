@@ -1,5 +1,5 @@
 // Generated HTTP checks; this is not claim verification.
-export const SOURCE_ACCESS_DATE = "2026-10-05";
+export const SOURCE_ACCESS_DATE = "2026-10-10";
 export const SOURCE_ACCESS = {
   "https://7ai.com/": {
     "result": "reachable",
@@ -225,6 +225,10 @@ export const SOURCE_ACCESS = {
     "result": "reachable",
     "status": 206
   },
+  "https://bfl.ai/blog/flux-3-action": {
+    "result": "reachable",
+    "status": 206
+  },
   "https://bfl.ai/blog/our-300m-series-b": {
     "result": "reachable",
     "status": 206
@@ -442,12 +446,12 @@ export const SOURCE_ACCESS = {
     "status": 206
   },
   "https://dedaluslabs.pro/": {
-    "result": "access-unconfirmed",
-    "status": null
+    "result": "reachable",
+    "status": 206
   },
   "https://dedaluslabs.pro/blog/dedalus-seed-round": {
-    "result": "access-unconfirmed",
-    "status": null
+    "result": "reachable",
+    "status": 206
   },
   "https://deepgram.com/": {
     "result": "reachable",
@@ -549,6 +553,10 @@ export const SOURCE_ACCESS = {
     "result": "reachable",
     "status": 206
   },
+  "https://exa.ai/blog/atlas-benchmark": {
+    "result": "reachable",
+    "status": 206
+  },
   "https://exa.ai/blog/exa-api-2-1": {
     "result": "reachable",
     "status": 206
@@ -586,12 +594,12 @@ export const SOURCE_ACCESS = {
     "status": 206
   },
   "https://fish.audio/": {
-    "result": "access-unconfirmed",
-    "status": null
+    "result": "reachable",
+    "status": 200
   },
   "https://fish.audio/zh-CN/blog/s2-1-pro-free-api/": {
-    "result": "access-unconfirmed",
-    "status": null
+    "result": "reachable",
+    "status": 200
   },
   "https://flex.ai/": {
     "result": "reachable",
@@ -767,15 +775,15 @@ export const SOURCE_ACCESS = {
   },
   "https://healx.ai/": {
     "result": "reachable",
-    "status": 200
+    "status": 206
   },
   "https://healx.ai/about/": {
     "result": "reachable",
-    "status": 200
+    "status": 206
   },
   "https://healx.ai/healx-announces-47-million-series-c-financing-and-fda-clearance-of-phase-2-ind-for-neurofibromatosis-type-1-trial/": {
     "result": "reachable",
-    "status": 200
+    "status": 206
   },
   "https://healx.ai/healx-announces-first-patient-dosed-in-phase-2-trial-evaluating-hlx-1502-for-the-treatment-of-neurofibromatosis-type-1/": {
     "result": "reachable",
@@ -802,8 +810,8 @@ export const SOURCE_ACCESS = {
     "status": 200
   },
   "https://humansand.ai/": {
-    "result": "reachable",
-    "status": 200
+    "result": "access-unconfirmed",
+    "status": null
   },
   "https://ibex-ai.com/": {
     "result": "reachable",
@@ -1005,13 +1013,17 @@ export const SOURCE_ACCESS = {
     "result": "reachable",
     "status": 206
   },
+  "https://mistral.ai/news/mistral-large-4/": {
+    "result": "reachable",
+    "status": 206
+  },
   "https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/": {
     "result": "reachable",
     "status": 206
   },
   "https://mistral.ai/news/voxtral/": {
     "result": "reachable",
-    "status": 206
+    "status": 200
   },
   "https://momentic.ai/": {
     "result": "reachable",
@@ -1075,23 +1087,23 @@ export const SOURCE_ACCESS = {
   },
   "https://neuraltrust.ai/": {
     "result": "reachable",
-    "status": 200
+    "status": 206
   },
   "https://neuraltrust.ai/careers": {
     "result": "reachable",
-    "status": 200
+    "status": 206
   },
   "https://neuraltrust.ai/news/introducing-the-generative-application-firewall-gaf": {
     "result": "reachable",
-    "status": 200
+    "status": 206
   },
   "https://neuraltrust.ai/news/neuraltrust-opens-new-london-office": {
     "result": "reachable",
-    "status": 200
+    "status": 206
   },
   "https://neuraltrust.ai/news/neuraltrust-raises-20m": {
     "result": "reachable",
-    "status": 200
+    "status": 206
   },
   "https://news.bloomberglaw.com/antitrust/google-hires-staff-from-ai-startup-contextual-in-licensing-deal": {
     "result": "reachable",
@@ -1100,6 +1112,10 @@ export const SOURCE_ACCESS = {
   "https://news.bloomberglaw.com/artificial-intelligence/spark-capital-jared-leto-back-ai-video-startup-pika": {
     "result": "reachable",
     "status": 200
+  },
+  "https://news.sap.com/2026/10/sap-to-acquire-techwolf-evidence-based-work-age-of-ai/": {
+    "result": "reachable",
+    "status": 206
   },
   "https://nexos.ai/": {
     "result": "access-unconfirmed",
@@ -1649,6 +1665,10 @@ export const SOURCE_ACCESS = {
     "result": "reachable",
     "status": 200
   },
+  "https://techcrunch.com/2026/10/09/the-maker-of-non-text-ai-model-jev-valued-at-7-5b-just-weeks-after-launch/": {
+    "result": "reachable",
+    "status": 200
+  },
   "https://techwolf.ai/": {
     "result": "reachable",
     "status": 200
@@ -1749,6 +1769,10 @@ export const SOURCE_ACCESS = {
     "result": "reachable",
     "status": 200
   },
+  "https://typesafe.ai/blog/series-ai": {
+    "result": "reachable",
+    "status": 200
+  },
   "https://uk.linkedin.com/company/langchain": {
     "result": "reachable",
     "status": 200
@@ -1790,12 +1814,12 @@ export const SOURCE_ACCESS = {
     "status": 200
   },
   "https://verse.inc/": {
-    "result": "access-unconfirmed",
-    "status": null
+    "result": "reachable",
+    "status": 200
   },
   "https://verse.inc/blog/behind-the-meter-energy-storage-faster-data-center-interconnection": {
-    "result": "access-unconfirmed",
-    "status": null
+    "result": "reachable",
+    "status": 200
   },
   "https://verse.inc/company/about": {
     "result": "reachable",
@@ -1810,8 +1834,8 @@ export const SOURCE_ACCESS = {
     "status": 200
   },
   "https://verse.inc/newsroom/series-b": {
-    "result": "access-unconfirmed",
-    "status": null
+    "result": "reachable",
+    "status": 200
   },
   "https://via.tt.se/pressmeddelande/4237127/positron-ai-raises-dollar230-million-series-b-at-over-dollar1-billion-valuation-to-scale-energy-efficient-ai-inference?lang=en": {
     "result": "reachable",
@@ -1951,11 +1975,11 @@ export const SOURCE_ACCESS = {
   },
   "https://www.assemblyai.com/blog/announcing-our-50m-series-c-to-build-superhuman-speech-ai-models": {
     "result": "reachable",
-    "status": 200
+    "status": 206
   },
   "https://www.assemblyai.com/blog/speech-language-model-and-improved-streaming-model": {
     "result": "reachable",
-    "status": 200
+    "status": 206
   },
   "https://www.attention.com/": {
     "result": "reachable",
@@ -2489,6 +2513,10 @@ export const SOURCE_ACCESS = {
     "result": "reachable",
     "status": 206
   },
+  "https://www.financialcontent.com/article/bizwire-2026-10-6-diagrid-brings-durable-execution-to-n8n-so-workflows-resume-where-they-fail": {
+    "result": "reachable",
+    "status": 200
+  },
   "https://www.firstround.com/companies/clay": {
     "result": "reachable",
     "status": 206
@@ -2663,11 +2691,11 @@ export const SOURCE_ACCESS = {
   },
   "https://www.infinitus.ai/blog/infinitus-named-a-fast-company-worlds-most-innovative-company-in-2025/": {
     "result": "reachable",
-    "status": 206
+    "status": 200
   },
   "https://www.infinitus.ai/category/product/": {
     "result": "reachable",
-    "status": 206
+    "status": 200
   },
   "https://www.infinitus.ai/company/about-us/": {
     "result": "reachable",
@@ -2714,6 +2742,10 @@ export const SOURCE_ACCESS = {
     "status": 200
   },
   "https://www.langchain.com/blog/langgraph-cloud": {
+    "result": "reachable",
+    "status": 200
+  },
+  "https://www.langchain.com/blog/managed-deep-agents-schedules-per-run-configuration-slack": {
     "result": "reachable",
     "status": 200
   },
@@ -2830,12 +2862,12 @@ export const SOURCE_ACCESS = {
     "status": 200
   },
   "https://www.manifold.ai/resources/agent-os-launch": {
-    "result": "access-unconfirmed",
-    "status": null
+    "result": "reachable",
+    "status": 200
   },
   "https://www.manifold.ai/resources/manifold-series-b": {
-    "result": "access-unconfirmed",
-    "status": null
+    "result": "reachable",
+    "status": 200
   },
   "https://www.manifold.inc/mission": {
     "result": "reachable",
@@ -2961,13 +2993,17 @@ export const SOURCE_ACCESS = {
     "result": "reachable",
     "status": 200
   },
+  "https://www.nscale.com/press-releases/execution-at-scale": {
+    "result": "reachable",
+    "status": 200
+  },
   "https://www.nscale.com/press-releases/nscale-files-initial-public-offering?trk=public_post_comment-text": {
     "result": "reachable",
     "status": 200
   },
   "https://www.nscale.com/press-releases/nscale-microsoft-2025": {
-    "result": "access-unconfirmed",
-    "status": null
+    "result": "reachable",
+    "status": 200
   },
   "https://www.nscale.com/press-releases/nscale-series-c": {
     "result": "reachable",
@@ -3086,8 +3122,8 @@ export const SOURCE_ACCESS = {
     "status": 200
   },
   "https://www.phaidra.ai/blog/phaidra-nvidia-ai-agents-for-gigawatt-scale-ai-factories": {
-    "result": "access-unconfirmed",
-    "status": null
+    "result": "reachable",
+    "status": 200
   },
   "https://www.phaidra.ai/news?page=1": {
     "result": "reachable",
@@ -3195,7 +3231,7 @@ export const SOURCE_ACCESS = {
   },
   "https://www.prnewswire.co.uk/news-releases/xtend-secures-40m-to-redefine-robotics-with-ai-powered-common-sense-302141733.html": {
     "result": "reachable",
-    "status": 206
+    "status": 200
   },
   "https://www.prnewswire.com/apac/news-releases/sg-based-startup-galatek-raises-30m-series-a-to-accelerate-ai-powered-automation-in-life-sciences-and-semiconductor-manufacturing-302646550.html": {
     "result": "reachable",
@@ -3590,6 +3626,10 @@ export const SOURCE_ACCESS = {
     "status": 200
   },
   "https://www.together.ai/blog/announcing-our-series-c": {
+    "result": "reachable",
+    "status": 200
+  },
+  "https://www.together.ai/blog/expanding-our-enterprise-inference-capacity-with-ibm-cloud-and-nvidia": {
     "result": "reachable",
     "status": 200
   },
