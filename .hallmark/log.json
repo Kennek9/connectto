@@ -1,5 +1,16 @@
 [
   {
+    "date": "2026-10-10",
+    "scope": "app",
+    "macrostructure": "Stage Ladder + Research Index",
+    "variation": "Espresso band with capital spectrum; company band header with figure strip",
+    "theme": "custom",
+    "theme_axes": "light paper + dark band / Instrument Serif + condensed Instrument Sans / oxblood 22°",
+    "vibe": "bone, espresso, oxblood, private-bank research",
+    "enrichment": "none (data figure: capital spectrum)",
+    "brief": "Whole-site redesign of Top Seed as a Seed-to-Series C funding atlas with founders, rounds and sourced judgments."
+  },
+  {
     "date": "2026-10-05",
     "scope": "app",
     "macrostructure": "Ecosystem Index",
@@ -15,7 +26,7 @@
     "macrostructure": "Index-First",
     "variation": "Workbench company surface",
     "theme": "custom",
-    "theme_axes": "light / roman-serif / chromatic-green ~150\u00b0",
+    "theme_axes": "light / roman-serif / chromatic-green ~150°",
     "vibe": "light research, precise, generous, green-lime",
     "enrichment": "none",
     "brief": "Top Seed whole-site redesign with a shared light editorial research system across Ranking, Signals, Search, Company, and trust pages."

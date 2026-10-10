@@ -11,13 +11,13 @@ import {
   escapeHtml,
   formatDate,
   latestPublicEvent,
-  logo,
   searchIcon,
   signalLabel,
   sourceRecordState,
   sourceLink,
 } from "../shared.js";
 import { PUBLIC_STAGE_IDS, companyById, companyUrl, signalUrl, stageById, state } from "../state.js";
+import { amountSizeClass, categoryLabel, founderRecords, namedInvestors } from "./stage-insights.js";
 
 const WORKSPACE_LENSES = [
   { id: "business", label: "Business", description: "Product, audience, and operating use case." },
@@ -178,9 +178,10 @@ function renderCompanyProfile(company) {
   const values = [
     ["Equity round", `${funding.amount} · ${funding.stage}`],
     ["Announced", formatDate(funding.date)],
-    ["Founders", company.founders?.names],
     ["Products", company.products],
     ["Serves", company.audience],
+    ["Business model", companyProfile(company).businessModel],
+    ["Region", company.region],
   ].filter(([, value]) => value && value !== "Not publicly observed" && (!Array.isArray(value) || value.length));
   return `<section class="company-profile-block" aria-labelledby="company-profile-title"><h2 id="company-profile-title">At a glance</h2><dl>${values.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${Array.isArray(value) ? value.map(escapeHtml).join("<br>") : escapeHtml(value)}</dd></div>`).join("")}</dl></section><section class="research-record"><h3>Research record</h3><p><a href="#sources">${sources.length} sources</a></p><p>Checked ${formatDate(company.refresh.checkedAt || AS_OF)}</p><p>Ranking ${formatDate(AS_OF)}</p><a class="text-link" href="${base}evidence/${company.id}.json" download="${company.id}-evidence.json">Download evidence ${arrowIcon()}</a><button id="rank-audit-trigger" class="text-link" type="button" data-action="open-rank-audit" data-company="${company.id}">${company.selected ? `Rank #${company.editorialRank}` : "Selection review"} ${arrowIcon()}</button></section>`;
 }
@@ -192,7 +193,34 @@ function renderCompanyGaps(company) {
 }
 
 function renderCompanyRank(company) {
-  return `<header class="company-sheet" aria-labelledby="company-title"><span class="eyebrow">Company research / ${escapeHtml(company.currentStage)}</span><h1 id="company-title">${escapeHtml(company.name)}</h1><p class="company-deck">${escapeHtml(company.profile.shortDescription || company.summary)}</p><div class="company-meta"><span>${escapeHtml(company.hq)}</span><span>${escapeHtml(company.productForm)}</span><span>${escapeHtml(company.currentStage)}</span>${sourceLink(company.website, "Website")}<button id="share-company" class="text-link" type="button" data-action="share">Share</button>${state.toast ? `<span class="share-toast" role="status">${escapeHtml(state.toast)}</span>` : ""}</div></header>`;
+  const previous = company.historicalRanking;
+  const rankBlock = company.selected
+    ? `<div class="company-rank"><span class="company-rank-number">${String(company.editorialRank).padStart(2, "0")}</span><span class="company-rank-label">${escapeHtml(company.stage)} rank · ${formatDate(AS_OF)}</span><span class="company-rank-previous">${previous ? `Previously ${escapeHtml(previous.stage)} #${previous.rank}` : "New to the index"}</span></div>`
+    : `<div class="company-rank"><span class="company-rank-label">Not ranked this edition</span></div>`;
+  return `<header class="company-sheet" aria-labelledby="company-title"><div><span class="eyebrow">${escapeHtml(categoryLabel(company))} · ${escapeHtml(company.currentStage)}</span><h1 id="company-title">${escapeHtml(company.name)}</h1><p class="company-deck">${escapeHtml(company.profile.shortDescription || company.summary)}</p><div class="company-meta"><span>${escapeHtml(company.hq)}</span><span>${escapeHtml(company.productForm)}</span>${sourceLink(company.website, "Website")}<button id="share-company" class="text-link" type="button" data-action="share">Share</button>${state.toast ? `<span class="share-toast" role="status">${escapeHtml(state.toast)}</span>` : ""}</div></div>${rankBlock}</header>`;
+}
+
+function renderCompanyFigures(company) {
+  const names = founderRecords(company).map(person => person.name);
+  const founders = names.length ? `${names.slice(0, 3).map(escapeHtml).join(", ")}${names.length > 3 ? ` +${names.length - 3}` : ""}` : "Not publicly observed";
+  return `<dl class="company-figures">
+    <div><dt>Latest round</dt><dd class="figure-lead${amountSizeClass(company.funding.amount)}">${escapeHtml(company.funding.amount)}</dd></div>
+    <div><dt>Round</dt><dd>${escapeHtml(company.funding.stage)}</dd></div>
+    <div><dt>Announced</dt><dd>${formatDate(company.funding.date)}</dd></div>
+    <div><dt>Founders</dt><dd>${founders}</dd></div>
+    <div><dt>Evidence</dt><dd>${companySources(company).length} sources · ${companyEvents(company).length} dated events</dd></div>
+  </dl>`;
+}
+
+function renderFounderList(company) {
+  const people = founderRecords(company);
+  if (!people.length) return `<p class="detail-empty">Founder identity not publicly observed.</p>`;
+  return `<ul class="founder-list">${people.map(person => `<li><span class="founder-name">${escapeHtml(person.name)}</span><span class="founder-role">Founder · ${escapeHtml(company.name)}</span><span class="founder-source">${person.source?.href ? sourceLink(person.source, "Source") : ""}<small>${escapeHtml(person.evidenceState)}</small></span></li>`).join("")}</ul>`;
+}
+
+function renderPeopleCapital(company) {
+  const investors = namedInvestors(company);
+  return `<section class="people-capital" aria-labelledby="people-capital-title"><h2 id="people-capital-title">People &amp; capital</h2><h3>Founders</h3>${renderFounderList(company)}<h3>Named investors</h3>${investors.length ? `<ul class="founder-list">${investors.map(item => `<li><span class="founder-name">${escapeHtml(item.title)}</span><span class="founder-role">${item.date ? formatDate(item.date) : "Date not recorded"}</span><span class="founder-source">${sourceLink(item.source, item.source?.label || "Source")}</span></li>`).join("")}</ul>` : `<p class="detail-empty">Not publicly observed in the reviewed sources.</p>`}</section>`;
 }
 
 function renderCompanyEvents(company) {
@@ -227,7 +255,7 @@ function renderCompanyContext(company) {
 export function renderCompany() {
   const company = companyById(state.companyId);
   if (!company) return `<main class="page-shell" id="main"><section class="stage-empty"><h1>Company not found.</h1><a href="?view=search">Search companies</a></section></main>`;
-  return `<main class="page-shell company-page" id="main"><nav class="company-breadcrumb" aria-label="Breadcrumb"><a href="?view=ranking&stage=${company.stageId}">${escapeHtml(company.stage)} index</a><span>/</span><span>${escapeHtml(company.name)}</span></nav><div class="company-article-layout"><div class="company-reading">${renderCompanyRank(company)}${renderCompanyRecordState(company)}${renderCompanyAssessment(company)}${renderCompanyContext(company)}${renderCompanyEvents(company)}${renderSourceLedger(company)}${renderCompanyGaps(company)}</div><aside class="company-facts-rail">${renderCompanyProfile(company)}</aside></div></main>`;
+  return `<main class="page-shell company-page" id="main"><div class="band band--company"><nav class="company-breadcrumb" aria-label="Breadcrumb"><a href="?view=ranking&stage=${company.stageId}">${escapeHtml(company.stage)} index</a><span aria-hidden="true">/</span><span aria-current="page">${escapeHtml(company.name)}</span></nav>${renderCompanyRank(company)}${renderCompanyFigures(company)}</div><div class="company-article-layout"><div class="company-reading">${renderCompanyRecordState(company)}${renderCompanyAssessment(company)}${renderCompanyContext(company)}${renderCompanyEvents(company)}${renderSourceLedger(company)}${renderCompanyGaps(company)}</div><aside class="company-facts-rail">${renderCompanyProfile(company)}${renderPeopleCapital(company)}</aside></div></main>`;
 }
 
 export function renderEvidenceDrawer(drawer) {
@@ -268,7 +296,7 @@ function publicSignalRows() {
 }
 
 function renderSignalRow({ company, eventItem }) {
-  return `<article id="signal-${escapeHtml(eventItem.id)}" class="signal-row signal-entry ${state.signalId === eventItem.id ? "is-selected" : ""}"><a class="signal-row-mark" href="${companyUrl(company)}" aria-label="Open ${escapeHtml(company.name)}">${logo(company, "small-mark")}</a><div class="signal-row-copy"><div class="signal-kicker"><a href="${companyUrl(company)}">${escapeHtml(company.name)}</a><span>${escapeHtml(company.currentStage)}</span>${lifecycleLabel(company) ? `<span>${escapeHtml(lifecycleLabel(company))}</span>` : ""}</div><h2><a href="${signalUrl(company, eventItem)}">${escapeHtml(eventItem.title)}</a></h2><p>${escapeHtml(eventItem.detail)}</p><div class="fact-citation">${sourceLink(eventItem.source, "Source")}<time datetime="${escapeHtml(eventItem.date)}">${formatDate(eventItem.date)}</time><span>${escapeHtml(eventRelationship(eventItem))} · ${escapeHtml(eventStatus(eventItem))}</span></div></div><button id="signal-open-${company.id}-${eventItem.id}" type="button" class="signal-row-open" data-action="open-evidence" data-company="${company.id}" data-event="${eventItem.id}" aria-label="Inspect ${escapeHtml(eventItem.title)}">${chevronIcon()}</button></article>`;
+  return `<article id="signal-${escapeHtml(eventItem.id)}" class="signal-row signal-entry ${state.signalId === eventItem.id ? "is-selected" : ""}"><time class="signal-row-date" datetime="${escapeHtml(eventItem.date)}">${formatDate(eventItem.date)}</time><div class="signal-row-copy"><div class="signal-kicker"><a href="${companyUrl(company)}">${escapeHtml(company.name)}</a><span>${escapeHtml(company.currentStage)}</span>${lifecycleLabel(company) ? `<span>${escapeHtml(lifecycleLabel(company))}</span>` : ""}</div><h2><a href="${signalUrl(company, eventItem)}">${escapeHtml(eventItem.title)}</a></h2><p>${escapeHtml(eventItem.detail)}</p><div class="fact-citation">${signalLabel(eventItem.type, false)}${sourceLink(eventItem.source, "Source")}<span>${escapeHtml(eventRelationship(eventItem))} · ${escapeHtml(eventStatus(eventItem))}</span></div></div><button id="signal-open-${company.id}-${eventItem.id}" type="button" class="signal-row-open" data-action="open-evidence" data-company="${company.id}" data-event="${eventItem.id}" aria-label="Inspect ${escapeHtml(eventItem.title)}">${chevronIcon()}</button></article>`;
 }
 
 export function renderSignals() {
@@ -278,7 +306,7 @@ export function renderSignals() {
   const remaining = rows.length - displayed.length;
   const type = signalTypeParam();
   const filterHref = nextType => `?${new URLSearchParams({ view: "signals", stage: state.stage, ...(state.query ? { q: state.query } : {}), ...(nextType ? { signalType: nextType } : {}) })}`;
-  return `<main class="page-shell signals-page" id="main"><section class="ranking-masthead"><div><h1>Signals.</h1><p>${rows.length} events · ${escapeHtml(stageById(state.stage).label)} ranking cohort</p></div><label class="search-field">${searchIcon()}<input id="signals-search" type="search" aria-label="Find a signal" placeholder="Find a signal" value="${escapeHtml(state.query)}" data-action="signals-search"></label></section><nav class="stage-tabs" aria-label="Signal cohorts">${PUBLIC_STAGE_IDS.map(id => `<a class="stage-tab ${id === state.stage ? "is-active" : ""}" href="?view=signals&stage=${id}">${escapeHtml(stageById(id).label)}</a>`).join("")}</nav><nav class="signal-filter-strip" aria-label="Signal types">${signalTypeOptions().map(value => `<a class="signal-filter ${value === type ? "is-active" : ""}" href="${filterHref(value)}">${value ? SIGNAL_FILTERS[value] : "All events"}</a>`).join("")}</nav><section class="signals-stream" aria-label="Dated events">${displayed.length ? displayed.map(renderSignalRow).join("") : `<div class="list-empty"><strong>No public signals match.</strong><a class="text-link" href="?view=signals&stage=${state.stage}">Clear signal filters</a></div>`}</section>${remaining ? `<button class="load-more" type="button" data-action="load-more-signals">Load ${Math.min(20, remaining)} more</button>` : ""}</main>`;
+  return `<main class="page-shell signals-page" id="main"><section class="ranking-masthead"><div><h1>Signals</h1><p>${rows.length} events · ${escapeHtml(stageById(state.stage).label)} ranking cohort</p></div><label class="search-field">${searchIcon()}<input id="signals-search" type="search" aria-label="Find a signal" placeholder="Find a signal" value="${escapeHtml(state.query)}" data-action="signals-search"></label></section><nav class="stage-tabs" aria-label="Signal cohorts">${PUBLIC_STAGE_IDS.map(id => `<a class="stage-tab ${id === state.stage ? "is-active" : ""}" href="?view=signals&stage=${id}">${escapeHtml(stageById(id).label)}</a>`).join("")}</nav><nav class="signal-filter-strip" aria-label="Signal types">${signalTypeOptions().map(value => `<a class="signal-filter ${value === type ? "is-active" : ""}" href="${filterHref(value)}">${value ? SIGNAL_FILTERS[value] : "All events"}</a>`).join("")}</nav><section class="signals-stream" aria-label="Dated events">${displayed.length ? displayed.map(renderSignalRow).join("") : `<div class="list-empty"><strong>No public signals match.</strong><a class="text-link" href="?view=signals&stage=${state.stage}">Clear signal filters</a></div>`}</section>${remaining ? `<button class="load-more" type="button" data-action="load-more-signals">Load ${Math.min(20, remaining)} more</button>` : ""}</main>`;
 }
 
 function searchText(company) {
@@ -307,7 +335,10 @@ export function renderSearch() {
   const matches = searchMatches();
   const displayed = matches.slice(0, state.visibleCount);
   const remaining = matches.length - displayed.length;
-  return `<main class="page-shell search-page" id="main"><section class="ranking-masthead"><div><h1>Company search.</h1><p>${COMPANIES.length} companies. Search products, founders and evidence.</p></div></section><label class="search-field search-page-field">${searchIcon()}<input id="search-page-input" type="search" aria-label="Find a company" placeholder="Find a company" value="${escapeHtml(state.query)}" data-action="search-page-input"></label><p class="search-count">${matches.length} results</p><section class="search-results" aria-label="Search results">${displayed.map(company => `<a class="search-result" href="${companyUrl(company)}" aria-label="Open ${escapeHtml(company.name)} company page">${logo(company, "small-mark")}<span><strong>${escapeHtml(company.name)}</strong><small>${escapeHtml(company.currentStage)} · ${escapeHtml(company.category)}${lifecycleLabel(company) ? ` · ${escapeHtml(lifecycleLabel(company))}` : ""}</small><p>${escapeHtml(company.summary)}</p></span>${chevronIcon()}</a>`).join("") || `<div class="list-empty"><strong>No companies match.</strong><a class="text-link" href="?view=search">Clear search</a></div>`}</section>${remaining ? `<button class="load-more" type="button" data-action="load-more-search">Load ${Math.min(10, remaining)} more</button>` : ""}</main>`;
+  return `<main class="page-shell search-page" id="main"><section class="ranking-masthead"><div><h1>Company search</h1><p>${COMPANIES.length} companies. Search names, products, founders, investors and evidence.</p></div><label class="search-field search-page-field">${searchIcon()}<input id="search-page-input" type="search" aria-label="Find a company" placeholder="Company, founder, product or investor" value="${escapeHtml(state.query)}" data-action="search-page-input"></label></section><p class="search-count">${matches.length} results</p><section class="search-results" aria-label="Search results">${displayed.map(company => {
+    const founders = founderRecords(company).map(person => person.name);
+    return `<a class="search-result" href="${companyUrl(company)}" aria-label="Open ${escapeHtml(company.name)} company page"><span class="search-result-stage">${escapeHtml(company.currentStage)}${company.selected ? `<b>#${company.editorialRank}</b>` : ""}</span><span class="search-result-copy"><strong>${escapeHtml(company.name)}</strong><small>${escapeHtml(categoryLabel(company))} · ${escapeHtml(company.hq)}${lifecycleLabel(company) ? ` · ${escapeHtml(lifecycleLabel(company))}` : ""}</small><p>${escapeHtml(company.summary)}</p><small class="search-result-founders">${founders.length ? `Founders · ${escapeHtml(founders.slice(0, 3).join(", "))}${founders.length > 3 ? ` +${founders.length - 3}` : ""}` : "Founders not publicly observed"}</small></span><span class="search-result-round"><strong class="${amountSizeClass(company.funding.amount).trim()}">${escapeHtml(company.funding.amount)}</strong><small>${escapeHtml(company.funding.stage)} · ${formatDate(company.funding.date)}</small></span>${chevronIcon()}</a>`;
+  }).join("") || `<div class="list-empty"><strong>No companies match.</strong><a class="text-link" href="?view=search">Clear search</a></div>`}</section>${remaining ? `<button class="load-more" type="button" data-action="load-more-search">Load ${Math.min(10, remaining)} more</button>` : ""}</main>`;
 }
 
 export function renderCompanyPreview(drawer) {
@@ -318,10 +349,11 @@ export function renderCompanyPreview(drawer) {
   const event = latestPublicEvent(company);
   return `<div class="drawer-backdrop" data-action="close-drawer"><aside class="drawer company-preview-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" data-overlay-panel>
     <div class="preview-topline"><span class="eyebrow">Company brief</span><button class="drawer-close" type="button" data-action="close-drawer" aria-label="Close company brief">${closeIcon()}</button></div>
-    <div class="preview-body"><div class="preview-identity">${logo(company)}<span>${escapeHtml(company.currentStage)} <span aria-hidden="true">/</span> ${company.selected ? `Rank ${company.editorialRank}` : "Not ranked"}</span></div>
+    <div class="preview-body"><div class="preview-identity"><span class="preview-rank">${company.selected ? `Rank ${company.editorialRank}` : "Not ranked"}</span><span>${escapeHtml(company.currentStage)} · ${escapeHtml(categoryLabel(company))}</span></div>
     <h2 id="drawer-title">${escapeHtml(company.name)}</h2><p class="preview-description">${escapeHtml(company.summary)}</p>
-    <dl class="brief-metrics"><div><dt>Named round</dt><dd>${escapeHtml(company.funding.amount)}</dd></div><div><dt>Announced</dt><dd>${formatDate(company.funding.date)}</dd></div><div><dt>Source library</dt><dd>${sources.length} sources</dd></div></dl>
+    <dl class="brief-metrics"><div><dt>Named round</dt><dd class="${amountSizeClass(company.funding.amount).trim()}">${escapeHtml(company.funding.amount)}</dd></div><div><dt>Round</dt><dd>${escapeHtml(company.funding.stage)}</dd></div><div><dt>Announced</dt><dd>${formatDate(company.funding.date)}</dd></div><div><dt>Headquarters</dt><dd>${escapeHtml(company.hq)}</dd></div><div><dt>Product form</dt><dd>${escapeHtml(company.productForm)}</dd></div><div><dt>Source library</dt><dd>${sources.length} sources</dd></div></dl>
     <section class="brief-assessment"><span class="eyebrow">Editorial assessment</span><p>${escapeHtml(company.rankingReview.rationale)}</p></section>
+    <section class="brief-founders"><span class="eyebrow">Founding team</span>${renderFounderList(company)}</section>
     ${event ? `<section class="brief-event"><span class="eyebrow">Latest recorded event</span><h3>${escapeHtml(event.title)}</h3><p>${formatDate(event.date)} · ${escapeHtml(event.source.relationship)}</p>${sourceLink(event.source, "Original source")}</section>` : ""}
     </div><div class="brief-actions"><a class="button button-primary" href="${companyUrl(company)}">Read full research ${arrowIcon()}</a><a class="text-link" href="${companyUrl(company)}#sources">Source library ${arrowIcon()}</a></div>
   </aside></div>`;

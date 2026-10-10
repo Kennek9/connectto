@@ -1,47 +1,53 @@
-# Top Seed — Private Markets Research
+# Top Seed — Funding Atlas
 
-Updated 2026-10-05. Refinement authorized by the request for a premium financial website.
+Updated 2026-10-10. Replaces the Editorial Journal system (ivory, burgundy, Newsreader, Manrope) at the user's request for a distinctive, premium VC-grade site.
 
 ## Product and direction
 
-A source-backed AI company index for investors and operators. The primary path is to narrow a funding cohort, inspect a company and read its evidence. The visual language combines an editorial masthead with the density and alignment of a research table. Rankings are editorial judgments, not prices, returns or investment advice.
+A source-backed index of private AI companies from Seed to Series C, for investors and operators. The primary path: pick a funding stage, read who leads it and why, narrow the index, open a company brief, then read the full research. Rankings are editorial judgments, not prices, returns or investment advice.
 
-Preserve ivory paper, subtle grain, burgundy emphasis, Newsreader and Manrope. Bring the index into the first desktop viewport. Use rules, hierarchy and aligned numbers rather than large empty cards or decorative financial charts.
+The page reads as a funding atlas: an espresso band carries the stage ladder and edition brief; bone paper carries the research. The memorable figure is the capital spectrum, a to-scale bar of every company's latest disclosed round.
 
-## Composition
+## Information order
 
-- Shared shell: quiet publication line, clear wordmark, compact navigation and a visible search shortcut.
-- Ranking: title and edition facts, funding-stage tabs, compact leaders, searchable table and evidence rail. Current and historical editions stay distinct.
-- Table: stable editorial rank, company/category, named funding round, dated evidence and explicit quick view. Changing display sort never changes the editorial rank.
-- Company: research header, current/previous rank, complete evidence tabs, timeline, sources and factual sidebar.
-- Signals and search: the same type scale, rules and row rhythm. Policies remain a narrow reading column.
+1. Stage ladder: Seed → Series A → B → C. Each rung shows disclosed latest-round capital, company count, median round and new entries. The active stage is filled oxblood.
+2. Edition brief: selected/eligible counts, entries and exits since the previous edition, largest round with its share, biggest riser, disclosed-round coverage. Methodology and previous edition links.
+3. Capital spectrum: one bar per disclosed round, the largest in oxblood, with the top three shares and the remainder labelled.
+4. Top of the index: three leaders with rank, movement, sector, latest round, founders and the editorial judgment. Hidden while filters or a non-rank sort are active.
+5. Full index: rank and movement, company (sector, HQ, summary), founders, latest round with source, latest evidence with source count, quick view. Filters: search (company, founder, product), sector, product form, region; sort by rank, round size, latest round, name.
+6. Rail: recent evidence, sector mix (count and capital), edition changes (entered and left with reasons), research coverage.
+7. Company page: band header with rank and previous rank, five-figure strip (latest round, round, announced, founders, evidence), then judgment, research lenses, timeline, sources and limits. Rail: at a glance, research record, people & capital (each founder with source and evidence state; named investors).
+
+All figures are computed in `pages/stage-insights.js` from reviewed records. Missing facts read "Not publicly observed"; nothing is invented.
 
 ## Tokens
 
-`tokens.css` owns semantic colors, type, spacing, grid and motion. `editorial.css` implements them. Paper #f7f3e8; ink #24251f; muted #6c6c65; rule #dedbd5; burgundy #7b243b. New emphasis uses existing burgundy or pale burgundy surfaces. No extra brand color or font dependency.
+`tokens.css` owns every colour, type, space, motion and layout value; `editorial.css` reads them by name. `styles.css` is no longer loaded.
 
-Newsreader: wordmark and editorial headings. Manrope: company names in tables, controls, body and metadata. Use tabular figures for ranks, dates and amounts. Desktop headline 44–60px, section title 24–30px, body 14–16px, metadata 12px minimum. Content max 1380px; prose max 68ch. Controls retain 44px targets.
+- Paper oklch(96.6% .012 75) bone; ink oklch(24% .018 40); muted oklch(50% .014 45); rule oklch(87.5% .014 75).
+- Band oklch(25% .02 35) espresso; text on band oklch(95.5% .014 75); muted on band oklch(75% .02 50).
+- Accent oxblood oklch(45% .115 22) for the active stage, the lead spectrum bar, the #1 rank and judgment rules; oklch(73% .095 32) for accent text on the band. No second accent hue.
+- Instrument Serif (headlines, company names in features, judgments) and Instrument Sans (UI, tables). Money and ranks use Instrument Sans at 78% width. Both OFL, self-hosted in `assets/fonts`.
+- Headings are always roman. Body 13–15px; metadata 12px minimum; controls keep 44px targets.
 
 ## Interaction and states
 
-- Search and select filters update results immediately and persist in the URL. Native form submission remains a fallback. Active filters have a clear reset and useful empty state.
-- Sort by editorial rank, company name or named-round date. Rank numbers remain immutable.
-- Quick view opens only on an explicit button, supports Escape, traps keyboard focus and returns focus to its trigger. Full company pages and source links remain available.
-- Funding-stage tabs stay available while scrolling and support arrow keys. Company research tabs have stable hash links.
-- No automatic hover popovers, decorative tickers, fake trading metrics, account gates or inert buttons.
-- Short color/opacity transitions only; reduced motion renders the complete static result.
+- Stage rungs are a tablist (arrow keys, Home/End). Filters update immediately and persist in the URL; native submission remains a fallback.
+- Display sorting never renumbers the editorial rank.
+- Quick view opens from explicit buttons or a spectrum bar, traps focus, closes on Escape and returns focus.
+- Spectrum bars are pointer shortcuts; the same companies are keyboard-reachable in the index. The bar's `aria-label` states the totals and top shares.
+- Motion: short colour transitions and a 220ms drawer slide; reduced motion renders the static result.
 
 ## Responsive behavior
 
-Desktop has an aligned table and evidence rail. Tablet retains a compact leader strip and simplifies table details. Mobile stacks funding and evidence under each company, with the research index immediately reachable. Advanced filters collapse, research tabs scroll within their own rail, and dialogs fit the viewport. Validate 390×844, 768×1024, 1440×900 and narrow 320px. No essential fact is removed solely to fit.
+Validate 320, 390, 768 and 1440 widths. The ladder becomes 2×2 under 900px; the index drops the evidence column under 900px and stacks founders and round under each company under 640px. The company figure strip folds to three, then two columns. No horizontal scroll.
 
 ## Evidence and copy
 
-Keep facts, dates, source relationships and material uncertainty. Do not invent prices, logos, performance, testimonials or metrics. Initials identify records; they are not official company logos. Dates of evidence are distinct from ranking cutoff. No repeated publishing slogans.
+Keep facts, dates, source relationships and uncertainty. No invented metrics, logos, testimonials or investor names. Initial-letter logo marks are not used.
 
 ## Reference registry and provenance
 
-- Existing Top Seed live page, inspected 2026-10-05: owned visual baseline; ivory grain, serif masthead and burgundy retained. Oversized empty first viewport and automatic overlays are replaced.
-- https://www.ft.com/markets, read 2026-10-05: public content-architecture reference for separating lead coverage, dated updates and an indexed archive. Not a visual clone; no text, brand or assets reused.
-- https://pitchbook.com/, read 2026-10-05: public product-positioning reference for private-market research. No proprietary UI, data or assets copied.
-- Fonts remain the existing self-hosted OFL-licensed files. Grain remains the existing local SVG. No new generated or third-party imagery is required.
+- Concepts A and A2 in `.hallmark/concepts/` (2026-10-10): owned explorations; A2 with the Bone & Oxblood palette was selected.
+- Previous Top Seed site (2026-10-05): owned baseline for content, routes and behaviour.
+- Fonts: Instrument Sans and Instrument Serif, SIL OFL 1.1, licences in `assets/fonts/`.

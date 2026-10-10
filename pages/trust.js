@@ -4,7 +4,7 @@ import { companyUrl } from "../state.js";
 const TRUST_NAV = [["methodology", "Methodology"], ["evidence-policy", "Evidence policy"], ["corrections", "Corrections"], ["about", "About"]];
 const TRUST_CONTENT = {
   methodology: {
-    title: "How the index is built.",
+    title: "How the index is built",
     lead: "Selection, financing stages and ranking editions.",
     sections: [
       ["Eligibility", "An identifiable, independently operating company with AI central to its product and at least one reliable public source."],
@@ -15,7 +15,7 @@ const TRUST_CONTENT = {
     ],
   },
   "evidence-policy": {
-    title: "Reading the evidence.",
+    title: "Reading the evidence",
     lead: "A source’s relationship and a claim’s evidence state are separate.",
     sections: [
       ["Direct", "The original source states the claim. Company and investor announcements remain interested sources; Direct does not mean independent validation."],
@@ -27,12 +27,12 @@ const TRUST_CONTENT = {
     ],
   },
   corrections: {
-    title: "Record changes.",
+    title: "Record changes",
     lead: `Material corrections and updates reviewed ${formatDate(REFRESH_DATE)}.`,
     sections: [],
   },
   about: {
-    title: "About Top Seed.",
+    title: "About Top Seed",
     lead: "A research index of AI companies, with sources attached.",
     sections: [
       ["The index", `${COMPANIES.length} company records cover products, financing, dated events and original sources. The public ranking spans Seed through Series C; later-stage and acquired companies retain historical profiles.`],

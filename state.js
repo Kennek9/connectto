@@ -23,7 +23,7 @@ export const CATEGORY_OPTIONS = [
   "Vertical Applications",
   "AI Science, Biotech & Healthcare",
 ];
-export const SORT_OPTIONS = { rank: "Editorial rank", name: "Company A–Z", recent: "Latest named round" };
+export const SORT_OPTIONS = { rank: "Editorial rank", amount: "Round size", recent: "Latest named round", name: "Company A–Z" };
 
 export const LENS_IDS = ["overview", "business", "capital", "traction", "technology", "team-network"];
 
